@@ -10,3 +10,4 @@
 | 6 |  Assign |               Get assigned the Adventurer               |      Sept 29th      |
 | 7 | Read Me |               Create a production Read ME               |      Sept 30th      |
 | 8 |  Bonus  | Add Become an Adventurer, with Fake payment and billing |         ****        |
+| 9 |  Bonus  |          Rate Adventurer after Quest Completion         |         ****        |
