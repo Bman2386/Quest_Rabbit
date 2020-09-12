@@ -1,2 +1,2 @@
-# README
+# Quest Rabbit
 
