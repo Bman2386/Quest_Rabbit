@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
   }
-  const store = createStore(preloadedState);
+  // const store = createStore(preloadedState);
   
   ReactDOM.render(<h1>Heroku!!</h1>, root);
 })
