@@ -13,16 +13,18 @@ class Login extends React.Component {
 
   handleInput(type) {
     return (e) => {
-      this.setState({ [type]: e.currentTarget.value });
+      this.setState({ [type]: e.target.value });
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.login(this.state)
+      // .then(() => this.props.history.push(''));
   }
 
   render() {
+    // console.log(this.props);
     return (
       <div className="session-form">
         <h2>Log In!</h2>

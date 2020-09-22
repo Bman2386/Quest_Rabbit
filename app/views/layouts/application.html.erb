@@ -3,18 +3,18 @@
   <head>
     <title>QuestRabbit</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <% if current_user %>
-    <script>
-        window.currentUser = { 
-          "id": <%= current_user.id %>,
-          "username": "<%= current_user.username %>"
-          };
+    
+    <% if logged_in? %>
+      <script type="text/javascript">
+      window.currentUser = {
+        "id": <%= current_user.id %>,
+        "username": "<%= current_user.username %>"
+      }
       </script>
-      <% end %>
+    <% end %>
   </head>
 
   <body>
