@@ -1,5 +1,5 @@
 form {
-    top: 30%;
+    top: 10%;
     display: flex;
     z-index: 3;
     background-color: white;
@@ -19,6 +19,10 @@ form > input, form > button {
     border: 1px solid lightgray;
     border-radius: 3px;
     padding: 8px;
+}
+
+form > input {
+    color: black;
 }
 
 .form-photo {
