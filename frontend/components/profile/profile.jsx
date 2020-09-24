@@ -8,7 +8,7 @@ class ProfileComponent extends React.Component {
     }
 
     render() {
-    <div> Welcome {this.state}</div>
+    <div> Profile page for {this.state}</div>
     }
 }
 

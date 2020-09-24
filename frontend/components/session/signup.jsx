@@ -20,29 +20,31 @@ class Signup extends React.Component {
       handleSubmit(e) {
         e.preventDefault();
         this.props.createNewUser(this.state)
-        // .then(() => this.props.history.push(`/users/${this.props.user.id}`));
+        .then(() => this.props.history.push(`/users/${this.props.user.id}`));
       }
 
     render () {
+      const logo = window.logo
+      const formPhoto = window.formPhoto
+
         return (
             <div className="session-form">
-        <h2>Sign Up!</h2>
+             <img src={formPhoto} className="form-photo" />
         <form>
-          <label>Username:
+        <img src={logo} />
             <input
               type="text"
               value={this.state.username}
               onChange={this.handleInput('username')}
+              placeholder="Username"
             />
-          </label>
-          <label>Password:
             <input
               type="password"
               value={this.state.password}
               onChange={this.handleInput('password')}
+              placeholder="Password"
             />
-            <button onClick={this.handleSubmit}>Sign Up!</button>
-          </label>
+            <button onClick={this.handleSubmit}>Create Account</button>
         </form>
       </div>
         )

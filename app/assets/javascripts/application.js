@@ -10,6 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// Any JavaScript/Coffee file within:
+//
+// * app/assets/javascripts
+// * lib/assets/javascripts
+// * vendor/assets/javascripts
+// * vendor/assets/javascripts of a Gem
+//
+// can be referenced here using a relative path.
 //= require jquery
 //= require rails-ujs
 //= require activestorage

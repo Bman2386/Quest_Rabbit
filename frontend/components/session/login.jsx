@@ -25,26 +25,26 @@ class Login extends React.Component {
 
   render() {
     // console.log(this.props);
+    const logo = window.logo
+    const formPhoto = window.formPhoto
     return (
       <div className="session-form">
-        <h2>Log In!</h2>
+       <img src={formPhoto} className="form-photo"/>
         <form>
-          <label>Username:
+        <img src={logo} />
           <input
             type="text"
             value={this.state.username}
             onChange={this.handleInput('username')}
+            placeholder="Username"
           />
-          </label>
-
-          <label>Password:
           <input
             type="password"
             value={this.state.password}
             onChange={this.handleInput('password')}
+            placeholder="Password"
           />
-            <button onClick={this.handleSubmit}>Log In!</button>
-          </label>
+            <button onClick={this.handleSubmit}>Log in</button>
         </form>
       </div>
     );
