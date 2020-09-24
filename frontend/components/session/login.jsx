@@ -5,10 +5,29 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: '',
-      password: '',
+      password: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
+  
+  renderErrors() {
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li 
+          key={`error-${i}`}
+          className="error"
+          >
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   handleInput(type) {
@@ -25,13 +44,19 @@ class Login extends React.Component {
 
   render() {
     // console.log(this.props);
-    const logo = window.logo
-    const formPhoto = window.formPhoto
+    const logo = window.logo;
+    const formPhoto = window.formPhoto;
+    // const handleErros = (props) => {
+    //   if (this.props.errors) {
+    //     this.renderErrors
+    //   }
+    // }
     return (
       <div className="session-form">
        <img src={formPhoto} className="form-photo"/>
         <form>
         <img src={logo} />
+          {this.renderErrors()}
           <input
             type="text"
             value={this.state.username}

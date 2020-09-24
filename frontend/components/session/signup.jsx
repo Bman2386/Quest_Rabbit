@@ -11,6 +11,24 @@ class Signup extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentWillUnmount() {
+      this.props.clearErrors()
+    }
+    
+    renderErrors() {
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li 
+            key={`error-${i}`}
+            className="error"
+            >
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
     handleInput(type) {
         return (e) => {
           this.setState({ [type]: e.target.value });
@@ -32,6 +50,7 @@ class Signup extends React.Component {
              <img src={formPhoto} className="form-photo" />
         <form>
         <img src={logo} />
+        {this.renderErrors()}
             <input
               type="text"
               value={this.state.username}

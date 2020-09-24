@@ -40,3 +40,7 @@ button:hover {
 input {
     padding: 8px;
 }
+
+.error {
+    color: red;
+}
