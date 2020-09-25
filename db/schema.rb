@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_180920) do
+ActiveRecord::Schema.define(version: 2020_09_24_192319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name", null: false
+    t.string "ex_description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "quests", force: :cascade do |t|
+    t.string "quest_name", null: false
+    t.integer "category_id", null: false
+    t.string "details", null: false
+    t.integer "creator_id", null: false
+    t.datetime "start_time"
+    t.boolean "completed"
+    t.integer "adventurer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quest_name"], name: "index_quests_on_quest_name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
