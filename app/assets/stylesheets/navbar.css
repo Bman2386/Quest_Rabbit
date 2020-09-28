@@ -21,16 +21,21 @@ img {
 }
 
 .btn-3 {
-    border: none;
-    position: absolute;
+    border: 1px solid white;
     top: 100%;
     background-color: white;
     color:  rgb(81, 182, 81);
     z-index: 2;
 }
 
+.btn-3 > ul {
+    border: none;
+    z-index: 4;
+}
+
 .btn-3:hover {
     border: none;
+    border-radius: none;
     background-color: white;
     color: rgb(46, 165, 46);
 }
