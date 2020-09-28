@@ -1,10 +1,11 @@
-import * as CatAPIUtil from '../utils/category'
+import {getCategories, getCategory} from '../utils/category'
 
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES'
 export const RECEIVE_CATEGORY = 'RECEIVE_CATEGORY'
 
-const receiveCategories = () => ({
-    type: RECEIVE_CATEGORIES
+const receiveCategories = (categories) => ({
+    type: RECEIVE_CATEGORIES,
+    categories
 })
 
 const receiveCategory = categoryId => ({
@@ -12,12 +13,14 @@ const receiveCategory = categoryId => ({
     categoryId
 })
 
-export const fetchCatgories = () => dispatch (
-    CatAPIUtil.fetchCatgories()
-    .then(() => dispatch(receiveCategories()))
-)
+export const fetchCategories = () => dispatch => {
+    return (
+       getCategories()
+    .then((categories) => dispatch(receiveCategories(categories)))
+    )
+}
 
 export const fetchCategory = categoryId => dispatch (
-    CatAPIUtil.fetchCategory(categoryId)
+    getCategory(categoryId)
     .then(categoryId => dispatch(receiveCategory(categoryId)))
 )

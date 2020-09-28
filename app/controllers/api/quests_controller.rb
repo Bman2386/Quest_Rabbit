@@ -1,4 +1,4 @@
-class QuestsController < ApplicationController
+class Api::QuestsController < ApplicationController
 
     def new
         render :new
