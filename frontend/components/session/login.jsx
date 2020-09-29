@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Login extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loginGuest = this.loginGuest.bind(this);
   }
 
   componentWillUnmount() {
@@ -41,21 +43,34 @@ class Login extends React.Component {
     this.props.login(this.state)
       // .then(() => this.props.history.push(''));
   }
+    // const demoUser = 
+    //       <button
+    //       className>
+    //         Demo User
+    //       </button>
+    loginGuest() {
+      this.setState({ username: 'Guest', password: 'hunter12' });
+    }
 
   render() {
     // console.log(this.props);
     const logo = window.logo;
     const formPhoto = window.formPhoto;
-    // const handleErros = (props) => {
-    //   if (this.props.errors) {
-    //     this.renderErrors
-    //   }
-    // }
+    const guestLoginButton = (
+      <button
+        onClick={this.loginGuest}
+        className="login-guest" >
+        Demo as Guest
+      </button>
+    )
+    
     return (
       <div className="session-form">
        <img src={formPhoto} className="form-photo"/>
-        <form>
-        <img src={logo} />
+        <form className='inter-form'>
+          <Link to='/'>
+          <img src={logo} />
+          </Link>
           {this.renderErrors()}
           <input
             type="text"
@@ -70,6 +85,7 @@ class Login extends React.Component {
             placeholder="Password"
           />
             <button onClick={this.handleSubmit}>Log in</button>
+            {guestLoginButton}
         </form>
       </div>
     );

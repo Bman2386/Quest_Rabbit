@@ -2,11 +2,13 @@
     width: 100%;
     height: 450px;
     position: fixed;
+    z-index: 0;
 }
 
 .splash-form {
-    top:20%;
-    padding: 20px
+    top: 20%;
+    padding: 20px;
+    z-index: 0.1;
 }
 form > h1 {
     color: black;

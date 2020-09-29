@@ -24,9 +24,11 @@ header, footer, nav, ul, li, button, img, input {
     font-size: medium;
     font-family: Arial, sans-serif;
     font-weight: 300;
+    list-style: none;
 }
 
 button {
+    border: none;
     background-color: rgb(20, 177, 20);
     color: white;
     border-radius: 2px;

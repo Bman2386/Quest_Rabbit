@@ -27,3 +27,7 @@
 .btn-2:hover {
     background-color: rgb(192, 189, 189);
 }
+
+.inter-form {
+    z-index: 3;
+}

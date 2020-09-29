@@ -21,25 +21,46 @@ img {
 }
 
 .btn-3 {
-    border: 1px solid white;
+    border: 0;
     top: 100%;
     background-color: white;
     color:  rgb(81, 182, 81);
     z-index: 2;
 }
 
-.btn-3 > ul {
-    border: none;
+.container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgrey;
+    border-top: none;
+    position: absolute;
     z-index: 4;
+    top: 35px;
+    left: -267px;
+    color: black;
+    padding-top: 15%;
+    padding-left: 80%;
+    width: 280px;
+}
+
+.container>a {
+    margin: 8px;
 }
 
 .btn-3:hover {
-    border: none;
-    border-radius: none;
+    /* border: none;
+    border-radius: none; */
     background-color: white;
     color: rgb(46, 165, 46);
+    
 }
 
-.btn-3 > li {
-    text-decoration: none;
+.active {
+    border: 1px solid lightgrey;
+    border-top: 5px solid green;
+}
+
+
+.dd-container {
+    border: none;
 }

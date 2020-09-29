@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 
 class Quests extends React.Component {
@@ -22,29 +22,37 @@ class Quests extends React.Component {
       }
 
       render() {
+          const active = this.state.show ? 'active' : ''
           const { categories } = this.props
           // console.log(category)
           // debugger
           return (
-            <div>
+            <div className='dd-container'
+            style={{ position: 'relative'}} >
             <button 
               style={{ position: 'relative'}} 
               onBlur={this.handleBlur} 
               onClick={this.handleClick}
-              className='btn-3'
-            >
-                Quests
+              className={`btn-3 ${active}`}
+            >  Quests</button>
                 {this.state.show ? (
                   <ul 
                     onClick={e => e.stopPropagation()} 
+                    className={`container`}
+
                   >
+                    POPULAR QUESTS
                     {
                       categories.map(category => 
-                <li className="btn" key={category.id}>{category.category_name}</li>
+                        <Link className="btn"
+                          key={category.id}
+                          category={category}
+                          to={`/${category}`}
+                        >{category.category_name}</Link>
                       )}
                   </ul>
                 ) : null }
-            </button>
+           
           </div>
     )
       }

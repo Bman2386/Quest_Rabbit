@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Signup extends React.Component {
     
@@ -47,8 +48,10 @@ class Signup extends React.Component {
         return (
             <div className="session-form">
              <img src={formPhoto} className="form-photo" />
-        <form>
-        <img src={logo} />
+        <form className='inter-form'>
+        <Link to='/'>
+          <img src={logo} />
+        </Link>
         {this.renderErrors()}
             <input
               type="text"
