@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => {
 const hero = window.hero
@@ -17,7 +18,12 @@ const hero = window.hero
                     />
                     <button>Get help today</button>
         </div> 
-        
+        <div className='links'>
+        <Link className='btn-4' to="/categories/1">Fetch</Link>
+        <Link className='btn-4' to="/categories/2">Craft</Link>
+        <Link className='btn-4' to="/categories/3">Escort</Link>
+        <button className='btn-3'>See more...</button>
+        </div>
       </form>
     </div> 
   </div>

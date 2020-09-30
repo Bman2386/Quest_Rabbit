@@ -14,7 +14,7 @@
  *= require_self
  */
 html, body, div, span, h1, h2, h3, 
-header, footer, nav, ul, li, button, img, input {
+header, footer, nav, ul, li, button, img, input, a {
     padding: 0;
     margin: 0;
     font-family: inherit;
@@ -25,6 +25,7 @@ header, footer, nav, ul, li, button, img, input {
     font-family: Arial, sans-serif;
     font-weight: 300;
     list-style: none;
+    text-decoration: none;
 }
 
 button {

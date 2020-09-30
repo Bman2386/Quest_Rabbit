@@ -1,0 +1,32 @@
+.show-container {
+    top: 20%;
+    text-align: center;
+    position: relative;
+}
+
+.show-h1{
+    position: absolute;
+    background: none;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xxx-large;
+    font-weight: 575;
+    z-index: 0.1;
+    color: white;
+}
+
+.show-p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: x-large;
+    z-index: 0.1;
+    color: white;
+}
+
+.show-image {
+    width: 100%;
+    height: 450px;
+}

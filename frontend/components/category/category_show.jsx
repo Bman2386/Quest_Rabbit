@@ -1,12 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
-    // const image = 
-    return (
-        <div>
-            <h1>test</h1>
-            <p>test</p>
-        </div>
-    )
+class Category extends React.Component {
+    constructor(props){
+        super(props)
+        // this.state = {
+        //     categories,
+        //     categoryId
+        // }
+    }
+
+    componentDidMount(){
+        this.props.fetchCategories()
+    }
+    render() {
+        const {categories} = this.props
+        const id = this.props.match.params.categoryId
+        const ftch = window.ftch
+        const slay = window.slay
+        const craft = window.craft
+        const escort = window.escort
+
+        // const dynamicImage = (
+        //    categories && categories.length > 1 && categorys.?  : ftch
+        // )
+
+    return (    
+        <div className="show-container">
+            <img className="show-image" src={ftch}/>
+                    {
+                        categories && categories.length > 1 ? 
+                        <div>
+                            <h1 className="show-h1">{categories[id - 1].category_name}</h1>
+                            <p className="show-p">{categories[id - 1].ex_description}</p>
+                        </div> :  <h1>Not loaded</h1>
+                    }  
+        </div> 
+                )
+            }         
 }
+
+export default Category
