@@ -13,6 +13,20 @@ class Category extends React.Component {
     componentDidMount(){
         this.props.fetchCategories()
     }
+
+    imageLogic(id) {
+        switch (id) {
+            case "2":
+            return craft;
+            case "3": 
+            return escort;
+            case "4":
+            return slay;
+            default:
+            return ftch;
+        }
+    }
+
     render() {
         const {categories} = this.props
         const id = this.props.match.params.categoryId
@@ -21,13 +35,14 @@ class Category extends React.Component {
         const craft = window.craft
         const escort = window.escort
 
-        // const dynamicImage = (
-        //    categories && categories.length > 1 && categorys.?  : ftch
-        // )
+        
+        const dynamicImage = (
+           categories && categories.length > 1 && id > 1? this.imageLogic(id) : ftch
+        )
 
     return (    
         <div className="show-container">
-            <img className="show-image" src={ftch}/>
+            <img className="show-image" src={dynamicImage}/>
                     {
                         categories && categories.length > 1 ? 
                         <div>
