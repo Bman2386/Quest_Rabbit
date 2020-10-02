@@ -1,11 +1,51 @@
 # Quest Rabbit
-Finally! a place that easily connects adventurers to the people that need them. On Quest Rabit you can create a quest and directly hire an adventurer, making quest boards a thing of the past. 
+Finally! A place that easily connects adventurers to the people that need them. On Quest Rabit you can create a quest and directly hire an adventurer, making quest boards a thing of the past. 
 
 [questrabbit.com](https://quest-rabbit.herokuapp.com/#/)
 
-Quest Rabbit was built with ruby, as a rails project for the backend, and the front end was built in react, and javascript. 
-Some useful gems that were included were: 
+Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. 
+Some useful gems were: 
 * Annotate
+* pry-rails
+* jbuilder
+* b-crypt(for hashing passwords, we don't want to store actual passwords in the database)
+* annotate
+
+On the front end, webpack was used to get things flowing. Usefull modules were:
+* @babel 
+* react, & react-redux
+* react-router-dom
+* redux
+
+The categories page is simply 1 component, that renders differing pages depending on which category you click on. Most coders I spoke with about this said that it HAD to be seperate pages... but I proved them wrong. By passing the category id as a part of the route:
+```javascript
+ <Route path="/categories/:categoryId" component={CategoryShow}/>
+ ```
+ We can then grab that id in the catagories container via ownProps:
+ ```javascript
+ categoryid: ownProps[ownProps.match.params.id]
+ ```
+ and dynamicly render the page based on which category the user clicks:
+ ```javascript
+ const dynamicImage = (
+           categories && categories.length > 1 && id > 1? this.imageLogic(id) : ftch
+        )
+
+    return (    
+        <div className="show-container">
+            <img className="show-image" src={dynamicImage}/>
+                    {
+                        categories && categories.length > 1 ? 
+                        <div>
+                            <h1 className="show-h1">{categories[id - 1].category_name}</h1>
+                            <p className="show-p">{categories[id - 1].ex_description}</p>
+                        </div> :  <h1>Not loaded</h1>
+                    }  
+        </div> 
+                )
+```
+
+
 
 
 
