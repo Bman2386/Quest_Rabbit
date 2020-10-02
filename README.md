@@ -3,7 +3,7 @@ Finally! A place that easily connects adventurers to the people that need them. 
 
 [questrabbit.com](https://quest-rabbit.herokuapp.com/#/)
 
-Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and especially the logo ![logo](https://github.com/Bman2386/Quest_Rabbit/blob/master/app/assets/images/QuestRabbit.jpg | width=50 height=150) was made with [canva](https://www.canva.com/)
+Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and especially the logo <img src="https://github.com/Bman2386/Quest_Rabbit/blob/master/app/assets/images/QuestRabbit.jpg" width="25" height="75"/> was made with [canva](https://www.canva.com/)
 Some useful gems were: 
 * Annotate
 * pry-rails
@@ -38,7 +38,7 @@ The categories page is simply 1 component, that renders differing pages dependin
                         categories && categories.length > 1 ? 
                         <div>
                             <h1 className="show-h1">{categories[id - 1].category_name}</h1>
-                            <p className="show-p">{categories[id - 1].ex_description}</p>
+                            <p className="show-p">{categories[id - 1].ex_description}</p> 
                         </div> :  <h1>Not loaded</h1>
                     }  
         </div> 
