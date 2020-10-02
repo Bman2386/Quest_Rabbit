@@ -44,6 +44,7 @@ The categories page is simply 1 component, that renders differing pages dependin
         </div> 
                 )
 ```
+(the user never sees the `<h1>Not loaded</h1>` )
 
 
 
