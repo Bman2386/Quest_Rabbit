@@ -1,4 +1,8 @@
 # Quest Rabbit
+Finally! a place that easily connects adventurers to the people that need them. On Quest Rabit you can create a quest and directly hire an adventurer, making quest boards are a thing of the past. 
+
+
+
 
 | # |   MVP   |                       Description                       | Completion Deadline |
 |:-:|:-------:|:-------------------------------------------------------:|:-------------------:|
