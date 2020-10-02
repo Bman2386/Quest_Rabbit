@@ -1,6 +1,11 @@
 # Quest Rabbit
-Finally! a place that easily connects adventurers to the people that need them. On Quest Rabit you can create a quest and directly hire an adventurer, making quest boards are a thing of the past. 
+Finally! a place that easily connects adventurers to the people that need them. On Quest Rabit you can create a quest and directly hire an adventurer, making quest boards a thing of the past. 
 
+[questrabbit.com](https://quest-rabbit.herokuapp.com/#/)
+
+Quest Rabbit was built with ruby, as a rails project for the backend, and the front end was built in react, and javascript. 
+Some useful gems that were included were: 
+* Annotate
 
 
 
