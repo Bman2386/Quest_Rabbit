@@ -3,7 +3,7 @@ Finally! A place that easily connects adventurers to the people that need them. 
 
 [questrabbit.com](https://quest-rabbit.herokuapp.com/#/)
 
-Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and espially tho logo ![alt text](https://github.com/Bman2386/Quest_Rabbit/master/app/images/logo.jpg "logo") was made with [canva](https://www.canva.com/)
+Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and espially tho logo ![alt text](https://github.com/Bman2386/Quest_Rabbit/master/app/assets/images/logo.jpg "logo") was made with [canva](https://www.canva.com/)
 Some useful gems were: 
 * Annotate
 * pry-rails
