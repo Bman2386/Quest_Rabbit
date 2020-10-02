@@ -3,7 +3,7 @@ Finally! A place that easily connects adventurers to the people that need them. 
 
 [questrabbit.com](https://quest-rabbit.herokuapp.com/#/)
 
-Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and especially the logo <img src="https://github.com/Bman2386/Quest_Rabbit/blob/master/app/assets/images/QuestRabbit.jpg" width="25" height="150"/> was made with [canva](https://www.canva.com/)
+Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and especially the logo <img src="https://github.com/Bman2386/Quest_Rabbit/blob/master/app/assets/images/QuestRabbit.jpg" width="80" height="50"/> was made with [canva](https://www.canva.com/)
 Some useful gems were: 
 * Annotate
 * pry-rails
@@ -46,9 +46,7 @@ The categories page is simply 1 component, that renders differing pages dependin
 ```
 (the user never sees the `<h1>Not loaded</h1>` )
 
-
-
-
+Another feature that is pretty cool, is the Quest form. The form has a lot of elements going on at the same time and I'm hoping to them with a bar pointing to where the user is in the form, of course its still under construction, but when its ready I'll put it here.
 
 | # |   MVP   |                       Description                       | Completion Deadline |
 |:-:|:-------:|:-------------------------------------------------------:|:-------------------:|
