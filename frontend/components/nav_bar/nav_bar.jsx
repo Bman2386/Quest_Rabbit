@@ -23,7 +23,7 @@ class NavBar extends React.Component {
         const display = currentUser ? (
           <div className="nav-bar">
             <Link to='/'>
-              <img src={logo} />
+              <img src={logo} className="logo"/>
             </Link>
             { categories !== [] ? 
                <Quests 
@@ -36,7 +36,7 @@ class NavBar extends React.Component {
         ) : (
           <div className="nav-bar">
             <Link to='/'>
-              <img src={logo} />
+              <img src={logo} className="logo"/>
             </Link>
             { categories !== [] ? 
                 <Quests 

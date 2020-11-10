@@ -49,7 +49,9 @@ class Login extends React.Component {
     //         Demo User
     //       </button>
     loginGuest() {
-      this.setState({ username: 'Guest', password: 'hunter12' });
+      // this.setState({ username: 'Guest', password: 'hunter12' });
+      const demo = {username: 'Guest', password: 'hunter12'};
+      this.props.login(demo);
     }
 
   render() {
@@ -69,7 +71,7 @@ class Login extends React.Component {
        <img src={formPhoto} className="form-photo"/>
         <form className='inter-form'>
           <Link to='/'>
-          <img src={logo} />
+          <img src={logo} className="logo"/>
           </Link>
           {this.renderErrors()}
           <input

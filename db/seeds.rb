@@ -8,25 +8,25 @@
 Category.delete_all
 User.delete_all
 
-Category.create({
+fetch = Category.create({
     id: 1,
     category_name: 'Fetch',
     ex_description: 'Find and deliver 13 pink frost crystals'
 })
 
-Category.create({
+craft = Category.create({
     id: 2,
     category_name: 'Craft',
     ex_description: 'Craft an alchemy table'
 })
 
-Category.create({
+escort = Category.create({
     id: 3,
     category_name: 'Escort',
     ex_description: 'Escort the princess through the forbidden forest'
 })
 
-Category.create({
+slay = Category.create({
     id: 4,
     category_name: 'Slay',
     ex_description: 'Slay that pesky dragon terrorizing the village'
@@ -45,7 +45,7 @@ hercules = User.create({
 })
 
 goblin_slayer = User.create({
-    username: 'Goblin Slayer'
+    username: 'Goblin Slayer',
     password: 'hunter12',
     adventurer: true
 })
