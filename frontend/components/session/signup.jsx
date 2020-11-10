@@ -50,7 +50,7 @@ class Signup extends React.Component {
              <img src={formPhoto} className="form-photo" />
         <form className='inter-form'>
         <Link to='/'>
-          <img src={logo} />
+          <img src={logo} className="logo"/>
         </Link>
         {this.renderErrors()}
             <input

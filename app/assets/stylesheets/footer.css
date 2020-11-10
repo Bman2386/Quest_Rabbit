@@ -1,0 +1,18 @@
+.linked{
+    height: 2rem;
+    width: 2rem;
+    padding: 0.5rem;
+}
+
+.footer {
+    display: flex;
+    align-items: row;
+    justify-content: center;
+}
+
+.creator{
+    height: 2rem;
+    width: fit-content;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}

@@ -10,7 +10,7 @@ export default () => {
             <img src={formPhoto} className="form-photo"/>
             <form className="inter-form">
                 <Link to='/'>
-                    <img src={logo} />
+                    <img src={logo} className="logo"/>
                 </Link>
                 <Link className="btn-1" to="/signup">Sign Up</Link>
                 <Link className="btn-2" to="/login">Log In</Link>

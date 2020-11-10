@@ -6,7 +6,7 @@
     border-bottom: 1px solid rgb(197, 193, 193);
     z-index: 1;
 }
-img {
+.logo {
     object-fit: cover;
     object-position: 100% 40%;
     height: 50px;
@@ -76,3 +76,4 @@ img {
 .dd-container {
     padding: 15px;
 }
+

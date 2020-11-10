@@ -12,10 +12,17 @@ form {
     right: 25%;
 }
 
-form > input, form > button {
+.inter-form>input {
     margin: 16px;
     width: 50%;
     border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 8px;
+}
+
+.inter-form>button {
+    margin: 16px;
+    width: 53%;
     border-radius: 3px;
     padding: 8px;
 }

@@ -2,7 +2,7 @@
 import React from 'react';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import CategoryShow from './category/category_show_container'
-//  import Footer from './footer/footer_container'
+ import Footer from './footer/footer'
 import SignupContainer from './session/signup_container';
 import LoginContainer from './session/login_container';
 import Home from './home/home';
@@ -21,5 +21,6 @@ export default () => (
     <AuthRoute path="/login" component={LoginContainer} />
     {/* <ProtectedRoute path="/" component={} /> */}
     <ProtectedRoute path="/users/:userId" component={ProfileComponent} />
+    <Footer />
   </div>
 );

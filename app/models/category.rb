@@ -3,4 +3,7 @@ class Category < ApplicationRecord
     validates :ex_description, presence: true
 
     has_many :quest
+
+    # belongs_to :user,
+    #     foreign_key: :adventurer_id
 end

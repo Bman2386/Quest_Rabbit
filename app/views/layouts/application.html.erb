@@ -4,8 +4,9 @@
     <title>QuestRabbit</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="icon" type="image/png" href="<%= image_url('rabbit.png') %>"/>
     
     <% if logged_in? %>
       <script type="text/javascript">
@@ -20,9 +21,11 @@
      window.formPhoto = "<%= image_url('formphoto.jpg') %>";
      window.hero = "<%= image_url('hero.jpg') %>";
      window.ftch = "<%= image_url('fetch.jpg') %>";
-     window.craft = "<%= image_url('craft.jpg') %>"
-     window.escort = "<%= image_url('escort.jpg') %>"
-     window.slay = "<%= image_url('slay.jpg') %>"
+     window.craft = "<%= image_url('craft.jpg') %>";
+     window.escort = "<%= image_url('escort.jpg') %>";
+     window.slay = "<%= image_url('slay.jpg') %>";
+     window.linked = "<%= image_url('linkedin.png') %>";
+     window.git = "<%= image_url('GitHub.png') %>";
     </script>
   </head>
 
