@@ -1,4 +1,4 @@
-import * as QuestAPIUtil from '../util/quest'
+import * as QuestAPIUtil from '../utils/quest'
 
 export const RECEIVE_QUESTS = 'RECEIVE_QUESTS'
 export const RECEIVE_QUEST = 'RECEIVE_QUEST'
