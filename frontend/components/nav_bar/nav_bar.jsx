@@ -35,7 +35,9 @@ class NavBar extends React.Component {
           </div>
         ) : (
           <div className="nav-bar">
-            <img src={logo} alt="logo"/>
+            <Link to='/'>
+              <img src={logo} />
+            </Link>
             { categories !== [] ? 
                 <Quests 
                 categories={categories} 

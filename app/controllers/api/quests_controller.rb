@@ -12,7 +12,7 @@ class Api::QuestsController < ApplicationController
     def create
         @quest = Quest.new(quest_params)
 
-        if quest.save
+        if @quest.save
             render :show
         else
             render json: @quest.errors.full_messages, status: 401

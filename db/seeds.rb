@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.delete_all
-# User.delete_all
+User.delete_all
 
 Category.create({
     id: 1,
@@ -32,4 +32,27 @@ Category.create({
     ex_description: 'Slay that pesky dragon terrorizing the village'
 })
 
-# User.create({})
+guest = User.create({
+    username: 'Guest',
+    password: 'hunter12',
+    adventurer: false
+})
+
+hercules = User.create({
+    username: 'Hercules',
+    password: 'hunter12',
+    adventurer: true
+})
+
+goblin_slayer = User.create({
+    username: 'Goblin Slayer'
+    password: 'hunter12',
+    adventurer: true
+})
+
+isaac_newton = User.create({
+    username: 'Isaac Newton',
+    password: 'hunter12',
+    adventurer: true
+})
+

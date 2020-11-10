@@ -56,13 +56,13 @@ class Login extends React.Component {
     // console.log(this.props);
     const logo = window.logo;
     const formPhoto = window.formPhoto;
-    const guestLoginButton = (
-      <button
-        onClick={this.loginGuest}
-        className="login-guest" >
-        Demo as Guest
-      </button>
-    )
+      const guestLoginButton = (
+        <button
+          onClick={this.loginGuest}
+          className="login-guest" >
+          Demo as Guest
+        </button>
+      )
     
     return (
       <div className="session-form">
