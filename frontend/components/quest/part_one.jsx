@@ -1,59 +1,61 @@
-import React from './react';
+import React from 'react';
 
-class PartOne extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = this.props.quest
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.action(this.state)
-        this.props.quest.status = 2
-    }
-
-    update(field){
-        return e => this.setState({[field]: e.currentTarget.value})
-    }
-
-    render() {
-       return (
-        <div>
+const PartOne = (props) => {
+    const {values, handleChange, next} = props 
+    return(
+        <div className="quest-container">
             <ul className='bar1'>
-                <li className='current#'>1</li>
-                <div className='line#'></div>
+                <li className='currentN'>1</li>
+                <div className='lineN'></div>
                 <li className='grey-out'>2</li>
-                <div className='line#'></div>
+                <div className='lineN'></div>
                 <li className='grey-out'>3</li>
             </ul>
-            <ul>
+            <ul className='bar2'>
                 <li className='current'>Describe your Quest</li>
                 <li className='line'>Browse Adventurers</li>
                 <li className='line'>Choose date {'&'} Time</li>
             </ul>
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    QuestName
-                    <text 
-                    type="text"
-                    value={this.state.quest_name}
-                    onChange={this.update('quest_name')}
-                    />
-                </label>
-                <label>
-                    Quest Description
-                    <textarea 
-                    value={this.state.details}
-                    onChange={this.update('details')}
-                    />
-                </label>
-                <button type='submit' onClick={() => this.props.action()}></button>
-            </form>
+            <hr/>
+            <div className="quest-form">
+                <div className="quest-name">
+                  <label htmlFor="quest_name" className="label">
+                Quest Name
+            </label>
+            <input 
+            type="text"
+            value={values.quest_name}
+            onChange={handleChange('quest_name')}
+            className="input"
+            >
+            </input>  
+                </div>
+            <div className="quest-name">
+                <label htmlFor="Category" className="label">Category of your Quest:</label>
+                <select className="select" name={values.category_id} onChange={handleChange('category_id')}>
+                        <option value="1" >Fetch</option>
+                        <option value="2" >Craft</option>
+                        <option value="3" >Escort</option>
+                        <option value="4" >Slay</option>
+                </select>    
+            </div>
+            <div className="quest-name">
+                <label htmlFor="details" className="label">Details:</label>
+                <p className="p">Start the conversation by telling your adventurer details about your quest.
+                    Be sure to specify things like magic being required to complete the quest.
+                </p>
+                <textarea 
+                        value={values.details}
+                        className="textarea"
+                        onChange={handleChange('details')}
+                        />
+            </div>    
+           <br />
+            <button onClick={() => next()}>Next</button>
+            </div>
+            
         </div>
-        ) 
-    }
-    
+    )
 }
 
 export default PartOne;

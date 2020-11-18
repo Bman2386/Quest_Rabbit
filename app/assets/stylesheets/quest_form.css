@@ -1,0 +1,139 @@
+.quest-container{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+}
+.quest-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 50vh;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+}
+.bar1{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    margin-top: 8px;
+}
+.bar2{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-evenly;
+    margin-top: .25rem;
+}
+
+.currentN{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid green;
+    border-radius: 50%;
+    color: green;
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: .75rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.grey-out{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(189, 186, 186);
+    border-radius: 50%;
+    color: rgb(73, 72, 72);
+    height: 1.5rem;
+    width: 1.5rem;
+    font-size: .75rem;
+    text-align: center;
+    background-color: rgb(189, 186, 186);
+    font-weight: bold;
+}
+
+.lineN{
+    width: 25%;
+    height: .5px;
+    border: 1px solid rgb(189, 186, 186);
+    margin-top: .5rem;
+    background-color: rgb(189, 186, 186);
+}
+
+.line{
+    color: rgb(165, 161, 161);
+    font-size: .75rem;
+}
+
+.current{
+    color: black;
+    font-weight: 600;
+    font-size: .75rem;
+}
+
+.quest-name{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: flex-start;
+    border: 1px solid black;
+    border-radius: 2px;
+    filter: drop-shadow(1px 1px 1px grey);
+    margin-top: 2rem;
+}
+
+.label{
+    padding: 1rem;
+    color: black;
+    font-weight: bold;
+}
+
+.input{
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 2px;
+    color: black;
+    width: 75%;
+    margin-left: 10%;
+    margin-bottom: 1rem;
+}
+
+.textarea{
+    width: 90%;
+    height: 5rem;
+    margin-left: 5%;
+    margin-bottom: 3rem;
+}
+
+.select{
+    margin-left: 40%;
+    margin-bottom: 3rem;
+}
+
+.p{
+    color: black;
+    margin-left: 1rem;
+    font-weight: ;
+}
+
+.back-button{
+    margin-left: 2rem;
+}
+
+.hero-container{
+    color: black;
+    border: 1px solid grey;
+    border-radius: 2px;
+    width: 75%;
+    margin: 2rem;
+}
+
+.select2{
+    margin-left: 1rem;
+}

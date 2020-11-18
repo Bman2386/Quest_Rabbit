@@ -1,1 +1,1 @@
-json.partial "api/quests/quest", quest: @quest 
+json.partial! "api/quests/quest", quest: @quest 

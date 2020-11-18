@@ -16,7 +16,7 @@ const hero = window.hero
                     placeholder="I need help with..."
                     className="hero-search-bar"
                     />
-                    <button>Get help today</button>
+                    <Link to="/quest" className="button">Get help today</Link>
         </div> 
         <div className='links'>
         <Link className='btn-4' to="/categories/1">Fetch</Link>

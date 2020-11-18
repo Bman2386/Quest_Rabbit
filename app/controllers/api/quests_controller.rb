@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Api::QuestsController < ApplicationController
 
     def new
@@ -11,8 +13,8 @@ class Api::QuestsController < ApplicationController
 
     def create
         @quest = Quest.new(quest_params)
-
-        if @quest.save
+     
+        if @quest.save!
             render :show
         else
             render json: @quest.errors.full_messages, status: 401
@@ -46,6 +48,7 @@ class Api::QuestsController < ApplicationController
             :details,
             :adventurer_id,
             :start_time,
+            :completed,
             :creator_id
         )
     end

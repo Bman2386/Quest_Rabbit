@@ -40,6 +40,18 @@ button:hover {
     background-color: green;
 }
 
+.button {
+    border: none;
+    background-color: rgb(20, 177, 20);
+    color: white;
+    border-radius: 2px;
+    padding: 8px;
+}
+
+.button:hover {
+    background-color: green;
+}
+
 input {
     padding: 8px;
 }
@@ -48,3 +60,4 @@ input {
     text-decoration: none;
     color: red;
 }
+

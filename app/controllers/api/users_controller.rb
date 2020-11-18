@@ -1,4 +1,12 @@
+
 class Api::UsersController < ApplicationController
+
+
+    def index
+      users = User.all
+      @adventurers = users.where(adventurer: true)
+      render :index
+   end
 
     def create
       # debugger
@@ -38,6 +46,6 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.require(:user).permit(:username, :password, :adventurer)
     end
 end
