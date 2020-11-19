@@ -1,10 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PartOne = (props) => {
-    const {values, handleChange, next} = props 
+    const {values, handleChange, next} = props;
+    const logo = window.logo;
+
     return(
         <div className="quest-container">
+             
             <ul className='bar1'>
+                <Link to='/' className="home">
+                    <img src={logo} className="logo"/>
+                </Link>
                 <li className='currentN'>1</li>
                 <div className='lineN'></div>
                 <li className='grey-out'>2</li>

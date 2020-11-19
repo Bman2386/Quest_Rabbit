@@ -27,7 +27,7 @@ function Quests({categories}) {
       // onMouseEnter={() => setIsShown(true)}
       // onMouseLeave={() => setIsShown(false)}
       > 
-      Quests
+      Quest Types
         {
         // isShown && 
         questButtonDisplay

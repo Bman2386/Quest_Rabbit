@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PartTwo = props => {
-    const { values, select, back, adv } = props
+    const { values, select, back, adv } = props;
+    const logo = window.logo;
     const list = () => {
         const names = adv.map(ad => 
             <div className="hero-container">
@@ -17,6 +19,9 @@ const PartTwo = props => {
     return (
         <div className="quest-container">
              <ul className='bar1'>
+             <Link to='/' className="home">
+                    <img src={logo} className="logo"/>
+                </Link>
                 <li className='grey-out'>1</li>
                 <div className='lineN'></div>
                 <li className='currentN'>2</li>
