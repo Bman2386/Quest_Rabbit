@@ -6,8 +6,8 @@ const PartTwo = props => {
     const logo = window.logo;
     const list = () => {
         const names = adv.map(ad => 
-            <div className="hero-container">
-              <p key={ad.id} className="p">{ad.username}</p>
+            <div className="hero-container" key={ad.id}>
+              <p  className="p">{ad.username}</p>
               <p className="p">(reviews coming soon)</p>  
               <button value={ad.id} type="submit" className="select2" onClick={() => select('adventurer_id')}>Select</button>
            </div>

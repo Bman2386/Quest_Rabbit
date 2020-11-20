@@ -1,15 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Calendar from './calendar'
+import {today, monthDays} from './calendar'
+
 const PartThree = props => {
     const {values, handleChange, back, submit} = props;
     const logo = window.logo;
-
+    const date = today.date;
+    const month = today.month;
+    const days = monthDays()
+    
+    // debugger
+    
     return (
         
         <div className="quest-container">
             <ul className='bar1'>
-            <Link to='/' className="home">
+                <Link to='/' className="home">
                     <img src={logo} className="logo"/>
                 </Link>
                 <li className='grey-out'>1</li>
@@ -24,21 +30,35 @@ const PartThree = props => {
                 <li className='current'>Choose date {'&'} Time</li>
             </ul>
             <hr/>
-            <p>Select a time to start your quest</p>
-            <table className="calendar">
-                <tr>
-                    <th className="p">Monday</th>
-                    <th className="p">Tuesday</th>
-                    <th className="p">Wednesday</th>
-                    <th className="p">Thursday</th>
-                    <th className="p">Friday</th>
-                    <th className="p">Saturday</th>
-                    <th className="p">Sunday</th>
-                </tr>
-
-            </table>
+            <p className="p">Select a date/time to start your quest</p>
+           <div className="cal-container">
+               <div className="calendar">
+                <div className="month">
+                                <button><i className="fa fa-angle-left"></i></button>
+                                <div className="date">
+                                        <h1>{month}</h1>
+                                        <p>{`${date}`}</p>
+                                </div>
+                                <button><i className="fa fa-angle-right"></i></button>  
+                            </div>
+                            <div className="weekdays">
+                                <div>Sunday</div>
+                                <div>Monday</div>
+                                <div>Tuesday</div>
+                                <div>Wednesday</div>
+                                <div>Thursday</div>
+                                <div>Friday</div>
+                                <div>Saturday</div>
+                            </div>
+                            <div className="days">
+                                {days}
+                            </div>
+               </div>
+               
+               {/* <div>{days()}</div> */}
+           </div>
             <button onClick={() => back()}>Back</button><br />
-            <button onclick={() => submit()}>Submit</button>
+            <button onClick={() => submit()}>Submit</button>
         </div>
     )
 
