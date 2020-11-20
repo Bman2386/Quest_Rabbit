@@ -23,7 +23,6 @@ const receiveCurrentUser = user => ({
   });
 
  export const receiveErrors = errors => {
-    // debugger
     return {
       type: RECEIVE_SESSION_ERRORS,
     errors
@@ -32,7 +31,7 @@ const receiveCurrentUser = user => ({
 
 export const createNewUser = formUser => dispatch => postUser(formUser)
     .then(user => dispatch(receiveCurrentUser(user)), err => {
-      // debugger
+
       return dispatch(receiveErrors(err.responseJSON))
     });
 

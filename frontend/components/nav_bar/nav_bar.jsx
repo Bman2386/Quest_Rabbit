@@ -19,7 +19,6 @@ class NavBar extends React.Component {
       render() {
       const { currentUser, logout, categories } = this.props
       const logo = window.logo
-      // debugger
         const display = currentUser ? (
           <div className="nav-bar">
             <Link to='/'>
