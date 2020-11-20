@@ -9,7 +9,7 @@ const PartTwo = props => {
             <div className="hero-container" key={ad.id}>
               <p  className="p">{ad.username}</p>
               <p className="p">(reviews coming soon)</p>  
-              <button value={ad.id} type="submit" className="select2" onClick={() => select('adventurer_id')}>Select</button>
+              <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(ad.id)}>Select</button>
            </div>
         
         ) 

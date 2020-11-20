@@ -74,7 +74,11 @@
     background-color: transparent;
 }
 
-.days div{
+#prev-month{
+    color: grey;
+}
+
+.days button{
     font-size: 1.4rem;
     /* margin: .3rem; */
     width: 5.82rem;
@@ -83,16 +87,25 @@
     align-items: center;
     justify-content: center;
     border: 1px solid green;
+    color: green;
+    background-color: transparent;
+    border-radius: 0;
 }
 
-.today{
+#today{
     background-color: green;
     color: white;
     cursor: pointer;
 }
 
-.days div:hover:not(.today){
+
+
+.days button:hover:not(.today){
     background-color: lightgreen;
     color: white;
     cursor: pointer;
+}
+
+.selected-hour{
+    width: 10rem;
 }

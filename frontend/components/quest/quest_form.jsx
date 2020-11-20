@@ -14,14 +14,22 @@ class QuestForm extends React.Component {
             start_time: '',
             completed: 'false',
             adventurer_id: '',
-            status: 1
+            status: 1,
+            date: new Date()
         }  
+
+        this.date = this.state.date
+
        this.adv = this.props.fetchAdventurers();
        this.next = this.next.bind(this);
        this.back = this.back.bind(this);
        this.handleChange = this.handleChange.bind(this);
        this.handleSubmit = this.handleSubmit.bind(this);
-       this.select = this.select.bind(this);        
+       this.select = this.select.bind(this);       
+       this.subCurrentMonth = this.subCurrentMonth.bind(this);
+       this.addCurrentMonth = this.addCurrentMonth.bind(this); 
+       this.handleDay = this.handleDay.bind(this); 
+       this.handleHour = this.handleHour.bind(this);
     }
 
      next() {
@@ -34,10 +42,39 @@ class QuestForm extends React.Component {
     // componentDidMount(){
     //     this.props.fetchAdventurers()
     // }
+    subCurrentMonth() {
+      const date1 = new Date(this.state.date);
+      const month = date1.getMonth();
+      date1.setMonth(month - 1);
+       this.setState({date: date1});
+  }
+
+   addCurrentMonth() {
+    const date1 = new Date(this.state.date);
+    const month = date1.getMonth();
+    date1.setMonth(month + 1);
+    this.setState({date: date1});
+  }
+
+
 
     select(input){
-        this.handleChange(input);
+        this.setState({adventurer_id: input})
         this.next();
+    }
+
+    handleDay(day){
+      const day1 = new Date(this.state.date);
+      const selected = new Date(day1.setDate(day));
+      this.setState({start_time: selected});
+    }
+
+    handleHour(e){
+     const {value} = e;
+      const day1 = new Date(this.state.start_time);
+      const selected = new Date(day1.setHours(value, 0, 0));
+      this.setState({start_time: selected});
+      
     }
     handleChange(input) {
         if (input !== "undefined"){
@@ -64,9 +101,90 @@ class QuestForm extends React.Component {
 
     render(){
         const {status} = this.state;
-        const { quest_name, category_id, details, start_time, adventurer_id } = this.state;
-        const values = { quest_name, category_id, details, start_time, adventurer_id };
-        const {adventurers} = this.props
+        const { quest_name, category_id, details, start_time, adventurer_id, date } = this.state;
+        const values = { quest_name, category_id, details, start_time, adventurer_id, date };
+        const {adventurers} = this.props;
+
+        const months = [
+          "January",
+          "Febuary",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+      ];
+    const today = {
+          month: months[this.state.date.getMonth()],
+          date: this.date.toDateString()
+     }
+  
+     const lastDay = new Date(this.state.date.getFullYear(), this.state.date.getMonth() + 1, 0).getDate();
+     const firstDayIndex = new Date(this.state.date.getFullYear(), this.state.date.getMonth(), 1).getDay();
+     const prevLastDay = new Date(this.state.date.getFullYear(), this.state.date.getMonth(), 0).getDate();
+     const lastDayIndex = new Date(this.state.date.getFullYear(), this.state.date.getMonth() + 1, 0).getDay();
+  
+     const nextDays = 7 - lastDayIndex - 1;
+      
+     
+     const tally = () => {
+         let days = [];
+         if (firstDayIndex > 1) {
+             for(let x = firstDayIndex; x > 0; x--){
+         let num = `${prevLastDay - x + 1}`;
+            days.push(num) 
+         }
+      }
+          
+         for(let i = 1; i <= lastDay; i++){
+             days.push(i)
+         }
+  
+         for(let j=1; j<=nextDays; j++){
+             let num2 = `${j}`;
+             days.push(num2)
+         }
+         
+         return days
+     }
+  
+      const monthDays = () => {
+         const days = tally();
+         const today = this.date.getDate();
+         const current = function(day) {
+             if (day=== today){
+                 return 'today';
+             } else if (typeof day === 'string'){
+                  return 'prev-month'
+             } else {
+                 return "";
+             }
+         }
+         const dayKey = function(day) {
+             if (typeof day === 'string'){
+                 day *= 100
+                 return day
+             } else {
+                 return day
+             }
+         }
+         const month = days.map(day => 
+              <button 
+              
+              className={current(day)}
+              id={current(day)}
+              type='submit'
+              value={this.state.start_time}
+              onClick={() => this.handleDay(day) }>{day}</button>)
+      
+              return month;
+     }
+ 
         switch (status) {
             case 1:
               return (
@@ -91,6 +209,11 @@ class QuestForm extends React.Component {
                 <PartThree
                 values={values}
                 handleChange={this.handleChange}
+                addCurrentMonth={this.addCurrentMonth}
+                subCurrentMonth={this.subCurrentMonth}
+                handleHour={this.handleHour}
+                today={today}
+                monthDays = {monthDays}
                 back={this.back}
                 submit={this.handleSubmit}
                 />
