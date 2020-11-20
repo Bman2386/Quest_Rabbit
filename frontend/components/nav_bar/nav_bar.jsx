@@ -7,8 +7,6 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props)
     // this.state = this.props
-    // console.log(props)
-    // console.log(this.state)
     // this.fetchCategories = this.fetchCategories.bind(this)
   }
 

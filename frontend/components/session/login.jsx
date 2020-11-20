@@ -55,7 +55,6 @@ class Login extends React.Component {
     }
 
   render() {
-    // console.log(this.props);
     const logo = window.logo;
     const formPhoto = window.formPhoto;
       const guestLoginButton = (
