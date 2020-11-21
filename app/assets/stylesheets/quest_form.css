@@ -124,7 +124,11 @@
     color: black;
     margin-left: 1rem;
 }
+.orders{
+    color: green;
+    text-align: center;
 
+}
 .back-button{
     margin-left: 2rem;
 }

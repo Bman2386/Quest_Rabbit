@@ -57,7 +57,8 @@ const PartThree = props => {
                 <li className='current'>Choose date {'&'} Time</li>
             </ul>
             <hr/>
-            <p className="p">Select a date/time to start your quest</p>
+            <button onClick={() => back()}>Back</button><br />
+            <p className="orders">Select a date/time to start your quest</p>
            <div className="cal-container">
                <div className="calendar">
                 <div className="month">
@@ -69,39 +70,38 @@ const PartThree = props => {
                                 <button onClick={() => addCurrentMonth()}><i className="fa fa-angle-right"></i></button>  
                             </div>
                             <div className="weekdays">
-                                <div>Sunday</div>
-                                <div>Monday</div>
-                                <div>Tuesday</div>
-                                <div>Wednesday</div>
-                                <div>Thursday</div>
-                                <div>Friday</div>
-                                <div>Saturday</div>
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tues</div>
+                                <div>Wed</div>
+                                <div>Thur</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
                             </div>
                             <div className="days">
                                 {days}
                             </div>
                </div>
-            <div>
+            <div className="quest-name">
+                <p className="p">Start Time:</p> 
             <Select 
             className="selected-hour" 
             options={Hours} 
             placeholder = "Select an Hour"
             name={values.start_time} 
             onChange={(event) => handleHour(event)}/>
-            </div>
-           </div>
-           <div>
-               <ul>
-                    <li>Quest Name: {quest_name}</li>
-                    <li>Category: {category_id}</li>
-                    <li>Details: {details}</li>
-                    <li>Start Time: {`${start_time}`}</li>
-                    <li>Adventurer: {adventurer_id}</li>
+               <ul className="quest-details">
+                    <li className="orders">Quest Name: {quest_name}</li>
+                    <li className="orders">Category: {category_id}</li>
+                    <li className="orders">Details: {details}</li>
+                    <li className="orders">Start Time: {`${start_time}`}</li>
+                    <li className="orders">Adventurer: {adventurer_id}</li>
                </ul>
-           </div>
-            <button onClick={() => back()}>Back</button><br />
-            <br/>
-            <Link to='/' className='button' onClick={() => submit()}>Submit</Link>
+               <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link>
+            </div>
+            
+        </div>
+       
         </div>
     )
 
