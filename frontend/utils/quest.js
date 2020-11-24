@@ -1,8 +1,11 @@
-export const getQuests = () => (
-    $.ajax({
-        url:`/api/quests`
-    })
-);
+export const getQuests = creator_id => {
+    return (
+        $.ajax({
+        url:`/api/quests`,
+        data: {creator_id}
+    }))
+}
+    
 
 export const getQuest = questId => (
     $.ajax({

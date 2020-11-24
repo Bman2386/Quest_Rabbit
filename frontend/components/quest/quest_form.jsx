@@ -229,7 +229,7 @@ class QuestForm extends React.Component {
         // }
     }
 
-export default QuestForm
+export default QuestForm;
     
 
     // renderForm2(){

@@ -13,8 +13,8 @@ const receiveQuest = quest => ({
     quest
 })
 
-export const fetchQuests = () => dispatch => (
-    QuestAPIUtil.getQuests()
+export const fetchQuests = (creatorId) => dispatch => (
+    QuestAPIUtil.getQuests(creatorId)
     .then(quests => dispatch(receiveQuests(quests)))
 )
 

@@ -11,6 +11,7 @@ import ProfileComponent from './profile/profile';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import QuestForm from './quest/create_quest_form_container';
+import QuestPage from './quest/quest_page_container';
 
 export default () => (
   <div>
@@ -21,6 +22,7 @@ export default () => (
     <AuthRoute path="/signup" component={SignupContainer} />
     <AuthRoute path="/login" component={LoginContainer} />
     <ProtectedRoute path="/quest" component={QuestForm} />
+    <ProtectedRoute path='/quests' component={QuestPage} />
     <ProtectedRoute path="/users/:userId" component={ProfileComponent} />
     <Footer />
   </div>

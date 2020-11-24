@@ -5,7 +5,7 @@ class Api::QuestsController < ApplicationController
     end
 
     def index
-      @quests = Quest.includes(:creator_id).all
+      @quests = Quest.where(creator_id: c_id, completed: false).all
         render :index
     end
 
@@ -49,5 +49,9 @@ class Api::QuestsController < ApplicationController
             :completed,
             :creator_id
         )
+    end
+
+    def c_id 
+        params[:creator_id]
     end
 end

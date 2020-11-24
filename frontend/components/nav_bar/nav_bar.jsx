@@ -28,6 +28,7 @@ class NavBar extends React.Component {
                 /> : <div></div>
             }
             <h3>Welcome {currentUser.username}!</h3>
+            <Link to='/quests'>Your Quests</Link>
             <button onClick={logout}>Logout</button>
           </div>
         ) : (
