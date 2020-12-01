@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class EditQuest extends React.Component {
+class CancelQuest extends React.Component {
     constructor(props){
         super(props)
         this.state ={
@@ -11,11 +11,10 @@ class EditQuest extends React.Component {
             details: '',
             creator_id: this.props.creatorId,
             start_time: '',
-            completed: 'false',
+            completed: 'true',
             adventurer_id: '',
         }
         this.formSetter = this.formSetter.bind(this);
-        this.update = this.update.bind(this);
         this.submit = this.submit.bind(this);
     }
 
@@ -31,7 +30,6 @@ class EditQuest extends React.Component {
               details, 
               creator_id, 
               start_time, 
-              completed, 
               adventurer_id, 
               } = this.props.quest;
 
@@ -42,7 +40,6 @@ class EditQuest extends React.Component {
                   details,
                   creator_id,
                   start_time,
-                  completed,
                   adventurer_id,
               })
 
@@ -77,35 +74,17 @@ class EditQuest extends React.Component {
              }
         return (
            <div>
-               Edit Quest
-               <input type="text"
-               value={quest_name}
-               onChange={this.update('quest_name')}
-               className='input'
-               />
-                <textarea
-               value={details}
-               onChange={this.update('details')}
-               className='input'
-               />
-        <select className="select" name={category_id} onChange={this.update('category_id')}>
-                        <option value="1" >Fetch</option>
-                        <option value="2" >Craft</option>
-                        <option value="3" >Escort</option>
-                        <option value="4" >Slay</option>
-                </select> 
+               Your Quest
+        <p>{`${quest_name}`}</p>
+        <p>{`${details}`}</p>
+        <p>{`${category_id}`}</p>
         <p>{`${start_time}`}</p>
-        <input type="text"
-        value={start_time}
-        onChange={this.update('start_time')}
-        placeholder={start_time}/>
-
         <p>{`${adventurer_id}`}</p>
-        <Link  className="btn-4" to="/quests" onClick={() => this.submit()}>Submit</Link>
+        <Link  className="btn-4" to="/quests" onClick={() => this.submit()}>Cancel Quest</Link>
             </div> 
         )
         
     }
 }
 
-export default EditQuest;
+export default CancelQuest;

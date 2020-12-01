@@ -11,6 +11,9 @@ class User < ApplicationRecord
     has_many :quests,
         foreign_key: :creator_id 
 
+    has_many :reviews,
+        foreign_key: :user_id
+
     # has_many :categories,
     #     foreign_key: :adventurer_id
 

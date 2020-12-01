@@ -13,6 +13,7 @@ import { AuthRoute, ProtectedRoute } from '../utils/route_util';
 import QuestForm from './quest/create_quest_form_container';
 import QuestPage from './quest/quest_page_container';
 import EditQuest from './quest/edit_quest_container';
+import CancelQuest from './quest/cancel_quest_container';
 
 export default () => (
   <div>
@@ -26,6 +27,7 @@ export default () => (
     <ProtectedRoute path='/quests' component={QuestPage} />
     <ProtectedRoute path='/edit/:questId' component={EditQuest} />
     <ProtectedRoute path="/users/:userId" component={ProfileComponent} />
+    <ProtectedRoute path="/delete/:questId" component={CancelQuest} />
     <Footer />
   </div>
 );

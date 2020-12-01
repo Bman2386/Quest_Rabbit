@@ -5,10 +5,11 @@ import { fetchQuests, updateQuest, fetchQuest } from '../../actions/quest';
 const mSTP = (state, ownProps) => {
     // const quests = state.entities.quests
     const creatorId = state.session.currentUser.id;
+    
     return ({
         quests: Object.keys(state.entities.quests).map(key => state.entities.quests[key]),
         creatorId
-    })
+    }) 
 }
 
 const mDTP = dispatch => ({

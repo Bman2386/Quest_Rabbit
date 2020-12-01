@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import EditQuest from './edit_quest';
+import CancelQuest from './cancel_quest';
 import { updateQuest, fetchQuest } from '../../actions/quest'
 import {fetchAdventurers} from '../../actions/adventurer'
 
@@ -24,4 +24,4 @@ const mDTP = dispatch => ({
     fetchAdventurers: () => dispatch(fetchAdventurers())
 })
 
-export default connect(mSTP, mDTP)(EditQuest);
+export default connect(mSTP, mDTP)(CancelQuest);

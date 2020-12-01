@@ -9,19 +9,37 @@ class QuestPage extends React.Component {
     }
 
     componentDidMount(){
-        this.props.getQuests(this.props.creatorId)
+        this.props.getQuests(this.props.creatorId);
     }
 
 
     questShow(){
         const {quests} = this.props;
-        console.log(quests[0])
+       
+        
+        if (quests && quests.length > 1 && !quests[quests.length -1].extract){
+            const last = quests.pop();
+            const newLast = Object.assign({}, {extract: last})
+            quests.push(newLast);
+            debugger
+            
+        }
+            quests.forEach(quest => {
+                if(quest && quest.extract && quest.extract.completed === true){
+                    let idx = quests.indexOf(quest)
+                quests.slice(1, idx);
+                    console.log(quests)
+                    debugger
+            }
+        })
+       
         const show = () => {
           const list = quests.map(quest =>
-                 <div key={quest.extract.id}>
+                 <div key={quest.extract.id} className='quest-name'>
                     <p>{quest.extract.quest_name}</p>
                     <p>{quest.extract.start_time}</p>
                     <p>{quest.extract.details}</p>
+                    <p>{quest.extract.completed}</p>
                     <Link 
                     to={`/edit/${quest.extract.id}`}
                     className="btn-4" 
@@ -36,17 +54,17 @@ class QuestPage extends React.Component {
             )
             return list
         }
-            
         return (
-            quests && quests.length > 0 ? 
+            quests && quests.length > 0  ? 
             show()
         : <h1>No quests Yet</h1>
         )}
 
     render(){
+     
         return(
             <div>
-                <div>{this.questShow()}</div>
+                <div className="quest-form">{this.questShow()}</div>
             </div>
         )
     }
