@@ -1,5 +1,6 @@
 import React from 'react';
-import { getQuests } from '../../utils/quest';
+import { Link } from 'react-router-dom';
+// import { getQuests } from '../../utils/quest';
 
 class QuestPage extends React.Component {
     constructor(props){
@@ -11,19 +12,26 @@ class QuestPage extends React.Component {
         this.props.getQuests(this.props.creatorId)
     }
 
-    editQuest(quest){
-        console.log(quest)
-    }
 
     questShow(){
         const {quests} = this.props;
+        console.log(quests[0])
         const show = () => {
           const list = quests.map(quest =>
-                 <div key={quest}>
+                 <div key={quest.extract.id}>
                     <p>{quest.extract.quest_name}</p>
                     <p>{quest.extract.start_time}</p>
-                    <p>{quest.extract.completed}</p>
-                    <button value={quest} onClick={(quest) => this.editQuest(quest)}>Edit</button>
+                    <p>{quest.extract.details}</p>
+                    <Link 
+                    to={`/edit/${quest.extract.id}`}
+                    className="btn-4" 
+                    questid={quest.extract.id}
+                    >Edit</Link>
+                    <Link 
+                    to={`/delete/${quest.extract.id}`}
+                    className="btn-4" 
+                    questid={quest.extract.id}
+                    >Cancel Quest</Link>
                 </div>
             )
             return list
@@ -39,7 +47,6 @@ class QuestPage extends React.Component {
         return(
             <div>
                 <div>{this.questShow()}</div>
-               <div> Quests should show above</div>
             </div>
         )
     }
