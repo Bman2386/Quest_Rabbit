@@ -8,7 +8,17 @@ class ProfileComponent extends React.Component {
     }
 
     render() {
-    <div> Profile page for {this.state}</div>
+        const {logout} = this.props
+        return (
+            <div className='quest-name'> 
+                <div>
+                  Profile page for: {this.state}  
+                </div>
+                <br/>
+            <button onClick={logout}>Logout</button>
+            </div>
+        )
+    
     }
 }
 

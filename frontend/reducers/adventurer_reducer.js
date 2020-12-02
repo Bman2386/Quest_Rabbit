@@ -1,4 +1,4 @@
-import {RECEIVE_ADVENTURERS} from '../actions/adventurer';
+import {RECEIVE_ADVENTURERS, RECEIVE_ADVENTURER} from '../actions/adventurer';
 
 
 const adventurerReducer = (state = {}, action) => {
@@ -10,6 +10,8 @@ const adventurerReducer = (state = {}, action) => {
                 adventurers[adventurer.id] = adventurer;
             });
         return adventurers
+        case RECEIVE_ADVENTURER:
+        return Object.assign({}, state, action.adventurer)
         default:
             return state;
     }

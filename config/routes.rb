@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :create, :show, :update, :destoy]
     resources :categories, only: [:show, :index]
     resources :quests, only: [:index, :new, :create, :show, :update]
+    resources :reviews, only: [:index, :new, :create, :show]
     resource :session, only: [:create, :destroy]
   end
   root to: 'root#root'

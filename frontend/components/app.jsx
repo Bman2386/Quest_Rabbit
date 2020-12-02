@@ -26,7 +26,7 @@ export default () => (
     <ProtectedRoute path="/quest" component={QuestForm} />
     <ProtectedRoute path='/quests' component={QuestPage} />
     <ProtectedRoute path='/edit/:questId' component={EditQuest} />
-    <ProtectedRoute path="/users/:userId" component={ProfileComponent} />
+    <ProtectedRoute path="/user" component={ProfileComponent} />
     <ProtectedRoute path="/delete/:questId" component={CancelQuest} />
     <Footer />
   </div>

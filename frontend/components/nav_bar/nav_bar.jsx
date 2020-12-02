@@ -27,9 +27,9 @@ class NavBar extends React.Component {
                categories={categories}
                 /> : <div></div>
             }
-            <h3>Welcome {currentUser.username}!</h3>
+            <Link to='/quest'>New Quest</Link>
             <Link to='/quests'>Your Quests</Link>
-            <button onClick={logout}>Logout</button>
+            <Link to='/user'>Account</Link>
           </div>
         ) : (
           <div className="nav-bar">
