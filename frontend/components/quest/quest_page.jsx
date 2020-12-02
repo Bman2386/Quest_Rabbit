@@ -21,15 +21,13 @@ class QuestPage extends React.Component {
             const last = quests.pop();
             const newLast = Object.assign({}, {extract: last})
             quests.push(newLast);
-            debugger
             
         }
             quests.forEach(quest => {
                 if(quest && quest.extract && quest.extract.completed === true){
                     let idx = quests.indexOf(quest)
                 quests.slice(1, idx);
-                    console.log(quests)
-                    debugger
+    
             }
         })
        
