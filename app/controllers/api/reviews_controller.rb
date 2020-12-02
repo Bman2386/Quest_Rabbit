@@ -15,6 +15,7 @@ class Api::ReviewsController < ApplicationController
             render :show
         else
             render json: @review.errors.full_messages, status: 401
+        end
     end
 
     def show
