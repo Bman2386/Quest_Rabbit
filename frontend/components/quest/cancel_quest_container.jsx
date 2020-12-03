@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import CancelQuest from './cancel_quest';
-import { updateQuest, fetchQuest } from '../../actions/quest'
-import {fetchAdventurers} from '../../actions/adventurer'
+import { updateQuest, fetchQuest } from '../../actions/quest';
+import {updateAdventurer} from '../../actions/adventurer';
+import {createReview} from '../../actions/review'
 
 const mSTP = (state, ownProps) => {
     const creatorId = state.session.currentUser.id;
@@ -21,7 +22,8 @@ const mSTP = (state, ownProps) => {
 const mDTP = dispatch => ({
     updateQuest: quest => dispatch(updateQuest(quest)),
     fetchQuest: questId => dispatch(fetchQuest(questId)),
-    fetchAdventurers: () => dispatch(fetchAdventurers())
+    updateAdventurer:adId => dispatch(updateAdventurer(adId)),
+    createReview: review => dispatch(createReview(review))
 })
 
 export default connect(mSTP, mDTP)(CancelQuest);

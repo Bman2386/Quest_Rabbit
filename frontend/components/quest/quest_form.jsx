@@ -15,12 +15,15 @@ class QuestForm extends React.Component {
             completed: 'false',
             adventurer_id: '',
             status: 1,
-            date: new Date()
+            date: new Date(),
+            review: "false",
+            selectedId: '1'
         }  
 
         this.date = this.state.date
 
        this.adv = this.props.fetchAdventurers();
+
        this.next = this.next.bind(this);
        this.back = this.back.bind(this);
        this.handleChange = this.handleChange.bind(this);
@@ -30,14 +33,16 @@ class QuestForm extends React.Component {
        this.addCurrentMonth = this.addCurrentMonth.bind(this); 
        this.handleDay = this.handleDay.bind(this); 
        this.handleHour = this.handleHour.bind(this);
+       this.selectAdv = this.selectAdv.bind(this);
     }
 
      next() {
          this.setState({status: (this.state.status += 1)});
+         this.props.fetchAdventurers();
         }
 
     back() {
-        this.setState({status: this.state.status -= 1})
+        this.setState({status: this.state.status -= 1, review: 'false'})
         }
     // componentDidMount(){
     //     this.props.fetchAdventurers()
@@ -59,8 +64,19 @@ class QuestForm extends React.Component {
 
 
     select(input){
-        this.setState({adventurer_id: input})
+        this.setState({adventurer_id: input});
         this.next();
+    }
+
+    selectAdv(input){
+      // const {selectedId, review} = this.state 
+    //  this.setState({selectedId: input, review: 'true'});
+    const num = input
+      this.setState((state) => {
+        return {selectedId: num, review: true }
+      })
+      this.props.fetch(num);
+      this.props.show();
     }
 
     handleDay(day){
@@ -100,10 +116,11 @@ class QuestForm extends React.Component {
     }
 
     render(){
-        const {status} = this.state;
-        const { quest_name, category_id, details, start_time, adventurer_id, date } = this.state;
-        const values = { quest_name, category_id, details, start_time, adventurer_id, date };
+        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selectedId } = this.state;
+        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selectedId };
         const {adventurers} = this.props;
+        const {adv} = this.props;
+        const {reviews} =this.props;
 
         const months = [
           "January",
@@ -201,6 +218,9 @@ class QuestForm extends React.Component {
                 select = {this.select}
                 back = {this.back}
                 adv = {adventurers}
+                selectAdv={this.selectAdv}
+                adv1 = {adv}
+                reviews={reviews}
                 />
               )
             

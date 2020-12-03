@@ -2,18 +2,53 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PartTwo = props => {
-    const { values, select, back, adv } = props;
+    const { values, select, back, adv, selectAdv, adv1, reviews} = props;
     const logo = window.logo;
+
+    const isElite = (elite) =>{
+        if (elite === true){
+            return 'Elite Adventurer'
+        } else {
+            return ''
+        }
+    }
+
     const list = () => {
         const names = adv.map(ad => 
             <div className="hero-container" key={ad.id}>
               <p  className="p">{ad.username}</p>
-              <p className="p">(reviews coming soon)</p>  
-              <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(ad.id)}>Select</button>
+            <p className="p">{isElite(ad.elite)}</p>
+            <p className="p">Rating: {ad.avg_rating}</p> 
+            <p className="p">Total Reviews: {ad.total_ratings}</p>
+            <hr/>
+            <p className="p">How I can Help:</p>
+            <p className="p">{ad.pitch}</p> 
+            <button onClick={() => selectAdv(ad.id)}>See Reviews</button>
+              <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(ad.id)}>Select and Continue</button>
            </div>
         
         ) 
-        return names
+
+        const allReviews = () => {
+            reviews.map(review =>{
+            <div>{`${review}`}</div>
+            })
+            
+        }
+        const adReviews = () =>{
+           
+            return (
+                <div>
+                    Adventurer info:
+            <div>{`${adv1.username}`}</div>
+            <div>{`${adv1.pitch}`}</div>
+                    <div>Reviews:</div>
+                    {allReviews()}
+                </div>
+            )
+                
+        }
+        return values.review === true ? adReviews() : names
     }
 
     return (
@@ -35,6 +70,7 @@ const PartTwo = props => {
             </ul>
             <hr/>
             <button onClick={back} className="back-button">Back</button>
+            <div>See reviews:{`${values.review}`}</div>
             {list()}
             
         </div>
