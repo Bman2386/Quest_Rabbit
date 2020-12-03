@@ -3,8 +3,8 @@ class Api::UsersController < ApplicationController
 
 
     def index
-      users = User.all
-      @adventurers = users.where(adventurer: true)
+      temp = User.all
+      @users = temp.where(adventurer: true)
       render :index
    end
 
@@ -20,6 +20,7 @@ class Api::UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        render :show
     end
 
     def update
@@ -45,6 +46,15 @@ class Api::UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:username, :password, :adventurer)
+        params.require(:user).permit(
+          :username,
+          :password,
+          :adventurer,
+          :avg_rating,
+          :elite,
+          :pitch,
+          :family_crest,
+          :realm,
+          :star_sign)
     end
 end

@@ -8,7 +8,14 @@ class Signup extends React.Component {
         this.state = {
           username: '',
           password: '',
-          adventurer: false
+          adventurer: false,
+          avg_rating: 0,
+          total_ratings: 0,
+          elite: false,
+          pitch: 'null',
+          family_crest: '',
+          realm: '',
+          star_sign: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -65,6 +72,21 @@ class Signup extends React.Component {
               value={this.state.password}
               onChange={this.handleInput('password')}
               placeholder="Password"
+            />
+            <input type="text"
+            value={this.state.family_crest}
+            onChange={this.handleInput('family_crest')}
+            placeholder="family_crest"
+            />
+            <input type="text"
+            value={this.state.realm}
+            onChange={this.handleInput('realm')}
+            placeholder="realm ex, Earth"
+            />
+            <input type="text"
+            value={this.state.star_sign}
+            onChange={this.handleInput('star_sign')}
+            placeholder="Star Sign ex, Libra"
             />
             <button onClick={this.handleSubmit}>Create Account</button>
         </form>

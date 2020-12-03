@@ -1,13 +1,15 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import ProfileComponent from './profile';
 import { logout } from '../../actions/session';
 
-const mSTP = (state, ownProps) => {
-
+const mSTP = (state) => {
+    const user= state.session.currentUser 
+    
     return ({
-       user: state.session.currentUser, 
-       username: state.session.currentUser.username
+        username: user.username,
+        family_crest: user.family_crest,
+        realm: user.realm,
+        star_sign: user.star_sign
     })
     
 }

@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.delete_all
 User.delete_all
+Review.delete_all
+Quest.delete_all
 
 fetch = Category.create({
     id: 1,
@@ -35,24 +37,53 @@ slay = Category.create({
 guest = User.create({
     username: 'Guest',
     password: 'hunter12',
-    adventurer: false
+    adventurer: false,
+    avg_rating: 0,
+    total_ratings: 0,
+    elite: false,
+    pitch: 'null',
+    family_crest: 'Raven',
+    realm: 'Earth',
+    star_sign: 'North Star' 
 })
 
 hercules = User.create({
     username: 'Hercules',
     password: 'hunter12',
-    adventurer: true
+    adventurer: true,
+    avg_rating: 0,
+    total_ratings: 0,
+    elite: false,
+    pitch: 'I am the strongest there is!',
+    family_crest: 'Zues',
+    realm: 'Divinity',
+    star_sign: 'Ox'
 })
 
 goblin_slayer = User.create({
     username: 'Goblin Slayer',
     password: 'hunter12',
-    adventurer: true
+    adventurer: true,
+    avg_rating: 0,
+    total_ratings: 0,
+    elite: true,
+    pitch: "I'll slay anything, especially goblins",
+    family_crest: 'Sword and Shield',
+    realm: 'Darkness',
+    star_sign: 'Leo'
 })
 
 isaac_newton = User.create({
     username: 'Isaac Newton',
     password: 'hunter12',
-    adventurer: true
+    adventurer: true,
+    avg_rating: 0,
+    total_ratings: 0,
+    elite: false,
+    pitch: 'I can create math for all uses and applications',
+    family_crest: 'Owl',
+    realm: 'Earth',
+    star_sign: 'Capricorn'
 })
+
 

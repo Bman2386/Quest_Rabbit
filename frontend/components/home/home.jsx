@@ -7,7 +7,7 @@ const hero = window.hero
   <div className="home">
     <div className="hero-img-frame">
       <img className="hero-image" src={hero} />
-      <form className="splash-form">
+      <form className="splash-form" id="form1">
       <h1>Help when you need it, at your fingertips</h1>
       <p>Get help from hundreds of trusted adventurers for everything from errands to slaying a dragon.</p>
          <div>

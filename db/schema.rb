@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_211637) do
+ActiveRecord::Schema.define(version: 2020_12_03_155137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2020_12_01_211637) do
     t.boolean "adventurer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "avg_rating"
+    t.integer "total_ratings"
+    t.boolean "elite"
+    t.string "pitch"
+    t.string "family_crest"
+    t.string "realm"
+    t.string "star_sign"
     t.index ["session_token"], name: "index_users_on_session_token"
     t.index ["username"], name: "index_users_on_username"
   end
