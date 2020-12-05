@@ -27,7 +27,11 @@ export const fetchAdventurer = userId => dispatch => (
     .then(adventurer => dispatch(receiveAdventurer(adventurer)))
 )
 
-export const updateAdventurer = adventurer => dispatch => (
-    updateUser(adventurer)
-    .then(adventurer => dispatch(receiveAdventurer(adventurer)))
-)
+export const updateAdventurer = adventurer => dispatch => {
+    
+    return (
+       updateUser(adventurer)
+    .then(adventurer => dispatch(receiveAdventurer(adventurer))) 
+    )
+}
+    

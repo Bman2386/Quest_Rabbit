@@ -30,11 +30,43 @@ const PartTwo = props => {
         ) 
 
         const allReviews = () => {
-            reviews.map(review =>{
-            <div>{`${review}`}</div>
-            })
+        
+           const allR= ()=>{
+               if(reviews.length > 0 && adv1){
+                   debugger
+                const num = reviews.map(review =>{
+                    const arr = [];
+                    if (review.extract.adventurer_id === adv1.id){
+                        arr.push(review)
+                    }
+                    return arr
+                });
+                if (num.length > 0){
+                 
+                    const advReviews = num.map(review =>
+                  <div key={review[0].extract.id}>
+                    <div>Review By: {`${review[0].extract.user_id}`}</div>
+                    <div>Rating: {`${review[0].extract.rating}`}</div>
+                    <div>body: {`${review[0].extract.body}`}</div>  
+                  </div>
+            )
+            return advReviews
+        } else {
+            return (
+                <div>No Reviews Yet</div>
+            )
+        }}} 
+            if (reviews.length > 0){
+             
+            return allR();
+            } else {
+                return (
+                    <div>No Reviews Yet</div>
+                )
+            }
             
-        }
+            
+        } 
         const adReviews = () =>{
            
             return (
@@ -42,6 +74,7 @@ const PartTwo = props => {
                     Adventurer info:
             <div>{`${adv1.username}`}</div>
             <div>{`${adv1.pitch}`}</div>
+            <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(adv1.id)}>Select and Continue</button>
                     <div>Reviews:</div>
                     {allReviews()}
                 </div>
@@ -70,7 +103,6 @@ const PartTwo = props => {
             </ul>
             <hr/>
             <button onClick={back} className="back-button">Back</button>
-            <div>See reviews:{`${values.review}`}</div>
             {list()}
             
         </div>

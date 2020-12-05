@@ -51,6 +51,7 @@ class Api::UsersController < ApplicationController
           :password,
           :adventurer,
           :avg_rating,
+          :total_ratings,
           :elite,
           :pitch,
           :family_crest,

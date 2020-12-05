@@ -14,8 +14,8 @@ export const getReview = reviewId => (
 
 export const createReview = review => (
     $.ajax({
-        url: `/api/reviews/${review.id}`,
-        method: 'PATCH',
+        url: `/api/reviews`,
+        method: 'POST',
         data: {review}
     })
 )

@@ -77,6 +77,7 @@ class QuestForm extends React.Component {
       })
       this.props.fetch(num);
       this.props.show();
+      debugger
     }
 
     handleDay(day){

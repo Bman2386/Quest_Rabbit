@@ -19,8 +19,11 @@ class QuestPage extends React.Component {
         
         if (quests && quests.length > 1 && !quests[quests.length -1].extract){
             const last = quests.pop();
-            const newLast = Object.assign({}, {extract: last})
+            
+            const newLast = Object.assign({}, {extract: last});
+            
             quests.push(newLast);
+            
             
         }
             quests.forEach(quest => {
@@ -32,31 +35,35 @@ class QuestPage extends React.Component {
         })
        
         const show = () => {
-          const list = quests.map(quest =>
-                 <div key={quest.extract.id} className='quest-name'>
-                    <p>{quest.extract.quest_name}</p>
-                    <p>{quest.extract.start_time}</p>
-                    <p>{quest.extract.details}</p>
-                    <p>{quest.extract.completed}</p>
-                    <Link 
-                    to={`/edit/${quest.extract.id}`}
-                    className="btn-4" 
-                    questid={quest.extract.id}
-                    >Edit</Link>
-                    <Link 
-                    to={`/delete/${quest.extract.id}`}
-                    className="btn-4" 
-                    questid={quest.extract.id}
-                    >Cancel Quest</Link>
+
+            if (quests && quests.length > 0){
+                const list = quests.map(quest =>
+                    <div key={quest.extract.id} className='quest-name'>
+                        <p>{quest.extract.quest_name}</p>
+                        <p>{quest.extract.start_time}</p>
+                        <p>{quest.extract.details}</p>
+                        <p>{quest.extract.completed}</p>
+                        <Link 
+                        to={`/edit/${quest.extract.id}`}
+                        className="btn-4" 
+                        questid={quest.extract.id}
+                        >Edit</Link>
+                        <Link 
+                        to={`/delete/${quest.extract.id}`}
+                        className="btn-4" 
+                        questid={quest.extract.id}
+                        >Cancel Quest</Link>
                 </div>
             )
             return list
+            } else {
+               return(
+                   <h1>No quests Yet</h1>
+               ) 
+            }
         }
-        return (
-            quests && quests.length > 0  ? 
-            show()
-        : <h1>No quests Yet</h1>
-        )}
+        return show();
+    }
 
     render(){
      
