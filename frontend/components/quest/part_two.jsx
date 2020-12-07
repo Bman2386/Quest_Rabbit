@@ -56,7 +56,7 @@ const PartTwo = props => {
                         if (review[0]){
                             return (
                                <div key={review[0].extract.id}>
-                    <div>Review By: {`${review[0].extract.user_id}`}</div>
+                    <div>Review By: User#{`${review[0].extract.user_id}`}</div>
                     <div>Rating: {`${review[0].extract.rating}`}</div>
                     <div>body: {`${review[0].extract.body}`}</div>  
                   </div> 

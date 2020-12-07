@@ -5,30 +5,28 @@ class ProfileComponent extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state ={ 
-            username: this.props.username,
-            family_crest: this.props.family_crest,
-            realm: this.props.realm,
-            star_sign: this.props.star_sign}
     }
 
+    componentDidMount(){
+        this.props.getUser(this.props.id)
+    }
     render() {
-        const {logout} = this.props
-        const {username, family_crest, realm, star_sign} = this.state
+        const {logout} = this.props;
+        const {username, family_crest, realm, star_sign} = this.props;
         return (
             <div className="quest-form">
                 <div className='quest-name'> 
-                <div>
-                    Username: {username}  
+                <div className='p'>
+                    Username: {`${username}`}  
                 </div>
-                <div>
-                    Family Crest: {family_crest}
+                <div className='p'>
+                    Family Crest: {`${family_crest}`}
                 </div>
-                <div>
-                    Realm: {realm}
+                <div className='p'>
+                    Realm: {`${realm}`}
                 </div>
-                <div>
-                    Star Sign: {star_sign}
+                <div className='p'>
+                    Star Sign: {`${star_sign}`}
                 </div>
                 <br/>
                 <Link onClick={logout} className='btn-4' to='/'>Logout</Link>

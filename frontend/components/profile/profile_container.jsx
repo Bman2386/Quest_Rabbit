@@ -1,21 +1,26 @@
 import { connect } from 'react-redux';
 import ProfileComponent from './profile';
 import { logout } from '../../actions/session';
+import {fetchAdventurer} from '../../actions/adventurer'
 
 const mSTP = (state) => {
     const user= state.session.currentUser 
-    
+    const ad = state.entities.adventurers
+    const details = ad ? ad : user
+    debugger
     return ({
         username: user.username,
-        family_crest: user.family_crest,
-        realm: user.realm,
-        star_sign: user.star_sign
+        family_crest: details.family_crest,
+        realm: details.realm,
+        star_sign: details.star_sign,
+        id: user.id
     })
     
 }
 
 const mDTP = dispatch => ({
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    getUser: (userId) => dispatch(fetchAdventurer(userId))
 })
 
 export default connect(mSTP, mDTP)(ProfileComponent)

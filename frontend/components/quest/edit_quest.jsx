@@ -17,10 +17,13 @@ class EditQuest extends React.Component {
         this.formSetter = this.formSetter.bind(this);
         this.update = this.update.bind(this);
         this.submit = this.submit.bind(this);
+        this.categoryShow = this.categoryShow.bind(this);
+        this.adShow = this.adShow.bind(this);
     }
 
     componentDidMount(){
         this.props.fetchQuest(this.props.questId);
+        this.props.fetchAdventurers();
     }
 
     formSetter(){
@@ -61,6 +64,27 @@ class EditQuest extends React.Component {
           this.setState({ [type]: e.target.value });
         };
       }
+
+      categoryShow() {
+        if (this.state.category_id === 1){
+            return 'Fetch'
+        } else if (this.state.category_id === 2){
+            return 'Craft'
+        } else if (this.state.category_id === 3){
+            return 'Escort'
+        } else if (this.state.category_id === 4){
+            return 'Slay'
+        }
+    }
+
+    adShow(){
+        const advs = this.props.adventurers;
+        if (advs.length > 0 && this.state.adventurer_id !== ''){
+            const firstId = advs[0].id;
+        const ad = advs[this.state.adventurer_id - firstId]
+        return ad.username
+        }
+    }
     render(){
         const {quest_name,
             category_id,
@@ -88,20 +112,15 @@ class EditQuest extends React.Component {
                onChange={this.update('details')}
                className='input'
                />
-        <select className="select" name={category_id} onChange={this.update('category_id')}>
-                        <option value="1" >Fetch</option>
-                        <option value="2" >Craft</option>
-                        <option value="3" >Escort</option>
-                        <option value="4" >Slay</option>
-                </select> 
-        <p>{`${start_time}`}</p>
+        <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
+        <p className='p'>Start Time: {`${start_time}`}</p>
         <input type="text"
         value={start_time}
         onChange={this.update('start_time')}
         placeholder={start_time}/>
 
-        <p>{`${adventurer_id}`}</p>
-        <Link  className="btn-4" to="/quests" onClick={() => this.submit()}>Submit</Link>
+        <p className='p'>Adventurer: {this.adShow()}</p>
+        <Link  className="btn-4" to="/" onClick={() => this.submit()}>Submit</Link>
             </div> 
         )
         

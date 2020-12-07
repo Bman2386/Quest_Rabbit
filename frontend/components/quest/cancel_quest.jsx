@@ -94,7 +94,7 @@ class CancelQuest extends React.Component {
           return(
               <div>
                   <div>By clicking submit you are cancelling your quest, are you sure you want to cancel?</div>
-                <Link  className="btn-4" to="/quests" onClick={() => this.submit()}>Confirm</Link>  
+                <Link  className="btn-4" to="/" onClick={() => this.submit()}>Confirm</Link>  
               </div>
           )
         
@@ -118,18 +118,19 @@ class CancelQuest extends React.Component {
              } 
 
              return(
-                 <div>
+                 <div className='form'>
                      Your Quest
-        <p>{`${quest_name}`}</p>
-        <p>{`${details}`}</p>
-        <p>{`${category_id}`}</p>
-        <p>{`${start_time}`}</p>
-        <p>{`${adventurer_id}`}</p> 
+        <p className='p'>Quest Name: {`${quest_name}`}</p>
+        <p className='p'>Details: {`${details}`}</p>
+        <p className='p'>Category: {`${category_id}`}</p>
+        <p className='p'>Start Time: {`${start_time}`}</p>
+        <p className='p'>Adventurer Id:{`${adventurer_id}`}</p> 
         <button onClick={() => this.next()}>Cancel Quest</button>
                  </div>
              )
       }
 
+     
       avgCalc(){
           
         const {rating, body, creator_id, adventurer_id} = this.state;
@@ -140,7 +141,7 @@ class CancelQuest extends React.Component {
             const el = Number(review.rating);
             const reviews = this.props.reviews;
             let sum = 0;
-            const oldTotal = reviews.forEach(ele =>{
+            reviews.forEach(ele =>{
                 if (ele.extract.adventurer_id === this.state.adventurer_id){
                     let temp = Number(ele.extract.rating)
                     sum += temp;
@@ -150,6 +151,7 @@ class CancelQuest extends React.Component {
             const avg = () => {
                 return ((sum + el)/ratings)
             }
+            debugger
             return avg()
       }
       submitReview(){
