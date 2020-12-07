@@ -35,14 +35,14 @@ class QuestPage extends React.Component {
         })
        
         const show = () => {
-
-            if (quests && quests.length > 0){
+            debugger
+            if (quests && quests.length > 0 && quests[0].extract){
                 const list = quests.map(quest =>
                     <div key={quest.extract.id} className='quest-name'>
                         <p>{quest.extract.quest_name}</p>
                         <p>{quest.extract.start_time}</p>
                         <p>{quest.extract.details}</p>
-                        <p>{quest.extract.completed}</p>
+                        <p>{`${quest.extract.category_id}`}</p>
                         <Link 
                         to={`/edit/${quest.extract.id}`}
                         className="btn-4" 

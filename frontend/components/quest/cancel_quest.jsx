@@ -105,7 +105,6 @@ class CancelQuest extends React.Component {
       }
 
       yourQuest(){
-          
          const {quest_name,
             category_id,
              details, 
@@ -149,7 +148,6 @@ class CancelQuest extends React.Component {
                 return sum;
             })
             const avg = () => {
-                debugger
                 return ((sum + el)/ratings)
             }
             return avg()
@@ -159,6 +157,7 @@ class CancelQuest extends React.Component {
             const review = {rating, body, user_id: creator_id, adventurer_id};
             const firstId = this.props.adventurers[0].id
             const adv = this.props.adventurers[this.state.adventurer_id - firstId];
+            debugger
             if (adv.total_ratings > 0){
                const ratings = adv.total_ratings += 1;
                const avg = this.avgCalc()
@@ -180,7 +179,6 @@ class CancelQuest extends React.Component {
       writeReview(){
         const firstId = this.props.adventurers[0].id
         const adv = this.props.adventurers[this.state.adventurer_id - firstId];
-       
         return(
             <div>
                 <label>Review for: {`${adv.username}`}</label>

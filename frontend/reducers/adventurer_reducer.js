@@ -11,7 +11,7 @@ const adventurerReducer = (state = {}, action) => {
             });
         return adventurers
         case RECEIVE_ADVENTURER:
-        return Object.assign({}, state, action.adventurer)
+        return Object.assign({}, action.adventurer)
         default:
             return state;
     }

@@ -17,7 +17,7 @@ class QuestForm extends React.Component {
             status: 1,
             date: new Date(),
             review: "false",
-            selectedId: '1'
+            selected: {}
         }  
 
         this.date = this.state.date
@@ -71,13 +71,13 @@ class QuestForm extends React.Component {
     selectAdv(input){
       // const {selectedId, review} = this.state 
     //  this.setState({selectedId: input, review: 'true'});
-    const num = input
-      this.setState((state) => {
-        return {selectedId: num, review: true }
-      })
-      this.props.fetch(num);
+    const firstId = this.props.adventurers[0].id;
+    const num = this.props.adventurers[input - firstId];
+      // this.setState((state) => {
+      //   return {selectedId: num, review: true }
+      // })
       this.props.show();
-      debugger
+      return this.setState({selected: num, review: true})
     }
 
     handleDay(day){
@@ -117,10 +117,9 @@ class QuestForm extends React.Component {
     }
 
     render(){
-        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selectedId } = this.state;
-        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selectedId };
+        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected } = this.state;
+        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selected };
         const {adventurers} = this.props;
-        const {adv} = this.props;
         const {reviews} =this.props;
 
         const months = [
@@ -220,7 +219,6 @@ class QuestForm extends React.Component {
                 back = {this.back}
                 adv = {adventurers}
                 selectAdv={this.selectAdv}
-                adv1 = {adv}
                 reviews={reviews}
                 />
               )

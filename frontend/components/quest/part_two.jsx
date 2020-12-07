@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PartTwo = props => {
-    const { values, select, back, adv, selectAdv, adv1, reviews} = props;
+    const { values, select, back, selectAdv, adv, reviews} = props;
     const logo = window.logo;
-
+    
     const isElite = (elite) =>{
         if (elite === true){
             return 'Elite Adventurer'
@@ -31,24 +31,39 @@ const PartTwo = props => {
 
         const allReviews = () => {
         
-           const allR= ()=>{
-               if(reviews.length > 0 && adv1){
-                   debugger
+           const allR = ()=>{
+              
+               if(reviews.length > 0){
                 const num = reviews.map(review =>{
                     const arr = [];
-                    if (review.extract.adventurer_id === adv1.id){
+                    if (review.extract.adventurer_id === values.selected.id){
                         arr.push(review)
+                       
                     }
-                    return arr
+                   return arr;
+                    
                 });
-                if (num.length > 0){
-                 
-                    const advReviews = num.map(review =>
-                  <div key={review[0].extract.id}>
+                const reviewsArr = num.map(el => {
+                    
+                    if (el.length < 0){
+                        num.pop(el)
+                    }
+                    return num
+                })
+                if (reviewsArr.length > 0 && values.selected){
+                   
+                    const advReviews = num.map(review => {
+                        if (review[0]){
+                            return (
+                               <div key={review[0].extract.id}>
                     <div>Review By: {`${review[0].extract.user_id}`}</div>
                     <div>Rating: {`${review[0].extract.rating}`}</div>
                     <div>body: {`${review[0].extract.body}`}</div>  
-                  </div>
+                  </div> 
+                            )
+                        }
+                    }
+                  
             )
             return advReviews
         } else {
@@ -56,7 +71,7 @@ const PartTwo = props => {
                 <div>No Reviews Yet</div>
             )
         }}} 
-            if (reviews.length > 0){
+            if (reviews.length > 0 && values.selected){
              
             return allR();
             } else {
@@ -68,13 +83,12 @@ const PartTwo = props => {
             
         } 
         const adReviews = () =>{
-           
             return (
                 <div>
                     Adventurer info:
-            <div>{`${adv1.username}`}</div>
-            <div>{`${adv1.pitch}`}</div>
-            <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(adv1.id)}>Select and Continue</button>
+            <div>{`${values.selected.username}`}</div>
+            <div>{`${values.selected.pitch}`}</div>
+            <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(values.selected.id)}>Select and Continue</button>
                     <div>Reviews:</div>
                     {allReviews()}
                 </div>
