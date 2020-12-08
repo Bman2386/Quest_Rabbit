@@ -8,7 +8,7 @@ class QuestForm extends React.Component {
         super(props)
         this.state = {
             quest_name: '',
-            category_id: '1',
+            category_id: '',
             details: '',
             creator_id: this.props.creatorId,
             start_time: '',
@@ -239,6 +239,7 @@ class QuestForm extends React.Component {
                 monthDays = {monthDays}
                 back={this.back}
                 submit={this.handleSubmit}
+                adv={adventurers}
                 />
               )
           }

@@ -39,12 +39,45 @@ const PartOne = (props) => {
                 </div>
             <div className="quest-name">
                 <label htmlFor="Category" className="label">Category of your Quest:</label>
-                <select className="select" name={values.category_id} onChange={handleChange('category_id')}>
-                        <option value="1" >Fetch</option>
-                        <option value="2" >Craft</option>
-                        <option value="3" >Escort</option>
-                        <option value="4" >Slay</option>
-                </select>    
+                <div className='radio-container'>
+                    <label className='radio'>
+                    Fetch
+                    <input type="radio"
+                    className='radio'
+                    value={1}
+                    name='Fetch'
+                    checked={values.category_id === '1'}
+                    onChange={handleChange('category_id')}/>
+                </label>
+                <label className='radio'>
+                    Craft
+                    <input type="radio"
+                    className='radio'
+                    value={2}
+                    name='Craft'
+                    checked={values.category_id === '2'}
+                    onChange={handleChange('category_id')}/>
+                </label>
+                <label className='radio'>
+                    Escort
+                    <input type="radio"
+                    className='radio'
+                    value={3}
+                    name='Escort'
+                    checked={values.category_id === '3'}
+                    onChange={handleChange('category_id')}/>
+                </label>
+                <label className='radio'>
+                    Slay
+                    <input type="radio"
+                    className='radio'
+                    value={4}
+                    name='Slay'
+                    checked={values.category_id === '4'}
+                    onChange={handleChange('category_id')}/>
+                </label>  
+                </div>
+                 
             </div>
             <div className="quest-name">
                 <label htmlFor="details" className="label">Details:</label>

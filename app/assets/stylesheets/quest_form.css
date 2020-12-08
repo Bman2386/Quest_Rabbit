@@ -185,3 +185,14 @@
     display: flex;
 }
 
+.radio-container{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-bottom: 2%;
+}
+
+.radio{
+    color: black;
+    margin: 8px;
+}

@@ -31,12 +31,35 @@ const Hours = [
 // import {today, monthDays} from './calendar'
 
 const PartThree = props => {
-    const {values, handleChange, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour} = props;
+    const {values, handleChange, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour, adv} = props;
     const logo = window.logo;
     const date = today.date;
     const month = today.month;
     const days = monthDays();
     const { quest_name, category_id, details, start_time, adventurer_id } = values
+
+    const categoryShow = (category) => {
+        switch (category) {
+            case '1':
+            return 'Fetch';
+            case '2':
+            return 'Craft';
+            case '3':
+            return 'Escort';
+            case '4':
+            return 'Slay';
+            default:
+            return 'Need to select Category'
+        }
+    }
+
+    const advShow = (adventurer) => {
+        const first = adv[0].id;
+        const name = adv[adventurer - first].username;
+        return (
+        name
+        )
+    }
 
     return (
         
@@ -92,10 +115,10 @@ const PartThree = props => {
             onChange={(event) => handleHour(event)}/>
                <ul className="quest-details">
                     <li className="orders">Quest Name: {quest_name}</li>
-                    <li className="orders">Category: {category_id}</li>
+                    <li className="orders">Category: {categoryShow(category_id)}</li>
                     <li className="orders">Details: {details}</li>
                     <li className="orders">Start Time: {`${start_time}`}</li>
-                    <li className="orders">Adventurer: {adventurer_id}</li>
+                    <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
                </ul>
                <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link>
             </div>
