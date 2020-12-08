@@ -42,7 +42,11 @@ class QuestForm extends React.Component {
         }
 
     back() {
-        this.setState({status: this.state.status -= 1, review: 'false'})
+      if (this.state.status === 2 && this.state.review === true){
+        return this.setState({review: 'false', selected: {}})
+      }else{
+        return this.setState({status: this.state.status -= 1, review: 'false'})
+      }
         }
     // componentDidMount(){
     //     this.props.fetchAdventurers()

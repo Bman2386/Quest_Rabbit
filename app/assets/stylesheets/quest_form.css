@@ -144,3 +144,44 @@
 .select2{
     margin-left: 1rem;
 }
+
+.star{
+    height: 1rem;
+    width: 1rem;
+}
+
+.rating{
+    margin-left: 1%;
+}
+
+.rating-container{
+    display: flex;
+    color: black;
+    margin-left: 1rem;
+    width: 80%;
+
+}
+
+.adv-img{
+    border-radius: 50%;
+    height: 30vh;
+    width: 30vh;
+    margin: 2%;
+    object-fit: cover;
+}
+
+.hero-name{
+    font-size: larger;
+    font-weight: bold;
+    margin-right: 10%;
+}
+
+.hero-details{
+    margin-left: 10%;
+    color: black;
+}
+
+.top-hero{
+    display: flex;
+}
+

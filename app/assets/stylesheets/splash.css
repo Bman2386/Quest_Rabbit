@@ -28,7 +28,9 @@ form > p {
     color: black;
     text-align: center;
 }
-
+.bar{
+    width: 90%;
+}
 .hero-search-bar {
     border: 1px solid lightgray;
     margin: 8px;

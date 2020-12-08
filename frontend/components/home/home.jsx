@@ -10,7 +10,7 @@ const hero = window.hero
       <form className="splash-form" id="form1">
       <h1>Help when you need it, at your fingertips</h1>
       <p>Get help from hundreds of trusted adventurers for everything from errands to slaying a dragon.</p>
-         <div>
+         <div className="bar">
             <input 
                     type="text"
                     placeholder="I need help with..."
