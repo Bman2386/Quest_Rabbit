@@ -100,27 +100,36 @@ class EditQuest extends React.Component {
                  this.formSetter()  
              }
         return (
-           <div>
-               Edit Quest
-               <input type="text"
+           <div className='edit-quest-container'>
+               <h1 className='h1'>Edit Quest</h1>
+               <div className='label-2'>
+                   <div className='type'>Quest Name:</div>
+                   <input type="text"
                value={quest_name}
                onChange={this.update('quest_name')}
-               className='input'
+               className='input2'
                />
-                <textarea
+               </div>
+               <div className='label-2'>
+                <div className='type'>Details:</div>
+                 <textarea
                value={details}
                onChange={this.update('details')}
-               className='input'
+               className='textarea2'
                />
-        <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
-        <p className='p'>Start Time: {`${start_time}`}</p>
-        <input type="text"
+               </div>
+                   <div className='label-2'>
+                       <div className='type'>Start Time:</div>
+                        <input type="text"
         value={start_time}
         onChange={this.update('start_time')}
-        placeholder={start_time}/>
-
+        placeholder={start_time}
+        className='input2'/> 
+                   </div>
+              
+        <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
         <p className='p'>Adventurer: {this.adShow()}</p>
-        <Link  className="btn-4" to="/" onClick={() => this.submit()}>Submit</Link>
+        <Link  className="btn-4" to="/"  id='margin' onClick={() => this.submit()}>Submit</Link>
             </div> 
         )
         

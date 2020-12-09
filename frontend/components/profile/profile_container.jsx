@@ -7,7 +7,7 @@ const mSTP = (state) => {
     const user= state.session.currentUser 
     const ad = state.entities.adventurers
     const details = ad ? ad : user
-    debugger
+   
     return ({
         username: user.username,
         family_crest: details.family_crest,

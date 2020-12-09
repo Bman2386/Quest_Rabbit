@@ -33,7 +33,7 @@ class QuestPage extends React.Component {
     adShow(quest){
          const advs = this.props.adventurers;
         if (advs.length === 3 && quest.extract.adventurer_id !== ''){
-            debugger    
+              
            
             const firstId = advs[0].id;
         const ad = advs[quest.extract.adventurer_id - firstId]
@@ -69,22 +69,23 @@ class QuestPage extends React.Component {
     show(quests) {
         
             if (quests && quests.length > 0 && quests[0].extract){
-                debugger
                 const list = quests.map(quest =>
                     <div key={quest.extract.id} className='quest-name'>
-                        <p className='p'>{quest.extract.quest_name}</p>
+                        <p className='p'> Quest Name: {quest.extract.quest_name}</p>
+                        <p className='p'>Details: {quest.extract.details}</p>
                         <p className='p'>Start Time: {quest.extract.start_time}</p>
-                        <p className='p'>{quest.extract.details}</p>
                         <p className='p'>Category: {this.categoryShow(quest)}</p>
                         <p className='p'>Adventurer: {this.adShow(quest)}</p>
                         <Link 
                         to={`/edit/${quest.extract.id}`}
                         className="btn-4" 
+                        id='margin'
                         questid={quest.extract.id}
-                        >Edit</Link>
+                        >Edit Quest</Link>
                         <Link 
                         to={`/delete/${quest.extract.id}`}
                         className="btn-4" 
+                        id='margin'
                         questid={quest.extract.id}
                         >Cancel Quest</Link>
                 </div>
@@ -92,7 +93,7 @@ class QuestPage extends React.Component {
             return list
             } else {
                return(
-                   <h1>No quests Yet</h1>
+                   <h1 className='p'>No quests Yet</h1>
                ) 
             }
         }

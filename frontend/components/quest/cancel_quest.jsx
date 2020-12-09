@@ -24,6 +24,7 @@ class CancelQuest extends React.Component {
         this.writeReview = this.writeReview.bind(this);
         this.submitReview = this.submitReview.bind(this);
         this.avgCalc = this.avgCalc.bind(this);
+        this.categoryShow = this.categoryShow.bind(this);
     }
 
     componentDidMount(){
@@ -92,8 +93,8 @@ class CancelQuest extends React.Component {
 
       finalPart(){
           return(
-              <div>
-                  <div>By clicking submit you are cancelling your quest, are you sure you want to cancel?</div>
+              <div className='hero-container'>
+                  <div className='orders'>By clicking submit you are cancelling your quest, are you sure you want to cancel?</div>
                 <Link  className="btn-4" to="/" onClick={() => this.submit()}>Confirm</Link>  
               </div>
           )
@@ -104,6 +105,17 @@ class CancelQuest extends React.Component {
           this.setState({status: (this.state.status += 1)})
       }
 
+      categoryShow() {
+        if (this.state.category_id === 1){
+            return 'Fetch'
+        } else if (this.state.category_id === 2){
+            return 'Craft'
+        } else if (this.state.category_id === 3){
+            return 'Escort'
+        } else if (this.state.category_id === 4){
+            return 'Slay'
+        }
+    }
       yourQuest(){
          const {quest_name,
             category_id,
@@ -116,16 +128,25 @@ class CancelQuest extends React.Component {
              if (quest && (this.state.quest_name === '')){
                  this.formSetter()  
              } 
-
+            const advName = () =>{
+               if (this.props.adventurers.length > 0){
+                const firstId = this.props.adventurers[0].id
+                const adv = this.props.adventurers[this.state.adventurer_id - firstId];
+                return adv.username
+             } else {
+                 return 'error'
+             }
+            }
+             
              return(
-                 <div className='form'>
-                     Your Quest
+                 <div className='hero-container'>
+                    <div className='h1'>Your Quest</div> 
         <p className='p'>Quest Name: {`${quest_name}`}</p>
         <p className='p'>Details: {`${details}`}</p>
-        <p className='p'>Category: {`${category_id}`}</p>
+        <p className='p'>Category: {this.categoryShow(category_id)}</p>
         <p className='p'>Start Time: {`${start_time}`}</p>
-        <p className='p'>Adventurer Id:{`${adventurer_id}`}</p> 
-        <button onClick={() => this.next()}>Cancel Quest</button>
+        <p className='p'>Adventurer: {`${advName()}`}</p> 
+        <button onClick={() => this.next()} id='margin'>Cancel Quest</button>
                  </div>
              )
       }
@@ -151,7 +172,6 @@ class CancelQuest extends React.Component {
             const avg = () => {
                 return ((sum + el)/ratings)
             }
-            debugger
             return avg()
       }
       submitReview(){
@@ -159,7 +179,6 @@ class CancelQuest extends React.Component {
             const review = {rating, body, user_id: creator_id, adventurer_id};
             const firstId = this.props.adventurers[0].id
             const adv = this.props.adventurers[this.state.adventurer_id - firstId];
-            debugger
             if (adv.total_ratings > 0){
                const ratings = adv.total_ratings += 1;
                const avg = this.avgCalc()
