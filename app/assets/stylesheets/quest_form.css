@@ -249,3 +249,32 @@
     margin: 2rem;
     height: 28rem;
 }
+
+.cancel-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.div{
+    margin: 2%;
+    text-align: start;
+}
+
+.textarea3{
+    width: 50vw;
+    height: 8rem;
+    border-radius: 2px;
+    margin-bottom: 8px;
+    filter: drop-shadow(1px 1px 1px grey);
+}
+
+.inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
+    width: 100%;
+    color: green;
+}

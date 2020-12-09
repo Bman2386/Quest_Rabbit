@@ -26,6 +26,7 @@ class CancelQuest extends React.Component {
         this.avgCalc = this.avgCalc.bind(this);
         this.categoryShow = this.categoryShow.bind(this);
         this.advName = this.advName.bind(this);
+        this.rating = this.rating.bind(this);
     }
 
     componentDidMount(){
@@ -200,72 +201,94 @@ class CancelQuest extends React.Component {
             this.props.createReview(review);
             this.next();
       }
+      rating() {
+        const star = window.star
+        const num = <img src={star} className='star'/>
+        const use = Number(this.state.rating);
+       
+        switch (use) {
+            case 1:
+            return num;
+            case 2:
+            return (
+                <div className='rating'>
+                    {num}{num}
+                </div>
+                );
+            case 3:
+            return (
+                <div className='rating'>
+                    {num}{num}{num}
+                </div>
+                );
+            case 4:
+            return(
+                <div className='rating'>
+                    {num}{num}{num}{num}
+                </div>
+                );
+            case 5:
+            return (
+                <div className='rating'>
+                    {num}{num}{num}{num}{num}
+                </div>
+                );                
+            default:
+            return '0'
+        }
+    }
+
       writeReview(){
         const firstId = this.props.adventurers[0].id
         const adv = this.props.adventurers[this.state.adventurer_id - firstId];
         return(
-            <div className='hero-container'>
+            <div className='cancel-form'>
                 <label className='h1'>Review for: {`${adv.username}`}</label>
-                <div>Rating:
-                    <br/>
-                    <label>
-                        1 Star 
-                        <input 
+                <div className='quest-name'>
+                <div className='orders' id='margin'>Rating:</div>
+                <div className='inputs'>
+                    <input 
                       type="radio"
                       value={1}
                       name="1 Star"
                       checked={this.state.rating === "1"}
                       onChange={this.update("rating")}/>  
-                    </label>
-                    <br/>
-                      <label>
-                          2 Stars
                            <input 
                       type="radio"  
                       value={2}
                       name="2 Stars"
                       checked={this.state.rating === "2"}
                       onChange={this.update("rating")}/>
-                      </label>
-                      <br/>
-                      <label>
-                          3 Stars
                            <input 
                       type="radio"  
                       value={3}
                       name="3 Stars"
                       checked={this.state.rating === "3"}
                       onChange={this.update("rating")}/>
-                      </label>
-                      <br/>
-                      <label>
-                          4 Stars
                            <input 
                       type="radio"  
                       value={4}
                       name="4 Stars"
                       checked={this.state.rating === "4"}
                       onChange={this.update("rating")}/>
-                      </label>
-                      <br/>
-                      <label>
-                          5 Stars
                            <input 
                       type="radio"  
                       value={5}
                       name="5 Stars"
                       checked={this.state.rating === "5"}
                       onChange={this.update("rating")}/>
-                      </label>
-                      <br/>
-                    
                 </div>
-                <label>
-                    Body:
+                <div className='inputs'>{this.rating()}</div>
+                <div className='inputs'>{`${this.state.rating}`} Stars</div>
+                </div>
+                <div className='div'>
                    <textarea
                    value={this.state.body}
+                   className='textarea3'
+                   placeholder={`${adv.username} did a great job at...`}
                    onChange={this.update("body")}/> 
-                </label>
+                </div>
+                
                 
                 <button onClick={() => this.submitReview()}>Submit Review</button>
             </div>
