@@ -25,6 +25,7 @@ class CancelQuest extends React.Component {
         this.submitReview = this.submitReview.bind(this);
         this.avgCalc = this.avgCalc.bind(this);
         this.categoryShow = this.categoryShow.bind(this);
+        this.advName = this.advName.bind(this);
     }
 
     componentDidMount(){
@@ -115,7 +116,17 @@ class CancelQuest extends React.Component {
         } else if (this.state.category_id === 4){
             return 'Slay'
         }
-    }
+    } 
+     advName(){
+               if (this.props.adventurers.length > 0 && this.state.adventurer_id){
+                const firstId = this.props.adventurers[0].id;
+                const adv = this.props.adventurers[this.state.adventurer_id - firstId];
+                return adv.username
+             } else {
+                 return ''
+             }
+            }
+
       yourQuest(){
          const {quest_name,
             category_id,
@@ -128,15 +139,7 @@ class CancelQuest extends React.Component {
              if (quest && (this.state.quest_name === '')){
                  this.formSetter()  
              } 
-            const advName = () =>{
-               if (this.props.adventurers.length > 0){
-                const firstId = this.props.adventurers[0].id
-                const adv = this.props.adventurers[this.state.adventurer_id - firstId];
-                return adv.username
-             } else {
-                 return 'error'
-             }
-            }
+           
              
              return(
                  <div className='hero-container'>
@@ -145,7 +148,7 @@ class CancelQuest extends React.Component {
         <p className='p'>Details: {`${details}`}</p>
         <p className='p'>Category: {this.categoryShow(category_id)}</p>
         <p className='p'>Start Time: {`${start_time}`}</p>
-        <p className='p'>Adventurer: {`${advName()}`}</p> 
+        <p className='p'>Adventurer: {`${this.advName()}`}</p> 
         <button onClick={() => this.next()} id='margin'>Cancel Quest</button>
                  </div>
              )
@@ -201,8 +204,8 @@ class CancelQuest extends React.Component {
         const firstId = this.props.adventurers[0].id
         const adv = this.props.adventurers[this.state.adventurer_id - firstId];
         return(
-            <div>
-                <label>Review for: {`${adv.username}`}</label>
+            <div className='hero-container'>
+                <label className='h1'>Review for: {`${adv.username}`}</label>
                 <div>Rating:
                     <br/>
                     <label>
