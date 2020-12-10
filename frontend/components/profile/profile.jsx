@@ -29,7 +29,7 @@ class ProfileComponent extends React.Component {
                     Star Sign: {`${star_sign}`}
                 </div>
                 <br/>
-                <Link onClick={logout} className='btn-4' to='/'>Logout</Link>
+                <Link onClick={logout} className='btn-4' to='/' id='margin'>Logout</Link>
             </div>
             </div>
             

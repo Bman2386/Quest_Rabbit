@@ -3,7 +3,14 @@
   <head>
     <title>QuestRabbit</title>
     <%= csrf_meta_tags %>
-
+     <meta property="og:title" content="Quest Rabbit" />
+     <meta property='og:image' content="<%= image_url('app_img.png') %>"/>
+     <meta property="og:description"
+       content="A clone of Task Rabbit."
+     />
+     <meta property="og:url"
+       content="http://quest-rabbit.herokuapp.com/"
+     />
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link rel="icon" type="image/png" href="<%= image_url('rabbit.png')%>"/>

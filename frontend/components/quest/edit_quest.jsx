@@ -19,6 +19,8 @@ class EditQuest extends React.Component {
         this.submit = this.submit.bind(this);
         this.categoryShow = this.categoryShow.bind(this);
         this.adShow = this.adShow.bind(this);
+        this.dateShow = this.dateShow.bind(this);
+        // this.changeDate = this.changeDate.bind(this);
     }
 
     componentDidMount(){
@@ -85,6 +87,33 @@ class EditQuest extends React.Component {
         return ad.username
         }
     }
+
+    dateShow(){
+        const {start_time} = this.state;
+        if (start_time !== ''){
+            const startDate = new Date(start_time)
+            // const [month, date, year] = startDate.toLocaleDateString("en-US").split("/")
+            // const day = questDay.getDay();
+            // const month = questDay.getMonth();
+            // const year = questDay.getYear();
+            return (
+            <div className='p'>{`${startDate}`}</div>
+            )
+        } else {
+            return ''
+        }
+    }
+
+    // changeDate(value, change){
+    //     switch (change) {
+    //         case 'month':
+    //             const 
+    //         return 
+        
+    //         default:
+    //             break;
+    //     }
+    // }
     render(){
         const {quest_name,
             category_id,
@@ -99,6 +128,7 @@ class EditQuest extends React.Component {
              if (quest && (this.state.quest_name === '')){
                  this.formSetter()  
              }
+
         return (
            <div className='edit-quest-container'>
                <h1 className='h1'>Edit Quest</h1>
@@ -119,14 +149,17 @@ class EditQuest extends React.Component {
                />
                </div>
                    <div className='label-2'>
-                       <div className='type'>Start Time:</div>
-                        <input type="text"
-        value={start_time}
-        onChange={this.update('start_time')}
-        placeholder={start_time}
-        className='input2'/> 
+                       {/* <div>Month</div>
+                       <select>
+                            <option 
+                            value="Jan"
+                            onChange={this.update('start_time')}>Jan</option>
+                            <option 
+                            value="Feb"
+                            onChange={this.update('start_time')}>Feb</option>
+                       </select> */}
                    </div>
-              
+        {this.dateShow()}
         <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
         <p className='p'>Adventurer: {this.adShow()}</p>
         <Link  className="btn-4" to="/"  id='margin' onClick={() => this.submit()}>Submit</Link>

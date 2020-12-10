@@ -14,7 +14,7 @@ const Hours = [
     {label: "9am", value:9},
     {label: "10am", value:10},
     {label: "11am", value:11},
-    {label: "12am", value:12},
+    {label: "12pm", value:12},
     {label: "1pm", value:13},
     {label: "2pm", value:14},
     {label: "3pm", value:15},
