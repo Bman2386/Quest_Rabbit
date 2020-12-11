@@ -20,7 +20,7 @@ class EditQuest extends React.Component {
         this.categoryShow = this.categoryShow.bind(this);
         this.adShow = this.adShow.bind(this);
         this.dateShow = this.dateShow.bind(this);
-        // this.changeDate = this.changeDate.bind(this);
+        this.changeDate = this.changeDate.bind(this);
     }
 
     componentDidMount(){
@@ -57,7 +57,17 @@ class EditQuest extends React.Component {
 
     // }
     submit(){
-        const quest = this.state;
+        const startTime = new Date(this.state.start_time)
+        const quest = {
+            id: this.state.id,
+            quest_name: this.state.quest_name,
+            category_id: this.state.category_id,
+            details: this.state.details,
+            creator_id: this.props.creatorId,
+            start_time: startTime,
+            completed: 'false',
+            adventurer_id: this.state.adventurer_id,
+        }
         this.props.updateQuest(quest);
     }
 
@@ -104,16 +114,42 @@ class EditQuest extends React.Component {
         }
     }
 
-    // changeDate(value, change){
-    //     switch (change) {
-    //         case 'month':
-    //             const 
-    //         return 
-        
-    //         default:
-    //             break;
-    //     }
-    // }
+    changeDate(event, change){
+        const {start_time} = this.state;
+        const startTime = new Date(start_time);
+        switch (change) {
+            case 'month':
+                const startMonth = startTime.setMonth(event.target.value);
+            return this.setState({start_time: startMonth});
+            case 'hour':
+                const starthour = startTime.setHours(event.target.value);
+            return this.setState({start_time: starthour});
+            case 'day':
+                const startDay = startTime.setDate(event.target.value);
+            return this.setState({start_time: startDay});
+            case 'minute':
+                const startMinute = startTime.setMinutes(event.target.value);
+            return this.setState({start_time: startMinute});
+            case 'convert':
+                let hour = startTime.getHours();
+                
+                if (event.target.value === 'AM'){
+                    
+                    if (hour > 12){
+                        hour -= 12
+                    }
+                } else {
+                    
+                    if (hour < 12){
+                        hour += 12
+                    }
+                }
+                const startHour = startTime.setHours(hour);
+            return this.setState({start_time: startHour});
+            default:
+                break;
+        }
+    }
     render(){
         const {quest_name,
             category_id,
@@ -149,15 +185,82 @@ class EditQuest extends React.Component {
                />
                </div>
                    <div className='label-2'>
-                       {/* <div>Month</div>
-                       <select>
-                            <option 
-                            value="Jan"
-                            onChange={this.update('start_time')}>Jan</option>
-                            <option 
-                            value="Feb"
-                            onChange={this.update('start_time')}>Feb</option>
-                       </select> */}
+                       <select onChange={(event) => this.changeDate(event, 'month')} value={this.state.start_time}>
+                           <option value="">Month</option>
+                            <option value={0}>Jan</option>
+                            <option value={1}>Feb</option>
+                            <option value={2}>Mar</option>
+                            <option value={3}>Apr</option>
+                            <option value={4}>May</option>
+                            <option value={5}>Jun</option>
+                            <option value={6}>July</option>
+                            <option value={7}>Aug</option>
+                            <option value={8}>Sept</option>
+                            <option value={9}>Oct</option>
+                            <option value={10}>Nov</option>
+                            <option value={11}>Dec</option>
+                       </select>
+                       <select onChange={event => this.changeDate(event, 'day')} value={this.state.start_time}>
+                           <option value="">Day</option>
+                           <option value={1}>1</option>
+                           <option value={2}>2</option>
+                           <option value={3}>3</option>
+                           <option value={4}>4</option>
+                           <option value={5}>5</option>
+                           <option value={6}>6</option>
+                           <option value={7}>7</option>
+                           <option value={8}>8</option>
+                           <option value={9}>9</option>
+                           <option value={10}>10</option>
+                           <option value={11}>11</option>
+                           <option value={12}>12</option>
+                           <option value={13}>13</option>
+                           <option value={14}>14</option>
+                           <option value={15}>15</option>
+                           <option value={16}>16</option>
+                           <option value={17}>17</option>
+                           <option value={18}>18</option>
+                           <option value={19}>19</option>
+                           <option value={20}>20</option>
+                           <option value={21}>21</option>
+                           <option value={22}>22</option>
+                           <option value={23}>23</option>
+                           <option value={24}>24</option>
+                           <option value={25}>25</option>
+                           <option value={26}>26</option>
+                           <option value={27}>27</option>
+                           <option value={28}>28</option>
+                           <option value={29}>29</option>
+                           <option value={30}>30</option>
+                           <option value={31}>31</option>
+                       </select>
+                       <select onChange={event => this.changeDate(event, 'hour')} value={this.state.start_time}>
+                            <option value="">Hour</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                            <option value={11}>11</option>
+                            <option value={12}>12</option>
+                       </select>
+                       <select onChange={event => this.changeDate(event, 'convert')} value={this.state.start_time}>
+                            <option value="">am/pm</option>
+                            <option value='AM'>AM</option>
+                            <option value='PM'>PM</option>
+                       </select>
+                       <select onChange={event => this.changeDate(event, 'minute')} value={this.state.start_time}>
+                            <option value="">Minute</option>
+                            <option value={0}>00</option>
+                            <option value={15}>15</option>
+                            <option value={30}>30</option>
+                            <option value={45}>45</option>
+                       </select>
                    </div>
         {this.dateShow()}
         <p className= 'p'>Quest Category: {this.categoryShow()}</p> 

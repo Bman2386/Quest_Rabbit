@@ -34,6 +34,7 @@ class QuestForm extends React.Component {
        this.handleDay = this.handleDay.bind(this); 
        this.handleHour = this.handleHour.bind(this);
        this.selectAdv = this.selectAdv.bind(this);
+       this.changeDate = this.changeDate.bind(this);
     }
 
      next() {
@@ -91,10 +92,10 @@ class QuestForm extends React.Component {
     }
 
     handleHour(e){
-     const {value} = e;
-      const day1 = new Date(this.state.start_time);
-      const selected = new Date(day1.setHours(value, 0, 0));
-      this.setState({start_time: selected});
+     const {start_time} =this.state;
+     const startTime = new Date(start_time);
+     const startHour = startTime.setHours(e.target.value);
+     return this.setState({start_time: startHour})
       
     }
     handleChange(input) {
@@ -106,14 +107,42 @@ class QuestForm extends React.Component {
         
       }
 
+      changeDate(event, change){
+        const {start_time} = this.state;
+        const startTime = new Date(start_time);
+        switch (change) {
+            case 'minute':
+                const startMinute = startTime.setMinutes(event.target.value);
+            return this.setState({start_time: startMinute});
+            case 'convert':
+                let hour = startTime.getHours();
+                
+                if (event.target.value === 'AM'){
+                    
+                    if (hour > 12){
+                        hour -= 12
+                    }
+                } else {
+                    
+                    if (hour < 12){
+                        hour += 12
+                    }
+                }
+                const startHour = startTime.setHours(hour);
+            return this.setState({start_time: startHour});
+            default:
+                break;
+        }
+    }
     handleSubmit(e) {
         if (e) {e.preventDefault()} 
+        const startTime = new Date(this.state.start_time);
         const questForm = {
             quest_name: this.state.quest_name,
             category_id: this.state.category_id,
             details: this.state.details,
-            creator_id: this.props.creatorId,
-            start_time: this.state.start_time,
+            creator_id: this.props.creatorId, 
+            start_time: startTime,
             completed: 'false',
             adventurer_id: this.state.adventurer_id
         };
@@ -240,6 +269,7 @@ class QuestForm extends React.Component {
                 back={this.back}
                 submit={this.handleSubmit}
                 adv={adventurers}
+                changeDate={this.changeDate}
                 />
               )
           }

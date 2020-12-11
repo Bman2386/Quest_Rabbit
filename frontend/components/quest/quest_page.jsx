@@ -9,6 +9,7 @@ class QuestPage extends React.Component {
         this.categoryShow = this.categoryShow.bind(this);
         this.adShow = this.adShow.bind(this);
         this.show = this.show.bind(this);
+        this.timeShow = this.timeShow.bind(this);
     }
 
     componentDidMount(){
@@ -65,7 +66,12 @@ class QuestPage extends React.Component {
 
     }
     
-       
+       timeShow(quest){
+           const startTime = new Date(quest.extract.start_time);
+        return (
+            <div className='orders'>{`${startTime}`}</div>
+        )
+       }
     show(quests) {
         
             if (quests && quests.length > 0 && quests[0].extract){
@@ -73,7 +79,7 @@ class QuestPage extends React.Component {
                     <div key={quest.extract.id} className='quest-name'>
                         <p className='p'> Quest Name: {quest.extract.quest_name}</p>
                         <p className='p'>Details: {quest.extract.details}</p>
-                        <p className='p'>Start Time: {quest.extract.start_time}</p>
+                        <p className='p'>Start Time: {this.timeShow(quest)}</p>
                         <p className='p'>Category: {this.categoryShow(quest)}</p>
                         <p className='p'>Adventurer: {this.adShow(quest)}</p>
                         <Link 

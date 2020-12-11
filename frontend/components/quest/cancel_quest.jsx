@@ -87,7 +87,7 @@ class CancelQuest extends React.Component {
     }
 
     update(type) {
-        
+      
         return (e) => {
           this.setState({ [type]: e.target.value });
         };
@@ -162,7 +162,7 @@ class CancelQuest extends React.Component {
             const review = {rating, body, user_id: creator_id, adventurer_id};
             const firstId = this.props.adventurers[0].id
             const adv = this.props.adventurers[this.state.adventurer_id - firstId];
-            const ratings = adv.total_ratings += 1;
+            const ratings = (adv.total_ratings + 1);
             const el = Number(review.rating);
             const reviews = this.props.reviews;
             let sum = 0;
@@ -184,10 +184,9 @@ class CancelQuest extends React.Component {
             const firstId = this.props.adventurers[0].id
             const adv = this.props.adventurers[this.state.adventurer_id - firstId];
             if (adv.total_ratings > 0){
-               const ratings = adv.total_ratings += 1;
+               const ratings = (adv.total_ratings + 1);
                const avg = this.avgCalc()
                const updateRating = {avg_rating: avg, total_ratings: ratings, id: adv.id}
-              
                this.props.updateAdventurer(updateRating);
             } else {
                 const newRating = {
