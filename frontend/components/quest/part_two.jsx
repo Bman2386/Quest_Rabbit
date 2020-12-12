@@ -163,8 +163,8 @@ const PartTwo = props => {
     return (
         <div className="quest-container">
              <ul className='bar1'>
-             <Link to='/' className="home">
-                    <img src={logo} className="logo"/>
+             <Link to='/'>
+                    <img src={logo} className="logo2"/>
                 </Link>
                 <li className='grey-out'>1</li>
                 <div className='lineN'></div>
@@ -178,8 +178,14 @@ const PartTwo = props => {
                 <li className='line'>Choose date {'&'} Time</li>
             </ul>
             <hr/>
-            <button onClick={back} className="back-button">Back</button>
-            {list()}
+            <div className='back'>
+                   <button onClick={back}>Back</button> 
+                </div>
+            <div className='quest-form'>
+                  
+            {list()} 
+            </div>
+            
             
         </div>
     )

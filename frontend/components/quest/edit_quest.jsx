@@ -184,6 +184,7 @@ class EditQuest extends React.Component {
                className='textarea2'
                />
                </div>
+               <div className='label-container'>
                    <div className='label-2'>
                        <select onChange={(event) => this.changeDate(event, 'month')} value={this.state.start_time}>
                            <option value="">Month</option>
@@ -262,6 +263,8 @@ class EditQuest extends React.Component {
                             <option value={45}>45</option>
                        </select>
                    </div>
+               </div>
+                   
         {this.dateShow()}
         <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
         <p className='p'>Adventurer: {this.adShow()}</p>

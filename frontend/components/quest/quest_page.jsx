@@ -109,7 +109,7 @@ class QuestPage extends React.Component {
      
         return(
             <div>
-                <div className="quest-form">{this.questShow()}</div>
+                <div className="form2">{this.questShow()}</div>
             </div>
         )
     }

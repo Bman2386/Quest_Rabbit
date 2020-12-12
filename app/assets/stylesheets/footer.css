@@ -2,12 +2,20 @@
     height: 2rem;
     width: 2rem;
     padding: 0.5rem;
+    background-color: rgb(130, 124, 160);
+    
 }
 
+.a{
+    margin: 0;
+    height: 100%;
+    background-color: rgb(130, 124, 160);
+}
 .footer {
     display: flex;
     align-items: row;
     justify-content: center;
+    background-color: rgb(130, 124, 160);
 }
 
 .creator{
@@ -15,4 +23,6 @@
     width: fit-content;
     padding: 0.5rem;
     margin-top: 0.5rem;
+    background-color: rgb(130, 124, 160);
+    color: white;
 }

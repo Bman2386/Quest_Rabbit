@@ -14,8 +14,8 @@ class Footer extends React.Component {
         const git = window.git
         return (
             <div className="footer">
-                <Link to="https://www.linkedin.com/in/brendonbiagi/"><img src={linked} className="linked"/></Link>
-                <Link to="https://github.com/Bman2386"><img src={git} className="linked"/></Link>
+                <Link to="https://www.linkedin.com/in/brendonbiagi/" className='a'><img src={linked} className="linked"/></Link>
+                <Link to="https://github.com/Bman2386" className='a'><img src={git} className="linked"/></Link>
                 <Link to="https://bman2386.github.io/Brendon.Biagi/" className="creator">By Brendon Biagi</Link>
             </div>
         )

@@ -9,8 +9,8 @@ const PartOne = (props) => {
         <div className="quest-container">
              
             <ul className='bar1'>
-                <Link to='/' className="home">
-                    <img src={logo} className="logo"/>
+                <Link to='/' >
+                    <img src={logo} className="logo2"/>
                 </Link>
                 <li className='currentN'>1</li>
                 <div className='lineN'></div>

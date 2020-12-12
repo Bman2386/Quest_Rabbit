@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default () => {
-const hero = window.hero
+const hero = window.hero;
+const star = window.star;
+const apple = window.apple;
+const play = window.play;
+const stars = <img src={star} className='star2'/>
     return (
   <div className="home">
     <div className="hero-img-frame">
@@ -26,6 +30,27 @@ const hero = window.hero
         </div>
       </form>
     </div> 
+    <div className='underdog'>
+    <div className='underdog'>{stars}{stars}{stars}{stars}<img src={star} className='star2' id='margin-right'/> 1.1+ Million Reviews</div>
+      <div className='underdog'>
+        <div className='ikea-logo'> 
+        <div className='ikea'>IKEA</div>
+        </div> Partnered with IKEA</div>
+      <div className='store'> 
+        <img src={apple} className='apple'/> 
+        <div className='fake-logo'>
+          <div className='small'>Available in the</div> Magic Store</div>
+        </div>
+        
+      <div className='store'>
+        <img src={play} className='go'/>
+        <div className='fake-logo'>
+           <div className='small'>GET IT ON</div>
+           Floogle Play
+        </div>
+         </div>
+      </div>
+    
   </div>
     )
 }

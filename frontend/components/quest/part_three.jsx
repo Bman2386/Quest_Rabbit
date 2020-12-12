@@ -39,8 +39,8 @@ const PartThree = props => {
         
         <div className="quest-container">
             <ul className='bar1'>
-                <Link to='/' className="home">
-                    <img src={logo} className="logo"/>
+                <Link to='/'>
+                    <img src={logo} className="logo2"/>
                 </Link>
                 <li className='grey-out'>1</li>
                 <div className='lineN'></div>
@@ -54,8 +54,11 @@ const PartThree = props => {
                 <li className='current'>Choose date {'&'} Time</li>
             </ul>
             <hr/>
-            <button onClick={() => back()}>Back</button><br />
-            <p className="orders">Select a date/time to start your quest</p>
+            <div className='back'>
+                <button onClick={() => back()}>Back</button><br />
+            </div>
+            <div className='quest-form'>
+                 <p className="orders">Select a date/time to start your quest</p>
            <div className="cal-container">
                <div className="calendar">
                 <div className="month">
@@ -80,9 +83,11 @@ const PartThree = props => {
                             </div>
                </div>
             <div className="quest-name">
-                <p className="p">Start Time:</p> 
-                <div className='select'>
-                    <select onChange={event => handleHour(event)} value={values.start_time}>
+                <div >
+                     
+                <div className='selected'>
+                    
+                    <select onChange={event => handleHour(event)} value={values.start_time} className='select'>
                             <option value="">Hour</option>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
@@ -97,12 +102,12 @@ const PartThree = props => {
                             <option value={11}>11</option>
                             <option value={12}>12</option>
                        </select>
-                       <select onChange={event => changeDate(event, 'convert')} value={values.start_time}>
+                       <select onChange={event => changeDate(event, 'convert')} value={values.start_time} className='select'>
                             <option value="">am/pm</option>
                             <option value='AM'>AM</option>
                             <option value='PM'>PM</option>
                        </select>
-                       <select onChange={event => changeDate(event, 'minute')} value={values.start_time}>
+                       <select onChange={event => changeDate(event, 'minute')} value={values.start_time} className='select'>
                             <option value="">Minute</option>
                             <option value={0}>00</option>
                             <option value={15}>15</option>
@@ -110,18 +115,24 @@ const PartThree = props => {
                             <option value={45}>45</option>
                        </select>
                 </div>
-            
-               <ul className="quest-details">
-                    <li className="orders">Quest Name: {quest_name}</li>
-                    <li className="orders">Category: {categoryShow(category_id)}</li>
-                    <li className="orders">Details: {details}</li>
-                    <li className="orders">Start Time: {`${startTime}`}</li>
-                    <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
+                <p className="orders">Start Time: {`${startTime}`}</p>
+                </div>
+                
+            </div>
+        </div>
+        <div className='quest-name'>
+                    <ul className="quest-details">
+                        <li className="orders">Quest Name: {quest_name}</li>
+                        <li className="orders">Category: {categoryShow(category_id)}</li>
+                        <li className="orders">Details: {details}</li>
+                        <li className="orders">Start Time: {`${startTime}`}</li>
+                        <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
                </ul>
                <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link>
             </div>
+            </div>
             
-        </div>
+           
        
         </div>
     )

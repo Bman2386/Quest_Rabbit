@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
+    background-color: rgb(250, 246, 246);
 }
 
 .calendar{
@@ -119,6 +119,7 @@
 .quest-details{
     color: grey;
     margin: 2rem;
+    text-align: left;
 }
 
 .button-submit {
