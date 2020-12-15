@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import {today, monthDays} from './calendar'
 
 const PartThree = props => {
-    const {values, changeDate, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour, adv} = props;
+    const {values, changeDate, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour, adv, pageHandle} = props;
     const logo = window.logo;
     const date = today.date;
     const month = today.month;
@@ -34,6 +34,105 @@ const PartThree = props => {
         )
     }
 
+    const questDate = () => {
+        if (values.mini === 3){
+            return (
+                    <div className="cal-container">
+                     <p className="orders3">Select a date/time to start your quest</p>   
+               <div className="calendar">
+                <div className="month">
+                                <button onClick={() => subCurrentMonth()}><i className="fa fa-angle-left"></i></button>
+                                <div className="date">
+                                        <h1>{month}</h1>
+                                        <p>{`${date}`}</p>
+                                </div>
+                                <button onClick={() => addCurrentMonth()}><i className="fa fa-angle-right"></i></button>  
+                            </div>
+                            <div className="weekdays">
+                                <div>Sun</div>
+                                <div>Mon</div>
+                                <div>Tues</div>
+                                <div>Wed</div>
+                                <div>Thur</div>
+                                <div>Fri</div>
+                                <div>Sat</div>
+                            </div>
+                            <div className="days">
+                                {days}
+                            </div>
+               </div>
+                </div>
+            )
+        } else if (values.mini === 4) {
+            return (
+                <div className='quest-name'>
+                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 3)}></icon>
+                    
+                    <div className='selected'>
+                    <select onChange={event => handleHour(event)} value={values.start_time} className='select'>
+                            <option value="">Hour</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                            <option value={11}>11</option>
+                            <option value={12}>12</option>
+                       </select>
+                       <select onChange={event => changeDate(event, 'minute')} value={values.start_time} className='select'>
+                            <option value="">Minute</option>
+                            <option value={0}>00</option>
+                            <option value={15}>15</option>
+                            <option value={30}>30</option>
+                            <option value={45}>45</option>
+                       </select>
+                       <select onChange={event => changeDate(event, 'convert')} value={values.start_time} className='select'>
+                            <option value="">am/pm</option>
+                            <option value='AM'>AM</option>
+                            <option value='PM'>PM</option>
+                       </select>
+                </div>
+                <div className='orders2'>{`${startTime}`}</div> 
+                <button id='center' onClick={() => pageHandle('continue')}>Continue</button>
+                </div>
+            )
+        } else {
+            return (
+                <div className='quest-name'>
+                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 4)}></icon>
+                    <div className='orders2'>{`${startTime}`}</div> 
+                </div>
+            )
+        }
+    }
+
+    const reviewQuest = () => {
+        if (values.mini === 5){
+            return (
+                <div className='quest-name'>
+                    <ul className="quest-details">
+                        <li className="label">Your Quest</li>
+                        <li className="orders">Quest Name: {quest_name}</li>
+                        <li className="orders">Category: {categoryShow(category_id)}</li>
+                        <li className="orders">Details: {details}</li>
+                        <li className="orders">Start Time: {`${startTime}`}</li>
+                        <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
+               </ul>
+               <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link>
+            </div>
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
+    }
+
     const startTime = new Date(values.start_time);
     return (
         
@@ -58,83 +157,10 @@ const PartThree = props => {
                 <button onClick={() => back()}>Back</button><br />
             </div>
             <div className='quest-form'>
-                 <p className="orders">Select a date/time to start your quest</p>
-           <div className="cal-container">
-               <div className="calendar">
-                <div className="month">
-                                <button onClick={() => subCurrentMonth()}><i className="fa fa-angle-left"></i></button>
-                                <div className="date">
-                                        <h1>{month}</h1>
-                                        <p>{`${date}`}</p>
-                                </div>
-                                <button onClick={() => addCurrentMonth()}><i className="fa fa-angle-right"></i></button>  
-                            </div>
-                            <div className="weekdays">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tues</div>
-                                <div>Wed</div>
-                                <div>Thur</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
-                            </div>
-                            <div className="days">
-                                {days}
-                            </div>
-               </div>
-            <div className="quest-name">
-                <div >
-                     
-                <div className='selected'>
-                    
-                    <select onChange={event => handleHour(event)} value={values.start_time} className='select'>
-                            <option value="">Hour</option>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-                            <option value={6}>6</option>
-                            <option value={7}>7</option>
-                            <option value={8}>8</option>
-                            <option value={9}>9</option>
-                            <option value={10}>10</option>
-                            <option value={11}>11</option>
-                            <option value={12}>12</option>
-                       </select>
-                       <select onChange={event => changeDate(event, 'convert')} value={values.start_time} className='select'>
-                            <option value="">am/pm</option>
-                            <option value='AM'>AM</option>
-                            <option value='PM'>PM</option>
-                       </select>
-                       <select onChange={event => changeDate(event, 'minute')} value={values.start_time} className='select'>
-                            <option value="">Minute</option>
-                            <option value={0}>00</option>
-                            <option value={15}>15</option>
-                            <option value={30}>30</option>
-                            <option value={45}>45</option>
-                       </select>
-                </div>
-                <p className="orders">Start Time: {`${startTime}`}</p>
-                </div>
-                
-            </div>
-        </div>
-        <div className='quest-name'>
-                    <ul className="quest-details">
-                        <li className="orders">Quest Name: {quest_name}</li>
-                        <li className="orders">Category: {categoryShow(category_id)}</li>
-                        <li className="orders">Details: {details}</li>
-                        <li className="orders">Start Time: {`${startTime}`}</li>
-                        <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
-               </ul>
-               <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link>
+                {questDate()}
+                {reviewQuest()}
             </div>
             </div>
-            
-           
-       
-        </div>
     )
 
 }

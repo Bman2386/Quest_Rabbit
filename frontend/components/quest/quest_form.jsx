@@ -17,12 +17,15 @@ class QuestForm extends React.Component {
             status: 1,
             date: new Date(),
             review: "false",
-            selected: {}
+            selected: {},
+            sorted: [],
+            checked: '',
+            mini: 0
         }  
 
         this.date = this.state.date
 
-       this.adv = this.props.fetchAdventurers();
+       
 
        this.next = this.next.bind(this);
        this.back = this.back.bind(this);
@@ -35,7 +38,11 @@ class QuestForm extends React.Component {
        this.handleHour = this.handleHour.bind(this);
        this.selectAdv = this.selectAdv.bind(this);
        this.changeDate = this.changeDate.bind(this);
+       this.sortAdv = this.sortAdv.bind(this);
+       this.checkChange = this.checkChange.bind(this);
+       this.pageHandle = this.pageHandle.bind(this);
     }
+
 
      next() {
          this.setState({status: (this.state.status += 1)});
@@ -49,6 +56,14 @@ class QuestForm extends React.Component {
         return this.setState({status: this.state.status -= 1, review: 'false'})
       }
         }
+
+      pageHandle(action, num){
+        if (action === 'continue'){
+         return this.setState({mini: this.state.mini += 1}) 
+        } else if (action === 'edit'){
+          return this.setState({mini: num})
+        }
+      }
     // componentDidMount(){
     //     this.props.fetchAdventurers()
     // }
@@ -67,6 +82,83 @@ class QuestForm extends React.Component {
   }
 
 
+  sortAdv(e){
+    e.preventDefault();
+    const adv = this.props.adventurers
+    switch (e.target.value) {
+
+      case 'reviews':
+        const adSort1 = adv => {
+          if (adv.length < 2) return adv;
+          const func = (x, y) => {
+    
+            if (x > y) return -1; 
+            return 1;
+          };
+          const first = adv[0];
+          let left = adv.slice(1).filter(el => func(el.total_ratings, first.total_ratings) === -1);
+          let right = adv.slice(1).filter(el => func(el.total_ratings, first.total_ratings) !== -1);
+          left = adSort1(left);
+          right = adSort1(right);
+  
+        return left.concat([first]).concat(right)
+        }
+        const sort1 = adSort1(adv);
+        this.state.checked = '';
+        return this.setState({sorted: sort1});
+      case 'high':
+        const adSort2 = adv => {
+          if (adv.length < 2) return adv;
+          const func = (x, y) => {
+            if (x > y) return -1;
+            return 1;
+          };
+          const first = adv[0];
+          let left = adv.slice(1).filter(el => func(el.avg_rating, first.avg_rating) === -1);
+          let right = adv.slice(1).filter(el => func(el.avg_rating, first.avg_rating) !== -1);
+          left = adSort2(left);
+          right = adSort2(right);
+
+        return left.concat([first]).concat(right)
+        }
+        const sorted2 = adSort2(adv);
+        this.state.checked = '';
+        return this.setState({sorted: sorted2});
+      case 'recommended':
+      const adSort = adv => {
+        if (adv.length < 2) return adv;
+        const func = (x, y) => {
+          if (x < y) return -1;
+          return 1;
+        };
+        const first = adv[0];
+        let left = adv.slice(1).filter(el => func(el.id, first.id) === -1);
+        let right = adv.slice(1).filter(el => func(el.id, first.id) !== -1);
+        left = adSort(left);
+        right = adSort(right);
+      return left.concat([first]).concat(right)
+      }
+      const sort = adSort(adv);
+      this.state.checked = '';
+      return this.setState({sorted: sort});
+      default:
+        return this.setState({sorted: adv});
+    }
+  }
+
+  checkChange(e){
+    e.preventDefault();
+    const adv = this.props.adventurers
+    if (this.state.checked === ''){
+      let arr = [];
+        adv.forEach(ad => {
+          ad.elite === true ? arr.push(ad) : ''
+        })
+        return this.setState({sorted: arr, checked: 'elite'})
+    } else {
+      return this.setState({sorted: adv, checked: ''})
+    }
+  }
 
     select(input){
         this.setState({adventurer_id: input});
@@ -88,7 +180,7 @@ class QuestForm extends React.Component {
     handleDay(day){
       const day1 = new Date(this.state.date);
       const selected = new Date(day1.setDate(day));
-      this.setState({start_time: selected});
+      this.setState({start_time: selected, mini: this.state.mini += 1});
     }
 
     handleHour(e){
@@ -150,8 +242,8 @@ class QuestForm extends React.Component {
     }
 
     render(){
-        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected } = this.state;
-        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selected };
+        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected, sorted, checked, mini } = this.state;
+        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selected, sorted, checked, mini };
         const {adventurers} = this.props;
         const {reviews} =this.props;
 
@@ -242,6 +334,7 @@ class QuestForm extends React.Component {
                 values = {values} 
                 handleChange = {this.handleChange}
                 next = {this.next}
+                pageHandle = {this.pageHandle}
                 />
               )
             case 2:
@@ -251,8 +344,10 @@ class QuestForm extends React.Component {
                 select = {this.select}
                 back = {this.back}
                 adv = {adventurers}
+                sortAdv = {this.sortAdv}
                 selectAdv={this.selectAdv}
                 reviews={reviews}
+                checkChange = {this.checkChange}
                 />
               )
             
@@ -270,6 +365,7 @@ class QuestForm extends React.Component {
                 submit={this.handleSubmit}
                 adv={adventurers}
                 changeDate={this.changeDate}
+                pageHandle={this.pageHandle}
                 />
               )
           }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PartTwo = props => {
-    const { values, select, back, selectAdv, adv, reviews} = props;
+    const { values, select, back, selectAdv, reviews, adv, sortAdv, checkChange} = props;
     const logo = window.logo;
     const star = window.star;
     const hercules = window.hercules;
@@ -68,15 +68,69 @@ const PartTwo = props => {
         }
     }
 
+    const sortBy = () => {
+        if (values.review === 'false'){
+            return (
+                <div className='sorting'>
+                    <div className='sort'>Sort By:</div>
+                    <select onChange={(e) => sortAdv(e)} value='cat'>
+                        <option value="">-</option>
+                       <option value='recommended'>Best Value</option>
+                       <option value="reviews">Most Reviewed</option>
+                       <option value="high">Highest Reviewed</option>
+                    </select>
+                </div>
+            )
+        }
+    }
+
+    const checkBox = () => {
+        const isChecked= !!values.checked;
+       
+        if (values.review === 'false'){
+            if(!isChecked){
+                debugger
+              return (
+                <div className='check-box'>
+                    <div className='sort'>Adventurer Type</div>
+                    <input type="checkbox" 
+                    id='elite' 
+                    onClick={(e) => checkChange(e)}
+                    defaultChecked={false}
+                    value='elite'/>
+                    <label htmlFor="elite" className='label'>Elite</label>
+                </div>
+            )  
+            } else {
+                debugger
+                return (
+                    <div className='check-box'>
+                        <div className='sort'>Adventurer Type</div>
+                        <input type="checkbox" 
+                        id='elite' 
+                        onClick={(e) => checkChange(e)}
+                        defaultChecked={true}
+                        value='elite'/>
+                        <label htmlFor="elite" className='label'>Elite</label>
+                    </div>
+                ) 
+            }
+            
+        }
+    }
+
     const list = () => {
-        const names = adv.map(ad => 
+        const sorted = values.sorted.length > 0 ? values.sorted : adv;
+        const names = sorted.map(ad => 
             <div className="hero-container" key={ad.id}>
+                
+                
                 <div className='top-hero'>
                     {hero(ad.username)}
               <div className='hero-details'>
                    <p  className="hero-name">{ad.username}</p>
                   <p className="p">{isElite(ad.elite)}</p>
-            <p className="rating-container">Rating: {rating(ad.avg_rating)}</p> 
+            <div className="rating-container">Rating: {rating(ad.avg_rating)}</div> 
             <p className="p">Total Reviews: {ad.total_ratings}</p>
             <hr/>
             <p className="p">How I can Help:</p>
@@ -145,13 +199,16 @@ const PartTwo = props => {
         } 
         const adReviews = () =>{
             return (
-                <div className='quest-form'>
+                <div className='adv-info'>
                     Adventurer info:
-                    <div>{hero(values.selected.username)}</div>
-            <div className='p'>{`${values.selected.username}`}</div>
-            <div className='p'>{`${values.selected.pitch}`}</div>
-            <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(values.selected.id)}>Select and Continue</button>
-                    <div className='p'>Reviews:</div>
+                    <div className='hero-box'>
+                        <div>{hero(values.selected.username)}</div>
+                        <div className='p'>{`${values.selected.username}`}</div>
+                        <div className='p'>{`${values.selected.pitch}`}</div>
+                        <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(values.selected.id)}>Select and Continue</button>
+                    </div>
+                    
+                    <div className='reviews'>Reviews:</div>
                     {allReviews()}
                 </div>
             )
@@ -182,7 +239,8 @@ const PartTwo = props => {
                    <button onClick={back}>Back</button> 
                 </div>
             <div className='quest-form'>
-                  
+            {sortBy()}
+            {checkBox()}
             {list()} 
             </div>
             

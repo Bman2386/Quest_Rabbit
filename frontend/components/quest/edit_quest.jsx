@@ -250,17 +250,17 @@ class EditQuest extends React.Component {
                             <option value={11}>11</option>
                             <option value={12}>12</option>
                        </select>
-                       <select onChange={event => this.changeDate(event, 'convert')} value={this.state.start_time}>
-                            <option value="">am/pm</option>
-                            <option value='AM'>AM</option>
-                            <option value='PM'>PM</option>
-                       </select>
                        <select onChange={event => this.changeDate(event, 'minute')} value={this.state.start_time}>
                             <option value="">Minute</option>
                             <option value={0}>00</option>
                             <option value={15}>15</option>
                             <option value={30}>30</option>
                             <option value={45}>45</option>
+                       </select>
+                       <select onChange={event => this.changeDate(event, 'convert')} value={this.state.start_time}>
+                            <option value="">am/pm</option>
+                            <option value='AM'>AM</option>
+                            <option value='PM'>PM</option>
                        </select>
                    </div>
                </div>

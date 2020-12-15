@@ -2,30 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PartOne = (props) => {
-    const {values, handleChange, next} = props;
+    const {values, handleChange, next, pageHandle} = props;
     const logo = window.logo;
 
-    return(
-        <div className="quest-container">
-             
-            <ul className='bar1'>
-                <Link to='/' >
-                    <img src={logo} className="logo2"/>
-                </Link>
-                <li className='currentN'>1</li>
-                <div className='lineN'></div>
-                <li className='grey-out'>2</li>
-                <div className='lineN'></div>
-                <li className='grey-out'>3</li>
-            </ul>
-            <ul className='bar2'>
-                <li className='current'>Describe your Quest</li>
-                <li className='line'>Browse Adventurers</li>
-                <li className='line'>Choose date {'&'} Time</li>
-            </ul>
-            <hr/>
-            <div className="quest-form">
-                <div className="quest-name">
+    const empty = () => {
+        return (
+            <div></div>
+        )
+    }
+    const questName = () => {
+        if (values.mini === 0){
+            return (
+            <div className="quest-name">
                   <label htmlFor="quest_name" className="label">
                 Quest Name
             </label>
@@ -36,8 +24,43 @@ const PartOne = (props) => {
             className="input"
             >
             </input>  
+            {values.quest_name === '' ? empty : <button 
+            id='center' 
+            onClick={() => pageHandle('continue')}>Continue</button>}
+            
                 </div>
-            <div className="quest-name">
+        )
+        } else {
+            return (
+                <div className='quest-name'>
+                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 0)}></icon>
+                    <div className='label'>Name of your Quest:</div>
+                    <div className='orders2'>{`${values.quest_name}`}</div> 
+                </div>
+            )
+        }
+        
+    }
+
+    const catShow = (cat) => {
+        switch (cat) {
+            case '1':
+            return 'Fetch';
+            case '2':
+            return 'Craft';
+            case '3':
+            return 'Escort';
+            case '4':
+            return 'Slay';
+            default:
+                break;
+        }
+    }
+
+    const questCategory = () => {
+        if (values.mini === 1){
+            return (
+                <div className="quest-name">
                 <label htmlFor="Category" className="label">Category of your Quest:</label>
                 <div className='radio-container'>
                     <label className='radio'>
@@ -76,10 +99,35 @@ const PartOne = (props) => {
                     checked={values.category_id === '4'}
                     onChange={handleChange('category_id')}/>
                 </label>  
+                
                 </div>
-                 
+                 {values.category_id === '' ? empty : <button 
+            id='center' 
+            onClick={() => pageHandle('continue')}>Continue</button>}
             </div>
-            <div className="quest-name">
+            )
+        } else if(values.mini > 1){
+            return (
+                 <div className='quest-name'>
+                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 1)}></icon>
+                    <div className='label'>Category of your Quest:</div>
+                    <div className='orders2'>{`${catShow(values.category_id)}`}</div> 
+                </div>
+            )
+        } else{
+            return (
+               <div className='quest-name'>
+                <div className='label'>Category Select</div>
+                <div className='orders2'>{values.category_id ? `${catShow(values.category_id)}` : empty()}</div>
+            </div> 
+            )   
+        }
+    }
+
+    const questDetails = () => {
+        if (values.mini === 2){
+            return (
+                <div className="quest-name">
                 <label htmlFor="details" className="label">Details:</label>
                 <p className="p">Start the conversation by telling your adventurer details about your quest.
                     Be sure to specify things like magic being required to complete the quest.
@@ -89,9 +137,53 @@ const PartOne = (props) => {
                         className="textarea"
                         onChange={handleChange('details')}
                         />
-            </div>    
+                {values.details === '' ? empty : <button 
+            id='center' 
+            onClick={() => pageHandle('continue')}>Continue</button>}
+            </div> 
+            )
+        } else if (values.mini > 2){
+            return (
+                <div className='quest-name'>
+                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 2)}></icon>
+                    <div className='label'>Details about your quest:</div>
+                    <div className='orders2'>{`${values.details}`}</div> 
+                </div>
+            )
+        } else{
+            return (
+                <div className='quest-name'>
+                <div className='label'>Quest Details:</div>
+                <div className='orders2'>{values.details ? `${values.details}` : empty()}</div>
+            </div> 
+            )
+        }
+    }
+    return(
+        <div className="quest-container">
+             
+            <ul className='bar1'>
+                <Link to='/' >
+                    <img src={logo} className="logo2"/>
+                </Link>
+                <li className='currentN'>1</li>
+                <div className='lineN'></div>
+                <li className='grey-out'>2</li>
+                <div className='lineN'></div>
+                <li className='grey-out'>3</li>
+            </ul>
+            <ul className='bar2'>
+                <li className='current'>Describe your Quest</li>
+                <li className='line'>Browse Adventurers</li>
+                <li className='line'>Choose date {'&'} Time</li>
+            </ul>
+            <hr/>
+            <div className="quest-form">
+                {questName()}
+                {questCategory()}
+                {questDetails()}
            <br />
-            <button onClick={() => next()}>Next</button>
+           {values.mini > 2 ? <button onClick={() => next()}>Next</button> : empty()}
             </div>
             
         </div>

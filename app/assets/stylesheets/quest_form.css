@@ -156,9 +156,11 @@
     color: black;
     border: 1px solid grey;
     border-radius: 2px;
-    width: 75%;
+    width: 50%;
     margin: 2rem;
     height: fit-content;
+    padding: 4px;
+    filter: drop-shadow(1px 1px 1px grey);
 }
 
 .select2{
@@ -313,4 +315,52 @@ hr{
     align-items: center;
     justify-content: center;
     margin-bottom: 10rem;
+}
+
+.sorting{
+    display: flex;
+    align-self: flex-end;
+    background-color: rgb(250, 246, 246);
+    margin-right: 12vw;
+}
+
+.sort{
+    color: black;
+    background-color: rgb(250, 246, 246);
+    font-weight: 700;
+}
+
+.check-box{
+    align-self: flex-start;
+    background-color:  rgb(250, 246, 246);
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 1rem;
+}
+
+#center{
+    align-self: center;
+    margin-bottom: 8px;
+}
+
+#pencil{
+    color: black;
+    align-self: flex-end;
+    margin: 8px;
+} 
+
+#pencil:hover{
+    color: green;
+    cursor: pointer;
+}
+
+.orders2{
+    color: blue;
+    align-self: center;
+    margin: 2rem;
+}
+
+.orders3{
+    color: black;
+    background-color: rgb(250, 246, 246);
 }
