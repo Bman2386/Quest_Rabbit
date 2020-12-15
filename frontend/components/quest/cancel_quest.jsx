@@ -84,6 +84,7 @@ class CancelQuest extends React.Component {
               completed
         }
         this.props.updateQuest(quest);
+        this.next();
     }
 
     update(type) {
@@ -95,10 +96,16 @@ class CancelQuest extends React.Component {
 
       finalPart(){
           return(
-              <div className='hero-container'>
-                  <div className='orders'>By clicking submit you are cancelling your quest, are you sure you want to cancel?</div>
-                <Link  className="btn-4" to="/" onClick={() => this.submit()}>Confirm</Link>  
+              <div className='quest-form'>
+                  <div className='quest-name'>
+                  <div className='red'>
+                      By clicking Confirm you are cancelling your quest, are you sure you want to cancel?
+                  </div>
+                  <div className='red'>(This can't be undone)</div>
+                <button id='center' onClick={() => this.submit()}>Confirm</button>  
               </div>
+              </div>
+              
           )
         
       }
@@ -198,7 +205,6 @@ class CancelQuest extends React.Component {
                this.props.updateAdventurer(newRating);
             }
             this.props.createReview(review);
-            this.next();
       }
       rating() {
         const star = window.star
@@ -287,9 +293,7 @@ class CancelQuest extends React.Component {
                    placeholder={`${adv.username} did a great job at...`}
                    onChange={this.update("body")}/> 
                 </div>
-                
-                
-                <button onClick={() => this.submitReview()}>Submit Review</button>
+                <Link onClick={() => this.submitReview()} to="/" id="margin" className='btn-4'>Submit Review</Link>
             </div>
         )
       }
@@ -297,10 +301,10 @@ class CancelQuest extends React.Component {
 
         if (this.state.status === 1){
            return this.yourQuest()
-        } else if (this.state.status === 2){
+        } else if (this.state.status === 3){
 
            return this.writeReview()
-        } else if (this.state.status === 3){
+        } else if (this.state.status === 2){
             return this.finalPart()
         }
       }
