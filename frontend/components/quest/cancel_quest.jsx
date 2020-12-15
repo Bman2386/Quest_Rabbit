@@ -15,7 +15,8 @@ class CancelQuest extends React.Component {
             adventurer_id: '',
             status: 1,
             body: '',
-            rating: 0
+            rating: 0,
+            username: this.props.username
         }
         this.formSetter = this.formSetter.bind(this);
         this.submit = this.submit.bind(this);
@@ -186,8 +187,8 @@ class CancelQuest extends React.Component {
             return avg()
       }
       submitReview(){
-            const {rating, body, creator_id, adventurer_id} = this.state;
-            const review = {rating, body, user_id: creator_id, adventurer_id};
+            const {rating, body, creator_id, adventurer_id, username} = this.state;
+            const review = {rating, body, user_id: creator_id, adventurer_id, username};
             const firstId = this.props.adventurers[0].id
             const adv = this.props.adventurers[this.state.adventurer_id - firstId];
             if (adv.total_ratings > 0){

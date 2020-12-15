@@ -28,7 +28,8 @@ class Api::ReviewsController < ApplicationController
             :rating,
             :body,
             :adventurer_id,
-            :user_id
+            :user_id,
+            :username
         )
     end
 end

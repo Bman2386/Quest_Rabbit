@@ -24,6 +24,7 @@ const adSort = (arr) => {
 
 const mSTP = (state, ownProps) => {
     const creatorId = state.session.currentUser.id;
+    const username = state.session.currentUser.username;
     const sortMe = Object.keys(state.entities.adventurers).map(key =>state.entities.adventurers[key]);
     const adventurers = sortMe.length > 0 ? adSort(sortMe) : sortMe
     const questId = ownProps.match.params.questId;
@@ -32,6 +33,7 @@ const mSTP = (state, ownProps) => {
     
     return ({
         creatorId,
+        username,
         adventurers,
         questId,
         quest,
