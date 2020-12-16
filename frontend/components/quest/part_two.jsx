@@ -77,7 +77,7 @@ const PartTwo = props => {
                         <option value="">-</option>
                        <option value='recommended'>Best Value</option>
                        <option value="reviews">Most Reviewed</option>
-                       <option value="high">Highest Reviewed</option>
+                       <option value="high">Highest Rating</option>
                     </select>
                 </div>
             )
@@ -89,7 +89,6 @@ const PartTwo = props => {
        
         if (values.review === 'false'){
             if(!isChecked){
-                debugger
               return (
                 <div className='check-box'>
                     <div className='sort'>Adventurer Type</div>
@@ -102,7 +101,6 @@ const PartTwo = props => {
                 </div>
             )  
             } else {
-                debugger
                 return (
                     <div className='check-box'>
                         <div className='sort'>Adventurer Type</div>
@@ -183,7 +181,7 @@ const PartTwo = props => {
             return advReviews
         } else {
             return (
-                <div>No Reviews Yet</div>
+                <div className='quest-name'>No Reviews Yet</div>
             )
         }}} 
             if (reviews.length > 0 && values.selected){
@@ -191,7 +189,7 @@ const PartTwo = props => {
             return allR();
             } else {
                 return (
-                    <div className='form'>No Reviews Yet</div>
+                    <div className='quest-name'>No Reviews Yet</div>
                 )
             }
             

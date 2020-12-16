@@ -27,8 +27,8 @@ class NavBar extends React.Component {
                categories={categories}
                 /> : <div></div>
             }
-            <Link to='/quest'>New Quest</Link>
-            <Link to='/quests'>Your Quests</Link>
+            <Link to='/quest'>Book a Quest</Link>
+            <Link to='/quests'>My Quests</Link>
             <Link to='/user'>Account</Link>
           </div>
         ) : (

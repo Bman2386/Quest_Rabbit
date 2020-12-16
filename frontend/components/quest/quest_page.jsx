@@ -99,7 +99,12 @@ class QuestPage extends React.Component {
             return list
             } else {
                return(
-                   <h1 className='p'>No quests Yet</h1>
+                   <div className="quest-name">
+                       <h1 className='h1' id='center'>Have something else on your to-do list?</h1>
+                       <p className='p'>Book your next Quest or manage future to-dos  with Quest Rabbit</p>
+                       <Link to="/quest"className='button-submit' id='center'>Check It Off Your List</Link>
+                   </div>
+                   
                ) 
             }
         }

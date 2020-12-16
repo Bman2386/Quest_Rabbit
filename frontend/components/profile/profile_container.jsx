@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ProfileComponent from './profile';
 import { logout } from '../../actions/session';
-import {fetchAdventurer} from '../../actions/adventurer'
+import {fetchAdventurer, updateAdventurer} from '../../actions/adventurer'
 
 const mSTP = (state) => {
     const user= state.session.currentUser 
@@ -20,7 +20,8 @@ const mSTP = (state) => {
 
 const mDTP = dispatch => ({
     logout: () => dispatch(logout()),
-    getUser: (userId) => dispatch(fetchAdventurer(userId))
+    getUser: (userId) => dispatch(fetchAdventurer(userId)),
+    update: user => dispatch(updateAdventurer(user))
 })
 
 export default connect(mSTP, mDTP)(ProfileComponent)
