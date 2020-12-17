@@ -99,24 +99,30 @@ const PartTwo = props => {
               return (
                 <div className='check-box'>
                     <div className='sort'>Adventurer Type</div>
-                    <input type="checkbox" 
-                    id='elite' 
-                    onClick={(e) => checkChange(e)}
-                    defaultChecked={false}
-                    value='elite'/>
-                    <label htmlFor="elite" className='label'>Elite</label>
+                    <div className='checkbox'>
+                        <button
+                    value='elite'
+                    className='check'
+                    onClick={(e) => checkChange(e)}></button>                   
+                    <label htmlFor="elite" className='p10'>Elite Only</label>
+                    </div>
+                    
                 </div>
             )  
             } else {
                 return (
                     <div className='check-box'>
                         <div className='sort'>Adventurer Type</div>
-                        <input type="checkbox" 
-                        id='elite' 
-                        onClick={(e) => checkChange(e)}
-                        defaultChecked={true}
-                        value='elite'/>
-                        <label htmlFor="elite" className='label'>Elite</label>
+                        <div className='checkbox'>
+                           <button
+                        className='check'
+                    value='elite'
+                    onClick={(e) => checkChange(e)}>
+                        <i className='fas fa-check' id='shrink'></i>
+                        </button> 
+                        <label htmlFor="elite" className='p10'>Elite Only</label> 
+                        </div>
+                        
                     </div>
                 ) 
             }
@@ -128,8 +134,6 @@ const PartTwo = props => {
         const sorted = values.sorted.length > 0 ? values.sorted : adv;
         const names = sorted.map(ad => 
             <div className="hero-container" key={ad.id}>
-                
-                
                 <div className='top-hero'>
                     {hero(ad.username)}
               <div className='hero-details'>
@@ -243,11 +247,19 @@ const PartTwo = props => {
             <hr/>
             <div className='back'>
                    <button onClick={back}>Back</button> 
+                   {sortBy()}
                 </div>
-            <div className='quest-form'>
-            {sortBy()}
-            {checkBox()}
-            {list()} 
+                
+            <div className='quest-form2'>
+                
+                <div className='top-form'>
+                {checkBox()}  
+                <div className='heros-container'>
+                   {list()} 
+                </div>
+                
+                </div>
+             
             </div>
             
             
