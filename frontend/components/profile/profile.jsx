@@ -10,7 +10,8 @@ class ProfileComponent extends React.Component {
             family_crest: '',
             realm: '',
             star_sign: '',
-            edit: false
+            edit: false,
+            error: ''
         }
         this.formHandle = this.formHandle.bind(this);
         this.setUser = this.setUser.bind(this);
@@ -46,9 +47,12 @@ class ProfileComponent extends React.Component {
     }
 
     handleChange(type){
-        return (e) => {
+        if(this.state.username !== 'Guest'){
+            return (e) => {
             this.setState({ [type]: e.target.value });
           };
+        }
+        
     }
 
     cancel(){
@@ -64,8 +68,13 @@ class ProfileComponent extends React.Component {
             realm: realm,
             star_sign: star_sign
         }
+        if(this.state.username === 'Guest'){
+           return this.setState({error: "You don't have permission to edit Guest User info"})
+        }else{
         this.props.update(user);
         return this.setState({edit: false})
+        }
+        
     }
 
     formHandle(){
@@ -79,25 +88,25 @@ class ProfileComponent extends React.Component {
                <div className='width'>
                    <div className='row'>
                 <h1 className='h1'>Account</h1>
-                <button  id='right' onClick={this.edit}>Edit</button>
+                <button className='btn-6' id='right' onClick={this.edit}>Edit</button>
                    </div>
                  <hr className='hr'/>
                 
-                <div className='p'>
-                    Username: {`${username}`}  
+                <div className='p3'>
+                   <i className='fas fa-user-alt'></i>   Username: {`${username}`}  
                 </div>
-                <div className='p'>
-                    Family Crest: {`${family_crest}`}
+                <div className='p3'>
+                <i className="fas fa-shield-alt"></i>   Family Crest: {`${family_crest}`}
                 </div>
-                <div className='p'>
-                    Realm: {`${realm}`}
+                <div className='p3'>
+                <i className="fas fa-map"></i>   Realm: {`${realm}`}
                 </div>
-                <div className='p'>
-                    Star Sign: {`${star_sign}`}
+                <div className='p4'>
+                    <div className='icon'>&#x2638;</div>   Star Sign: {`${star_sign}`}
                 </div>
                 <br/>
                 <div className='row'>
-                    <Link onClick={logout} className='btn-4' to='/' id='margin'>Logout</Link>
+                    <Link onClick={logout} className='btn-5' to='/' id='margin'>Logout</Link>
                 </div>
                 
             </div> 
@@ -108,34 +117,40 @@ class ProfileComponent extends React.Component {
                 <div className='width'>
                     <h1 className='h1'>Update Account</h1>
                     <hr className='hr'/>
-                    <label className='p'>Username:</label>
+                    <div className='edit-user'>
+                        <div className='error'>{`${this.state.error}`}</div>
+                    <label className='p2'>Username: </label>
                     <input 
                     type="text" 
                     value={this.state.username}
                     onChange={this.handleChange('username')}
-                    className='input'
+                    className='input3'
                     placeholder={`${this.state.username}`}/>
-                    <label className='p'>Family Crest:</label>
+                   
+                    <label className='p2'>Family Crest:</label>
                     <input 
                     type="text" 
                     value={this.state.family_crest}
                     onChange={this.handleChange('family_crest')}
-                    className='input'
+                    className='input3'
                     placeholder={`${this.state.family_crest}`}/>
-                    <label className='p'>Realm:</label>
+                    
+                    <label className='p2'>Realm: </label>
                     <input 
                     type="text" 
                     value={this.state.realm}
                     onChange={this.handleChange('realm')}
-                    className='input'
+                    className='input3'
                     placeholder={`${this.state.realm}`}/>
-                    <label className='p'>Star Sign:</label>
+                   
+                    <label className='p2'>Star Sign:</label>
                     <input 
                     type="text" 
                     value={this.state.star_sign}
                     onChange={this.handleChange('star_sign')}
-                    className='input'
+                    className='input3'
                     placeholder={`${this.state.star_sign}`}/>
+                     </div>
                     <div className='buttons'>
                         <button className='btn-5' onClick={() => this.cancel()}>Cancel</button>
                         <button onClick={() => this.handleSubmit()}>Submit</button>
