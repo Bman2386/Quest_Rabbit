@@ -28,6 +28,7 @@ class CancelQuest extends React.Component {
         this.categoryShow = this.categoryShow.bind(this);
         this.advName = this.advName.bind(this);
         this.rating = this.rating.bind(this);
+        this.cancel = this.cancel.bind(this);
     }
 
     componentDidMount(){
@@ -95,6 +96,9 @@ class CancelQuest extends React.Component {
         };
       }
 
+      cancel(){
+          return this.setState({status: 1});
+      }
       finalPart(){
           return(
               <div className='quest-form'>
@@ -103,7 +107,11 @@ class CancelQuest extends React.Component {
                       By clicking Confirm you are cancelling your quest, are you sure you want to cancel?
                   </div>
                   <div className='red'>(This can't be undone)</div>
-                <button id='center' onClick={() => this.submit()}>Confirm</button>  
+                  <div id='center'>
+                    <button id='margin' className='btn-5' onClick={() => this.cancel()}>Cancel</button>
+                <button   id='margin' className='btn-6' onClick={() => this.submit()}>Confirm</button>    
+                  </div>
+                
               </div>
               </div>
               
@@ -143,7 +151,7 @@ class CancelQuest extends React.Component {
              start_time, 
              adventurer_id, 
              } = this.state;
-            
+        const time = new Date(start_time)
              const quest = this.props.quest;
              if (quest && (this.state.quest_name === '')){
                  this.formSetter()  
@@ -151,15 +159,19 @@ class CancelQuest extends React.Component {
            
              
              return(
-                 <div className='hero-container'>
+                 <div className='width2'>
+                     <div className='hero-container'>
                     <div className='h1'>Your Quest</div> 
+                    <hr className='hr'/>
         <p className='p'>Quest Name: {`${quest_name}`}</p>
         <p className='p'>Details: {`${details}`}</p>
         <p className='p'>Category: {this.categoryShow(category_id)}</p>
-        <p className='p'>Start Time: {`${start_time}`}</p>
+        <p className='p'>Start Time: {`${time}`}</p>
         <p className='p'>Adventurer: {`${this.advName()}`}</p> 
         <button onClick={() => this.next()} id='margin'>Cancel Quest</button>
                  </div>
+                 </div>
+                 
              )
       }
 

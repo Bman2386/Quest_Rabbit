@@ -77,11 +77,11 @@ class QuestPage extends React.Component {
             if (quests && quests.length > 0 && quests[0].extract){
                 const list = quests.map(quest =>
                     <div key={quest.extract.id} className='quest-name'>
-                        <p className='p'> Quest Name: {quest.extract.quest_name}</p>
-                        <p className='p'>Details: {quest.extract.details}</p>
-                        <p className='p'>Start Time: {this.timeShow(quest)}</p>
-                        <p className='p'>Category: {this.categoryShow(quest)}</p>
-                        <p className='p'>Adventurer: {this.adShow(quest)}</p>
+                        <div className='p'id='margin'> Quest Name: {quest.extract.quest_name}</div>
+                        <div className='p' id='margin'>Details: {quest.extract.details}</div>
+                        <div className='p' id='margin'>Start Time: {this.timeShow(quest)}</div>
+                        <div className='p' id='margin'>Category: {this.categoryShow(quest)}</div>
+                        <div className='p' id='margin'>Adventurer: {this.adShow(quest)}</div>
                         <Link 
                         to={`/edit/${quest.extract.id}`}
                         className="btn-4" 
@@ -96,7 +96,12 @@ class QuestPage extends React.Component {
                         >Cancel Quest</Link>
                 </div>
             )
-            return list
+            return (
+                <div className='show-quests'>
+                    <div className='h1'>Your Quests</div>
+                    {list}
+                </div>
+            ) 
             } else {
                return(
                    <div className="quest-name">

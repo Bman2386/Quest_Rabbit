@@ -11,7 +11,14 @@ const PartTwo = props => {
     
     const isElite = (elite) =>{
         if (elite === true){
-            return 'Elite Adventurer'
+            return (
+                <div className='award'>
+                    <i className='fas fa-award' id='blue'></i>
+                    <div id='blue'>Elite Adventurer</div>
+                    
+                </div>
+                
+            )
         } else {
             return ''
         }
@@ -127,7 +134,7 @@ const PartTwo = props => {
                     {hero(ad.username)}
               <div className='hero-details'>
                    <p  className="hero-name">{ad.username}</p>
-                  <p className="p">{isElite(ad.elite)}</p>
+                  <div className="p">{isElite(ad.elite)}</div>
             <div className="rating-container">Rating: {rating(ad.avg_rating)}</div> 
             <p className="p">Total Reviews: {ad.total_ratings}</p>
             <hr/>
@@ -168,9 +175,9 @@ const PartTwo = props => {
                         if (review[0]){
                             return (
                                <div key={review[0].extract.id} className='quest-name'>
-                    <div className='p'>Review By: {`${review[0].extract.username}`}</div>
-                    <div className='rating-container'>Rating: {rating(review[0].extract.rating)}</div>
-                    <div className='p'>body: {`${review[0].extract.body}`}</div>  
+                    <div className='p'>{`${review[0].extract.username}`}</div>
+                    <div className='rating-container'>{rating(review[0].extract.rating)}</div>
+                    <div className='p'>"{`${review[0].extract.body}`}"</div>  
                   </div> 
                             )
                         }
@@ -201,8 +208,9 @@ const PartTwo = props => {
                     Adventurer info:
                     <div className='hero-box'>
                         <div>{hero(values.selected.username)}</div>
-                        <div className='p'>{`${values.selected.username}`}</div>
-                        <div className='p'>{`${values.selected.pitch}`}</div>
+                        <div className='p' id='margin'>{`${values.selected.username}`}</div>
+                        <div className="p">{isElite(values.selected.elite)}</div>
+                        <div className='p' id='margin'>{`${values.selected.pitch}`}</div>
                         <button value={values.adventurer_id} type="submit" className="select2" onClick={() => select(values.selected.id)}>Select and Continue</button>
                     </div>
                     

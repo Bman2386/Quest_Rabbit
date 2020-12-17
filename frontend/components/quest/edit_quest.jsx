@@ -168,16 +168,17 @@ class EditQuest extends React.Component {
         return (
            <div className='edit-quest-container'>
                <h1 className='h1'>Edit Quest</h1>
-               <div className='label-2'>
-                   <div className='label'>Quest Name:</div>
+               <hr className='hr' />
+               <div className='edit-user'>
+                   <div className='p2'>Quest Name:</div>
                    <input type="text"
                value={quest_name}
                onChange={this.update('quest_name')}
-               className='input2'
+               className='input3'
                />
                </div>
-               <div className='label-2'>
-                <div className='type'>Details:</div>
+               <div className='edit-user'>
+                <div className='p2'>Details:</div>
                  <textarea
                value={details}
                onChange={this.update('details')}
@@ -268,8 +269,11 @@ class EditQuest extends React.Component {
         {this.dateShow()}
         <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
         <p className='p'>Adventurer: {this.adShow()}</p>
-        <Link  className="btn-4" to="/"  id='margin' onClick={() => this.submit()}>Submit</Link>
-            </div> 
+        <div id='margin2'>
+           <Link  className="btn-4" to="/" onClick={() => this.submit()}>Submit</Link> 
+        </div>
+        
+    </div> 
         )
         
     }
