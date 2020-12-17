@@ -169,7 +169,7 @@ class EditQuest extends React.Component {
            <div className='edit-quest-container'>
                <h1 className='h1'>Edit Quest</h1>
                <div className='label-2'>
-                   <div className='type'>Quest Name:</div>
+                   <div className='label'>Quest Name:</div>
                    <input type="text"
                value={quest_name}
                onChange={this.update('quest_name')}

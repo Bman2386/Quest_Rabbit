@@ -66,8 +66,7 @@ const PartThree = props => {
         } else if (values.mini === 4) {
             return (
                 <div className='quest-name'>
-                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 3)}></icon>
-                    
+                    <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 3)}></i>
                     <div className='selected'>
                     <select onChange={event => handleHour(event)} value={values.start_time} className='select'>
                             <option value="">Hour</option>
@@ -104,7 +103,7 @@ const PartThree = props => {
         } else {
             return (
                 <div className='quest-name'>
-                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 4)}></icon>
+                    <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 4)}></i>
                     <div className='orders2'>{`${startTime}`}</div> 
                 </div>
             )

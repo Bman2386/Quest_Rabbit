@@ -33,7 +33,7 @@ const PartOne = (props) => {
         } else {
             return (
                 <div className='quest-name'>
-                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 0)}></icon>
+                    <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 0)}></i>
                     <div className='label'>Name of your Quest:</div>
                     <div className='orders2'>{`${values.quest_name}`}</div> 
                 </div>
@@ -109,7 +109,7 @@ const PartOne = (props) => {
         } else if(values.mini > 1){
             return (
                  <div className='quest-name'>
-                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 1)}></icon>
+                  <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 1)}></i>
                     <div className='label'>Category of your Quest:</div>
                     <div className='orders2'>{`${catShow(values.category_id)}`}</div> 
                 </div>
@@ -145,7 +145,7 @@ const PartOne = (props) => {
         } else if (values.mini > 2){
             return (
                 <div className='quest-name'>
-                    <icon className='fa fa-pencil' id='pencil' onClick={() => pageHandle('edit', 2)}></icon>
+                    <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 2)}></i>
                     <div className='label'>Details about your quest:</div>
                     <div className='orders2'>{`${values.details}`}</div> 
                 </div>
