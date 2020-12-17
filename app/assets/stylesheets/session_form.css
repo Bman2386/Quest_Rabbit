@@ -46,8 +46,13 @@ form > input {
 }
 
 .login-guest {
+    text-align: center;
     background-color: rgb(83, 221, 164);
     color: white;
+    margin: 16px;
+    width: 50%;
+    border-radius: 3px;
+    padding: 8px;
 }
 
 .login-guest:hover {

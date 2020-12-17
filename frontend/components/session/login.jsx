@@ -40,6 +40,7 @@ class Login extends React.Component {
   }
 
   handleSubmit(e) { 
+    debugger
     if (e) e.preventDefault();
     this.props.login(this.state)
       // .then(() => this.props.history.push(''));
@@ -60,11 +61,19 @@ class Login extends React.Component {
       //   username: 'Guest',
       //   password: 'hunter12'
       // }
-    this.state.username = 'Guest';
-    this.state.password = 'hunter12';
+      debugger
+    
+    if (this.state.username !== 'Guest'){
+      // this.setState({username: 'Guest', password: 'hunter12'});
+      this.state.username = 'Guest';
+      this.state.password = 'hunter12';
+      return this.loginGuest()
+    } else{
+      return  this.handleSubmit();
+    }
     
       // const demo = {username: 'Guest', password: 'hunter12'};
-      this.handleSubmit()
+     
       
     }
 
@@ -72,11 +81,12 @@ class Login extends React.Component {
     const logo = window.logo;
     const formPhoto = window.formPhoto;
       const guestLoginButton = (
-        <button
+        <Link
+          to="/"
           onClick={() => this.loginGuest()}
           className="login-guest" >
           Demo as Guest
-        </button>
+        </Link>
       )
     
     return (
