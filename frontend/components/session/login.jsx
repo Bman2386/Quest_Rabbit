@@ -56,14 +56,15 @@ class Login extends React.Component {
 
     loginGuest() {
       // this.setGuest();
-      let demo = {
-        username: 'Guest',
-        password: 'hunter12'
-      }
+      // let demo = {
+      //   username: 'Guest',
+      //   password: 'hunter12'
+      // }
     this.state.username = 'Guest';
     this.state.password = 'hunter12';
+    
       // const demo = {username: 'Guest', password: 'hunter12'};
-      this.props.login(demo);
+      this.handleSubmit()
       
     }
 
