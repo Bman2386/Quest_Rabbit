@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 export default () => {
 const hero = window.hero;
 const star = window.star;
-const apple = window.apple;
 const play = window.play;
 const stars = <img src={star} className='star2'/>
     return (
@@ -37,7 +36,7 @@ const stars = <img src={star} className='star2'/>
         <div className='ikea'>IKEA</div>
         </div> Partnered with IKEA</div>
       <div className='store'> 
-        <img src={apple} className='apple'/> 
+        <i className='fab fa-apple' id='apple'></i>
         <div className='fake-logo'>
           <div className='small'>Available in the</div> Magic Store</div>
         </div>

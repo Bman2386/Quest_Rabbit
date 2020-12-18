@@ -59,5 +59,6 @@ input {
 .error {
     text-decoration: none;
     color: red;
+    text-align: center;
 }
 
