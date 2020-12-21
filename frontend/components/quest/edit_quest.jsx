@@ -166,7 +166,8 @@ class EditQuest extends React.Component {
              }
 
         return (
-           <div className='edit-quest-container'>
+            <div className='quest-form'>
+                 <div className='edit-quest-container'>
                <h1 className='h1'>Edit Quest</h1>
                <hr className='hr' />
                <div className='edit-user'>
@@ -269,11 +270,14 @@ class EditQuest extends React.Component {
         {this.dateShow()}
         <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
         <p className='p'>Adventurer: {this.adShow()}</p>
-        <div id='margin2'>
+        <div id='center' className='links2'>
            <Link  className="btn-4" to="/" onClick={() => this.submit()}>Submit</Link> 
+           <Link to='/' className='btn-5'>Cancel</Link>
         </div>
-        
-    </div> 
+        <span className='margin-bottom'></span>
+    </div>
+            </div>
+           
         )
         
     }

@@ -69,7 +69,7 @@ class QuestPage extends React.Component {
        timeShow(quest){
            const startTime = new Date(quest.extract.start_time);
         return (
-            <div className='orders'>{`${startTime}`}</div>
+            <div className='orders4'>{`${startTime}`}</div>
         )
        }
     show(quests) {
@@ -77,28 +77,54 @@ class QuestPage extends React.Component {
             if (quests && quests.length > 0 && quests[0].extract){
                 const list = quests.map(quest =>
                     <div key={quest.extract.id} className='quest-name'>
-                        <div className='p'id='margin'> Quest Name: {quest.extract.quest_name}</div>
-                        <div className='p' id='margin'>Details: {quest.extract.details}</div>
-                        <div className='p' id='margin'>Start Time: {this.timeShow(quest)}</div>
-                        <div className='p' id='margin'>Category: {this.categoryShow(quest)}</div>
-                        <div className='p' id='margin'>Adventurer: {this.adShow(quest)}</div>
-                        <Link 
+                        <div className='links2'>
+                            <div className='p'> Quest Name:</div>
+                            <div className='orders4'>
+                                {quest.extract.quest_name}
+                            </div>
+                        </div>
+                        <div className='links2'>
+                            <div className='p'>Details:</div>
+                            <div className='orders4'>
+                                "{quest.extract.details}"
+                            </div>
+                        </div>
+                        <div className='links2'>
+                            <div className='p'>Start Time:</div>
+                            <div>
+                               {this.timeShow(quest)} 
+                            </div>
+                        </div>
+                        <div className='links2'>
+                            <div className='p'>Category: </div>
+                            <div className='orders4'>
+                                {this.categoryShow(quest)}
+                            </div>
+                        </div>
+                        <div className='links2'>
+                            <div className='p'>Adventurer:</div>
+                            <div className='orders4'>
+                                {this.adShow(quest)}  
+                            </div>
+                        </div>
+                        <div className='links2' id='center'>
+                          <Link 
                         to={`/edit/${quest.extract.id}`}
                         className="btn-4" 
-                        id='margin'
                         questid={quest.extract.id}
                         >Edit Quest</Link>
                         <Link 
                         to={`/delete/${quest.extract.id}`}
-                        className="btn-4" 
-                        id='margin'
+                        className="btn-5" 
                         questid={quest.extract.id}
-                        >Cancel Quest</Link>
+                        >Cancel Quest</Link>  
+                        </div>
+                        
                 </div>
             )
             return (
-                <div className='show-quests'>
-                    <div className='h1'>Your Quests</div>
+                <div className='show-quests' id='background'>
+                    <div className='h1' id='background'>Your Quests</div>
                     {list}
                 </div>
             ) 
@@ -119,7 +145,7 @@ class QuestPage extends React.Component {
      
         return(
             <div>
-                <div className="form2">{this.questShow()}</div>
+                <div className="form2" id='background'>{this.questShow()}</div>
             </div>
         )
     }

@@ -24,6 +24,11 @@
     width: 57%;
 }
 
+.links2{
+    display: flex;
+    margin-top: 2rem;
+}
+
 form > h1 {
     color: black;
     font-size: 2rem;

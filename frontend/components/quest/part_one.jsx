@@ -129,9 +129,12 @@ const PartOne = (props) => {
             return (
                 <div className="quest-name">
                 <label htmlFor="details" className="label">Details:</label>
-                <p className="p">Start the conversation by telling your adventurer details about your quest.
+                <div className='text'>
+                    <p className="p">Start the conversation by telling your adventurer details about your quest.
                     Be sure to specify things like magic being required to complete the quest.
                 </p>
+                </div>
+                
                 <textarea 
                         value={values.details}
                         className="textarea"

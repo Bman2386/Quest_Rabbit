@@ -103,10 +103,20 @@ class CancelQuest extends React.Component {
           return(
               <div className='quest-form'>
                   <div className='quest-name'>
-                  <div className='red'>
-                      By clicking Confirm you are cancelling your quest, are you sure you want to cancel?
-                  </div>
-                  <div className='red'>(This can't be undone)</div>
+                     <div className='red'>
+                      By clicking Confirm you are cancelling your Quest.
+                  </div> 
+                    <div className='red'>
+                        Are you sure you want to cancel your Quest?
+                    </div>
+                    <div id='center'>
+                        <div className='orders'>
+                        If you just need to change the start-time you can edit 
+                        that <Link to={`/edit/${this.state.id}`} className='btn-6'>here.</Link>
+                    </div>
+                    
+                    </div>
+                  <div className='red' >(This can't be undone)</div>
                   <div id='center'>
                     <button id='margin' className='btn-5' onClick={() => this.cancel()}>Cancel</button>
                 <button   id='margin' className='btn-6' onClick={() => this.submit()}>Confirm</button>    
