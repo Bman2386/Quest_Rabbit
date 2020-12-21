@@ -6,6 +6,7 @@ class ProfileComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state ={
+            id: this.props.id,
             username: '',
             family_crest: '',
             realm: '',
@@ -36,14 +37,16 @@ class ProfileComponent extends React.Component {
             realm,
             star_sign
         } = this.props;
-
-         this.setState({
+        if (this.state.id == this.props.details){
+            this.setState({
             username,
             family_crest,
             realm,
             star_sign,
             edit: false
-        })
+        })  
+        }
+        
     }
 
     handleChange(type){

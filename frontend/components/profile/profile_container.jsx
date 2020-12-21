@@ -7,13 +7,13 @@ const mSTP = (state) => {
     const user= state.session.currentUser 
     const ad = state.entities.adventurers
     const details = ad ? ad : user
-   
     return ({
         username: user.username,
         family_crest: details.family_crest,
         realm: details.realm,
         star_sign: details.star_sign,
-        id: user.id
+        id: user.id,
+        details: details.id
     })
     
 }
