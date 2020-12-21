@@ -83,7 +83,7 @@ class ProfileComponent extends React.Component {
     formHandle(){
         const {logout} = this.props;
         const {username, family_crest, realm, star_sign} = this.state;
-        if (!!this.props.family_crest && family_crest === ''){
+        if (!!this.props.family_crest && family_crest === '' && realm === '' && star_sign === ''){
             this.setUser()
         }
         if (this.state.edit === false){
