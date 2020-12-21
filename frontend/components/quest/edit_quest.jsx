@@ -107,7 +107,7 @@ class EditQuest extends React.Component {
             // const month = questDay.getMonth();
             // const year = questDay.getYear();
             return (
-            <div className='p'>{`${startDate}`}</div>
+            <div className='p' id='center'>{`${startDate}`}</div>
             )
         } else {
             return ''
@@ -268,8 +268,8 @@ class EditQuest extends React.Component {
                </div>
                    
         {this.dateShow()}
-        <p className= 'p'>Quest Category: {this.categoryShow()}</p> 
-        <p className='p'>Adventurer: {this.adShow()}</p>
+        <p className= 'p' id='center'>Quest Category: {this.categoryShow()}</p> 
+        <p className='p'id='center'>Adventurer: {this.adShow()}</p>
         <div id='center' className='links2'>
            <Link  className="btn-4" to="/" onClick={() => this.submit()}>Submit</Link> 
            <Link to='/' className='btn-5'>Cancel</Link>

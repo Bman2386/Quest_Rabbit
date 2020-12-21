@@ -43,7 +43,8 @@ class ProfileComponent extends React.Component {
             family_crest,
             realm,
             star_sign,
-            edit: false
+            edit: false,
+            error: ''
         })  
         }
         
@@ -59,7 +60,7 @@ class ProfileComponent extends React.Component {
     }
 
     cancel(){
-        return this.setState({edit: false})
+        return this.setUser();
     }
 
     handleSubmit(){
@@ -71,12 +72,18 @@ class ProfileComponent extends React.Component {
             realm: realm,
             star_sign: star_sign
         }
-        if(this.state.username === 'Guest'){
+
+        if (!user || !family_crest || !realm || !star_sign){
+            return this.setState({error: "Form must be complete"})
+        } else{
+             if(this.state.username === 'Guest'){
            return this.setState({error: "You don't have permission to edit Guest User info"})
         }else{
         this.props.update(user);
         return this.setState({edit: false})
         }
+        }
+       
         
     }
 
@@ -129,7 +136,7 @@ class ProfileComponent extends React.Component {
                     onChange={this.handleChange('username')}
                     className='input3'
                     placeholder={`${this.state.username}`}/>
-                   
+                   <div className='red'>{this.state.username ? '' : "username can't be blank" }</div>
                     <label className='p2'>Family Crest:</label>
                     <input 
                     type="text" 
@@ -137,7 +144,7 @@ class ProfileComponent extends React.Component {
                     onChange={this.handleChange('family_crest')}
                     className='input3'
                     placeholder={`${this.state.family_crest}`}/>
-                    
+                    <div className='red'>{this.state.family_crest ? '' : "Family Crest can't be blank" }</div>
                     <label className='p2'>Realm: </label>
                     <input 
                     type="text" 
@@ -145,7 +152,7 @@ class ProfileComponent extends React.Component {
                     onChange={this.handleChange('realm')}
                     className='input3'
                     placeholder={`${this.state.realm}`}/>
-                   
+                   <div className='red'>{this.state.realm ? '' : "Realm can't be blank" }</div>
                     <label className='p2'>Star Sign:</label>
                     <input 
                     type="text" 
@@ -153,8 +160,9 @@ class ProfileComponent extends React.Component {
                     onChange={this.handleChange('star_sign')}
                     className='input3'
                     placeholder={`${this.state.star_sign}`}/>
+                    <div className='red'>{this.state.star_sign ? '' : "Star Sign can't be blank" }</div>
                      </div>
-                    <div className='buttons'>
+                    <div className='buttons'>   
                         <button className='btn-5' onClick={() => this.cancel()}>Cancel</button>
                         <button onClick={() => this.handleSubmit()}>Submit</button>
                     </div>
