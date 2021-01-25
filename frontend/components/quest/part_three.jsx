@@ -136,21 +136,25 @@ const PartThree = props => {
     return (
         
         <div className="quest-container">
-            <ul className='bar1'>
-                <Link to='/'>
+             <div className='top-bar'>
+                <Link to='/' >
                     <img src={logo} className="logo2"/>
                 </Link>
-                <li className='grey-out'>1</li>
-                <div className='lineN'></div>
-                <li className='grey-out'>2</li>
-                <div className='lineN'></div>
-                <li className='currentN'>3</li>
-            </ul>
-            <ul className='bar2'>
-                <li className='line'>Describe your Quest</li>
-                <li className='line'>Browse Adventurers</li>
-                <li className='current'>Choose date {'&'} Time</li>
-            </ul>
+                <div className='bars'>
+                    <ul className='bar1'>
+                        <li className='grey-out'>1</li>
+                        <div className='lineN'></div>
+                        <li className='grey-out'>2</li>
+                        <div className='lineN'></div>
+                        <li className='currentN'>3</li>
+                </ul>
+                <ul className='bar2'>
+                    <li className='line'>Describe your Quest</li>
+                    <li className='line'>Browse Adventurers</li>
+                    <li className='current'>Choose date {'&'} Time</li>
+                </ul>
+                </div> 
+             </div>
             <hr/>
             <div className='back'>
                 <button onClick={() => back()}>Back</button><br />

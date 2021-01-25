@@ -76,12 +76,12 @@ class Signup extends React.Component {
             <input type="text"
             value={this.state.family_crest}
             onChange={this.handleInput('family_crest')}
-            placeholder="family_crest"
+            placeholder="Family Crest ex, Smith "
             />
             <input type="text"
             value={this.state.realm}
             onChange={this.handleInput('realm')}
-            placeholder="realm ex, Earth"
+            placeholder="Realm ex, Earth"
             />
             <input type="text"
             value={this.state.star_sign}

@@ -14,7 +14,8 @@ form {
 }
 
 #form1 {
-    height: 350px;
+    height: 65vh;
+    min-height: fit-content;
 }
 
 .inter-form>input {
