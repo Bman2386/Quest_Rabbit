@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/Bman2386/Quest_Rabbit#readme",
   "engines": {
-    "node": "10.13.0",
-    "npm": "6.4.1"
+    "node": "15.8.0",
+    "npm": "7.5.1"
   }
 }
