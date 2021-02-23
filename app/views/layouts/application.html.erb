@@ -24,11 +24,7 @@
         "username": "<%= current_user.username %>"
       }
       </script>
-      <script>
-        location ~* \.(eot|css|otf|ttf|woff)$ {
-        add_header Access-Control-Allow-Origin *;
-        }
-      </script>
+     
     <% end %>
     <script>
      window.logo = "<%= image_url('QuestRabbit.jpg') %>";
@@ -44,7 +40,10 @@
      window.hercules = "<%= image_url('hercules.jpg') %>";
      window.goblin_slayer = "<%= image_url('goblin_slayer.jpg') %>";
      window.isaac_newton = "<%= image_url('isaac_newton.jpg') %>";
-     window.play = "<%= image_url('play.png') %>"
+     window.play = "<%= image_url('play.png') %>";
+     window.user = "<%= image_url('user.png') %>";
+     window.map = "<%= image_url('map.png') %>";
+     window.shield = "<%= image_url('shield.png') %>"
     </script>
   </head>
 

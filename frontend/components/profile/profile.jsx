@@ -90,6 +90,9 @@ class ProfileComponent extends React.Component {
     formHandle(){
         const {logout} = this.props;
         const {username, family_crest, realm, star_sign} = this.state;
+        const user = window.user;
+        const shield = window.shield;
+        const map = window.map;
         if (!!this.props.family_crest && family_crest === '' && realm === '' && star_sign === ''){
             this.setUser()
         }
@@ -103,13 +106,13 @@ class ProfileComponent extends React.Component {
                  <hr className='hr'/>
                 
                 <div className='p3'>
-                   <i className='fas fa-user-alt'></i>   Username: {`${username}`}  
+                   <img src={user} className='icon1'></img>   Username: {`${username}`}  
                 </div>
                 <div className='p3'>
-                <i className="fas fa-shield-alt"></i>   Family Crest: {`${family_crest}`}
+                <img src={shield} className='icon1'/>   Family Crest: {`${family_crest}`}
                 </div>
                 <div className='p3'>
-                <i className="fas fa-map"></i>   Realm: {`${realm}`}
+                <img src={map} className='icon1'/>   Realm: {`${realm}`}
                 </div>
                 <div className='p4'>
                     <div className='icon'>&#x2638;</div>   Star Sign: {`${star_sign}`}

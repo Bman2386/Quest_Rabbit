@@ -118,7 +118,7 @@ const PartTwo = props => {
                         className='check'
                     value='elite'
                     onClick={(e) => checkChange(e)}>
-                        <i className='fas fa-check' id='shrink'></i>
+                        <i id='shrink'>&#x2713;</i>
                         </button> 
                         <label htmlFor="elite" className='p10'>Elite Only</label> 
                         </div>
