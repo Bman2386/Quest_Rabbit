@@ -24,6 +24,11 @@
         "username": "<%= current_user.username %>"
       }
       </script>
+      <script>
+        location ~* \.(eot|css|otf|ttf|woff)$ {
+        add_header Access-Control-Allow-Origin *;
+        }
+      </script>
     <% end %>
     <script>
      window.logo = "<%= image_url('QuestRabbit.jpg') %>";
