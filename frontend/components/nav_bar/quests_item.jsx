@@ -1,10 +1,6 @@
-import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-
 function Quests({categories}) {
-
-  // const [isShown, setIsShown] = useState(false);
 
   const questButtonDisplay = (
     <div className='container'>
@@ -24,12 +20,9 @@ function Quests({categories}) {
   return (
     <ul className='dd-container'
       style={{ position: 'relative'}}
-      // onMouseEnter={() => setIsShown(true)}
-      // onMouseLeave={() => setIsShown(false)}
       > 
       Quest Types
         {
-        // isShown && 
         questButtonDisplay
             }
       </ul>   

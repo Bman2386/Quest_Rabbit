@@ -1,13 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Quests from './quests_item'
-// import img from '../../../app/assets/images/QuestRabbit.jpg'
+
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = this.props
-    // this.fetchCategories = this.fetchCategories.bind(this)
   }
 
   componentDidMount() {
@@ -15,7 +13,7 @@ class NavBar extends React.Component {
   }
   
       render() {
-      const { currentUser, logout, categories } = this.props
+      const { currentUser, categories } = this.props
       const logo = window.logo
         const display = currentUser ? (
           <div className="nav-bar">
