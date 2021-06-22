@@ -131,7 +131,7 @@ const PartThree = props => {
             )
         }
     }
-
+    //format this for to be ex=> mon June 22nd 3:00pm
     const startTime = new Date(values.start_time);
     return (
         
