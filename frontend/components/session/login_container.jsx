@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { login, clearErrors } from '../../actions/session';
 import Login from './login';
 
-// import currentUser from 
+
 
 const mSTP = ({errors}) => {
   return {
