@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-// import {today, monthDays} from './calendar'
-
 const PartThree = props => {
     const {values, changeDate, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour, adv, pageHandle} = props;
     const logo = window.logo;
