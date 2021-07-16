@@ -191,20 +191,27 @@ class CancelQuest extends React.Component {
                    return hours
                }
             } 
-            const min = fullDate.getMinutes();
-            const month = months[fullDate.getMonth()];
-            const monthDay = fullDate.getDate();
-            const year = fullDate.getFullYear();
-            const amPm = () => {
-                if (fullDate.getHours() > 11) {
-                    return 'pm'
+            const min = () => {
+                const questMinutes = fullDate.getMinutes()
+                if ( questMinutes === 0 ){
+                    return '00'
                 } else {
-                    return 'am'
-                }
-            }
-            return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min}${amPm()}`
-    
-        }
+                    return questMinutes;
+                } 
+             } ;
+             const month = months[fullDate.getMonth()];
+             const monthDay = fullDate.getDate();
+             const year = fullDate.getFullYear();
+             const amPm = () => {
+                 if (fullDate.getHours() > 11) {
+                     return 'pm'
+                 } else {
+                     return 'am'
+                 }
+             }
+             return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min()}${amPm()}`
+     
+         }
     
       yourQuest(){
          const {quest_name,

@@ -163,7 +163,14 @@ const PartThree = props => {
                return hours
            }
         } 
-        const min = fullDate.getMinutes();
+        const min = () => {
+           const questMinutes = fullDate.getMinutes()
+           if ( questMinutes === 0 ){
+               return '00'
+           } else {
+               return questMinutes;
+           } 
+        } ;
         const month = months[fullDate.getMonth()];
         const monthDay = fullDate.getDate();
         const year = fullDate.getFullYear();
@@ -174,7 +181,7 @@ const PartThree = props => {
                 return 'am'
             }
         }
-        return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min}${amPm()}`
+        return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min()}${amPm()}`
 
     }
     const startTime = dateDisplay();
