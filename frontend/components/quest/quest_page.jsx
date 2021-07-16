@@ -67,7 +67,56 @@ class QuestPage extends React.Component {
     }
     
        timeShow(quest){
-           const startTime = new Date(quest.extract.start_time);
+        const dateDisplay = () => {
+            const days = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Firday",
+                "Saturday"
+            ]
+            const months = [
+                "January",
+                "Febuary",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ];
+            const fullDate = new Date(quest.extract.start_time);
+            const weekDay = days[fullDate.getDay()];
+            const hour = () => {
+                const hours = fullDate.getHours();
+               if ( hours > 12){
+                   return (hours - 12)
+               } else {
+                   return hours
+               }
+            } 
+            const min = fullDate.getMinutes();
+            const month = months[fullDate.getMonth()];
+            const monthDay = fullDate.getDate();
+            const year = fullDate.getFullYear();
+            const amPm = () => {
+                if (fullDate.getHours() > 11) {
+                    return 'pm'
+                } else {
+                    return 'am'
+                }
+            }
+            return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min}${amPm()}`
+    
+        }
+        const startTime = dateDisplay();
+        
         return (
             <div className='orders4'>{`${startTime}`}</div>
         )

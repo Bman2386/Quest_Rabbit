@@ -53,9 +53,6 @@ class EditQuest extends React.Component {
 
     }
 
-    // questForm(){
-
-    // }
     submit(){
         const startTime = new Date(this.state.start_time)
         const quest = {
@@ -101,11 +98,56 @@ class EditQuest extends React.Component {
     dateShow(){
         const {start_time} = this.state;
         if (start_time !== ''){
-            const startDate = new Date(start_time)
-            // const [month, date, year] = startDate.toLocaleDateString("en-US").split("/")
-            // const day = questDay.getDay();
-            // const month = questDay.getMonth();
-            // const year = questDay.getYear();
+            const dateDisplay = () => {
+                const days = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Firday",
+                    "Saturday"
+                ]
+                const months = [
+                    "January",
+                    "Febuary",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                ];
+                const fullDate = new Date(start_time);
+                const weekDay = days[fullDate.getDay()];
+                const hour = () => {
+                    const hours = fullDate.getHours();
+                   if ( hours > 12){
+                       return (hours - 12)
+                   } else {
+                       return hours
+                   }
+                } 
+                const min = fullDate.getMinutes();
+                const month = months[fullDate.getMonth()];
+                const monthDay = fullDate.getDate();
+                const year = fullDate.getFullYear();
+                const amPm = () => {
+                    if (fullDate.getHours() > 11) {
+                        return 'pm'
+                    } else {
+                        return 'am'
+                    }
+                }
+                return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min}${amPm()}`
+        
+            }
+            const startDate = dateDisplay();
+            
             return (
             <div className='p' id='center'>{`${startDate}`}</div>
             )

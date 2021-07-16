@@ -29,6 +29,7 @@ class CancelQuest extends React.Component {
         this.advName = this.advName.bind(this);
         this.rating = this.rating.bind(this);
         this.cancel = this.cancel.bind(this);
+        this.dateDisplay = this.dateDisplay.bind(this);
     }
 
     componentDidMount(){
@@ -154,14 +155,64 @@ class CancelQuest extends React.Component {
              }
             }
 
+   
+    dateDisplay(){
+           const {start_time} = this.state
+            const days = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Firday",
+                "Saturday"
+            ]
+            const months = [
+                "January",
+                "Febuary",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+            ];
+            const fullDate = new Date(start_time);
+            const weekDay = days[fullDate.getDay()];
+            const hour = () => {
+                const hours = fullDate.getHours();
+               if ( hours > 12){
+                   return (hours - 12)
+               } else {
+                   return hours
+               }
+            } 
+            const min = fullDate.getMinutes();
+            const month = months[fullDate.getMonth()];
+            const monthDay = fullDate.getDate();
+            const year = fullDate.getFullYear();
+            const amPm = () => {
+                if (fullDate.getHours() > 11) {
+                    return 'pm'
+                } else {
+                    return 'am'
+                }
+            }
+            return `${weekDay} ${month} ${monthDay} ${year} ${hour()}:${min}${amPm()}`
+    
+        }
+    
       yourQuest(){
          const {quest_name,
             category_id,
              details, 
-             start_time, 
              adventurer_id, 
              } = this.state;
-        const time = new Date(start_time)
+        const time = this.dateDisplay();
              const quest = this.props.quest;
              if (quest && (this.state.quest_name === '')){
                  this.formSetter()  
