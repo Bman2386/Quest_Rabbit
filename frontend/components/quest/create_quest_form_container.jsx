@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import QuestForm from './quest_form';
 import { createQuest} from '../../actions/quest';
-// import { fetchCategories } from '../../actions/category'
 import {fetchAdventurers} from '../../actions/adventurer';
 import {fetchReviews} from '../../actions/review'
 
@@ -21,8 +20,6 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => ({
     action: quest => dispatch(createQuest(quest)),
-    // updateQuest: quest => dispatch(updateQuest(quest)),
-    // fetchQuest: questId => dispatch(fetchQuest(questId)),
     fetchAdventurers: () => dispatch(fetchAdventurers()),
     show: () => dispatch(fetchReviews())
 })
