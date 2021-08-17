@@ -159,6 +159,8 @@ const PartThree = props => {
             const hours = fullDate.getHours();
            if ( hours > 12){
                return (hours - 12)
+           } else if (hours === 0){
+                return (hours + 12)
            } else {
                return hours
            }

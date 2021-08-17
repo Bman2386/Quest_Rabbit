@@ -166,13 +166,8 @@ class QuestForm extends React.Component {
     }
 
     selectAdv(input){
-      // const {selectedId, review} = this.state 
-    //  this.setState({selectedId: input, review: 'true'});
     const firstId = this.props.adventurers[0].id;
     const num = this.props.adventurers[input - firstId];
-      // this.setState((state) => {
-      //   return {selectedId: num, review: true }
-      // })
       this.props.show();
       return this.setState({selected: num, review: true})
     }
@@ -211,12 +206,12 @@ class QuestForm extends React.Component {
                 
                 if (event.target.value === 'AM'){
                     
-                    if (hour > 12){
+                    if (hour >= 12){
                         hour -= 12
                     }
                 } else {
                     
-                    if (hour < 12){
+                    if (hour <= 12){
                         hour += 12
                     }
                 }
@@ -307,14 +302,14 @@ class QuestForm extends React.Component {
                  return "";
              }
          }
-         const dayKey = function(day) {
-             if (typeof day === 'string'){
-                 day *= 100
-                 return day
-             } else {
-                 return day
-             }
-         }
+        //  const dayKey = function(day) {
+        //      if (typeof day === 'string'){
+        //          day *= 100
+        //          return day
+        //      } else {
+        //          return day
+        //      }
+        //  }
          const month = days.map(day => 
               <button 
               
