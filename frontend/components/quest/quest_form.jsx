@@ -302,14 +302,7 @@ class QuestForm extends React.Component {
                  return "";
              }
          }
-        //  const dayKey = function(day) {
-        //      if (typeof day === 'string'){
-        //          day *= 100
-        //          return day
-        //      } else {
-        //          return day
-        //      }
-        //  }
+       
          const month = days.map(day => 
               <button 
               
