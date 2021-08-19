@@ -62,9 +62,6 @@ class CancelQuest extends React.Component {
 
     }
 
-    // questForm(){
-
-    // }
     submit(){
         const {
             id,
