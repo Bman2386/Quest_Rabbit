@@ -42,36 +42,17 @@ class Login extends React.Component {
   handleSubmit(e) { 
     if (e) e.preventDefault();
     this.props.login(this.state)
-      // .then(() => this.props.history.push(''));
   }
-    // const demoUser = 
-    //       <button
-    //       className>
-    //         Demo User
-    //       </button>
-
-    // setGuest(){
-    //   return this.setState({ username: 'Guest', password: 'hunter12' });
-    // }
 
     loginGuest() {
-      // this.setGuest();
-      // let demo = {
-      //   username: 'Guest',
-      //   password: 'hunter12'
-      // }
+      
     if (this.state.username !== 'Guest'){
-      // this.setState({username: 'Guest', password: 'hunter12'});
       this.state.username = 'Guest';
       this.state.password = 'hunter12';
       return this.loginGuest()
-    } else{
+      } else{
       return  this.handleSubmit();
-    }
-    
-      // const demo = {username: 'Guest', password: 'hunter12'};
-     
-      
+      }
     }
 
   render() {
