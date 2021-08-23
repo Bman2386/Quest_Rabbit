@@ -11,7 +11,6 @@ class Login extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginGuest = this.loginGuest.bind(this);
-    // this.setGuest = this.setGuest.bind(this);
   }
 
   componentWillUnmount() {
