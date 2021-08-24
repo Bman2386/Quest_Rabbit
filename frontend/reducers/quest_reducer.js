@@ -8,13 +8,8 @@ const QuestsReducer = (oldState = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_QUESTS:
-            // const quests = {};
-            // action.quests.forEach(quest => {
-            //     quests[quest.id] = quest;
-            // });
         return Object.assign({}, action.quests);
         case RECEIVE_QUEST:    
-        // return Object.assign({}, oldState, {[action.quest.extract.id]: action.quest});
         return Object.assign({}, action.quest)
         default:
         return oldState;
