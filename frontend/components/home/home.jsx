@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 export default () => {
+const [clicked, setClicked] = useState('');
 const hero = window.hero;
 const star = window.star;
 const play = window.play;
 const stars = <img src={star} className='star2'/>
+
+const lastButton = () => {
+  return (
+    <Link 
+      className='btn-4' to="/categories/4">Slay</Link>
+  )
+}
     return (
   <div className="home">
     <div className="hero-img-frame">
@@ -25,7 +33,7 @@ const stars = <img src={star} className='star2'/>
         <Link className='btn-4' to="/categories/1">Fetch</Link>
         <Link className='btn-4' to="/categories/2">Craft</Link>
         <Link className='btn-4' to="/categories/3">Escort</Link>
-        <button className='btn-3'>See more...</button>
+        {clicked === 'true' ? lastButton() : <button className='btn-3' onClick={() =>setClicked('true')}>See more...</button>}
         </div>
       </form>
     </div> 
