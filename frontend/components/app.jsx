@@ -1,4 +1,3 @@
-// front end routes go here!
 import React from 'react';
 import NavBarContainer from './nav_bar/nav_bar_container';
 import CategoryShow from './category/category_show_container'
