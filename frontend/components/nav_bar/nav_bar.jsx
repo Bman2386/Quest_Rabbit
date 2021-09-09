@@ -8,6 +8,7 @@ class NavBar extends React.Component {
     super(props)
   }
 
+  //write an update
   componentDidMount() {
     this.props.fetchCategories()
   }
