@@ -5,11 +5,7 @@ const PartOne = (props) => {
     const {values, handleChange, next, pageHandle} = props;
     const logo = window.logo;
 
-    const empty = () => {
-        return (
-            <div></div>
-        )
-    }
+    
     const questName = () => {
         if (values.mini === 0){
             return (
@@ -24,7 +20,7 @@ const PartOne = (props) => {
             className="input"
             >
             </input>  
-            {values.quest_name === '' ? empty : <button 
+            {values.quest_name === '' ? '' : <button 
             id='center' 
             onClick={() => pageHandle('continue')}>Continue</button>}
             
@@ -101,7 +97,7 @@ const PartOne = (props) => {
                 </label>  
                 
                 </div>
-                 {values.category_id === '' ? empty : <button 
+                 {values.category_id === '' ? '' : <button 
             id='center' 
             onClick={() => pageHandle('continue')}>Continue</button>}
             </div>
@@ -118,7 +114,7 @@ const PartOne = (props) => {
             return (
                <div className='quest-name'>
                 <div className='label'>Category Select</div>
-                <div className='orders2'>{values.category_id ? `${catShow(values.category_id)}` : empty()}</div>
+                <div className='orders2'>{values.category_id ? `${catShow(values.category_id)}` : ''}</div>
             </div> 
             )   
         }
@@ -140,7 +136,7 @@ const PartOne = (props) => {
                         className="textarea"
                         onChange={handleChange('details')}
                         />
-                {values.details === '' ? empty : <button 
+                {values.details === '' ? '' : <button 
             id='center' 
             onClick={() => pageHandle('continue')}>Continue</button>}
             </div> 
@@ -157,7 +153,7 @@ const PartOne = (props) => {
             return (
                 <div className='quest-name'>
                 <div className='label'>Quest Details:</div>
-                <div className='orders2'>{values.details ? `${values.details}` : empty()}</div>
+                <div className='orders2'>{values.details ? `${values.details}` : ''}</div>
             </div> 
             )
         }
@@ -189,7 +185,7 @@ const PartOne = (props) => {
                 {questCategory()}
                 {questDetails()}
            <br />
-           {values.mini > 2 ? <button onClick={() => next()}>Next</button> : empty()}
+           {values.mini > 2 ? <button onClick={() => next()}>Next</button> : ''}
             </div>
             
         </div>
