@@ -200,17 +200,9 @@ class EditQuest extends React.Component {
         }
     }
     render(){
-        const {quest_name,
-            category_id,
-             details, 
-             creator_id, 
-             start_time, 
-             completed, 
-             adventurer_id, 
-             } = this.state;
-
+        const {quest_name, details, start_time} = this.state;
              const quest = this.props.quest;
-             if (quest && (this.state.quest_name === '')){
+             if (quest && (quest_name === '')){
                  this.formSetter()  
              }
 
@@ -237,7 +229,7 @@ class EditQuest extends React.Component {
                </div>
                <div className='label-container'>
                    <div className='label-2'>
-                       <select onChange={(event) => this.changeDate(event, 'month')} value={this.state.start_time}>
+                       <select onChange={(event) => this.changeDate(event, 'month')} value={start_time}>
                            <option value="">Month</option>
                             <option value={0}>Jan</option>
                             <option value={1}>Feb</option>
@@ -252,7 +244,7 @@ class EditQuest extends React.Component {
                             <option value={10}>Nov</option>
                             <option value={11}>Dec</option>
                        </select>
-                       <select onChange={event => this.changeDate(event, 'day')} value={this.state.start_time}>
+                       <select onChange={event => this.changeDate(event, 'day')} value={start_time}>
                            <option value="">Day</option>
                            <option value={1}>1</option>
                            <option value={2}>2</option>
@@ -286,7 +278,7 @@ class EditQuest extends React.Component {
                            <option value={30}>30</option>
                            <option value={31}>31</option>
                        </select>
-                       <select onChange={event => this.changeDate(event, 'hour')} value={this.state.start_time}>
+                       <select onChange={event => this.changeDate(event, 'hour')} value={start_time}>
                             <option value="">Hour</option>
                             <option value={1}>1</option>
                             <option value={2}>2</option>
@@ -301,14 +293,14 @@ class EditQuest extends React.Component {
                             <option value={11}>11</option>
                             <option value={12}>12</option>
                        </select>
-                       <select onChange={event => this.changeDate(event, 'minute')} value={this.state.start_time}>
+                       <select onChange={event => this.changeDate(event, 'minute')} value={start_time}>
                             <option value="">Minute</option>
                             <option value={0}>00</option>
                             <option value={15}>15</option>
                             <option value={30}>30</option>
                             <option value={45}>45</option>
                        </select>
-                       <select onChange={event => this.changeDate(event, 'convert')} value={this.state.start_time}>
+                       <select onChange={event => this.changeDate(event, 'convert')} value={start_time}>
                             <option value="">am/pm</option>
                             <option value='AM'>AM</option>
                             <option value='PM'>PM</option>

@@ -24,7 +24,7 @@ const PartOne = (props) => {
             id='center' 
             onClick={() => pageHandle('continue')}>Continue</button>}
             
-                </div>
+            </div>
         )
         } else {
             return (
