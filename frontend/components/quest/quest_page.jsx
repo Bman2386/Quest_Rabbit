@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { getQuests } from '../../utils/quest';
+
 
 class QuestPage extends React.Component {
     constructor(props){
