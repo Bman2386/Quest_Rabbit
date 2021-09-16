@@ -2,11 +2,6 @@ import React from 'react'
 
 class Footer extends React.Component {
 
-    // constructor(props) {
-    //     super(props)
-        
-    // }
-
     render(){
         const linked = window.linked;
         const git = window.git
