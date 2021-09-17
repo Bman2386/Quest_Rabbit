@@ -45,7 +45,7 @@ class Category extends React.Component {
                         <div>
                             <h1 className="show-h1">{categories[categoryId - 1].category_name}</h1>
                             <p className="show-p">{categories[categoryId - 1].ex_description}</p>
-                        </div> :  <h1>Not loaded</h1>
+                        </div> :  ''
                     }  
         </div> 
                 )
