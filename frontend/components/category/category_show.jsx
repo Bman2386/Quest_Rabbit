@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class Category extends React.Component {
     constructor(props){
@@ -11,6 +10,11 @@ class Category extends React.Component {
     }
 
     imageLogic(id) {
+        const slay = window.slay
+        const craft = window.craft
+        const escort = window.escort
+        const ftch = window.ftch
+        //ftch = fetch, but couldn't be named 'fetch' as it is a keyword
         switch (id) {
             case "2":
             return craft;
@@ -26,15 +30,8 @@ class Category extends React.Component {
     render() {
         const {categories} = this.props
         const categoryId = this.props.match.params.categoryId
-        const ftch = window.ftch
-        //ftch = fetch, but couldn't be named 'fetch' as it is a keyword
-        const slay = window.slay
-        const craft = window.craft
-        const escort = window.escort
-
-        
         const dynamicImage = (
-           categories && categories.length > 1 && categoryId > 1? this.imageLogic(categoryId) : ftch
+           categories && categories.length > 1 && categoryId > 1? this.imageLogic(categoryId) : window.ftch
         )
 
     return (    
