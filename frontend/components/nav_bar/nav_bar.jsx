@@ -6,25 +6,34 @@ import Quests from './quests_item'
 class NavBar extends React.Component {
   constructor(props) {
     super(props)
+    this.categoryDisplay = this.categoryDisplay.bind(this);
   }
 
+  categoryDisplay() {
+    const {categories} = this.props
+    if (!!categories) {
+      return (
+        <Quests
+          categories={categories}
+        />
+      )
+    } else {
+      return ''
+    }
+  }
   componentDidMount() {
     this.props.fetchCategories()
   }
   
       render() {
-      const { currentUser, categories } = this.props
+      const { currentUser } = this.props
       const logo = window.logo
         const display = currentUser ? (
           <div className="nav-bar">
             <Link to='/'>
               <img src={logo} className="logo"/>
             </Link>
-            { categories !== [] ? 
-               <Quests 
-               categories={categories}
-                /> : <div></div>
-            }
+            {this.categoryDisplay()}
             <Link to='/quest'>Book a Quest</Link>
             <Link to='/quests'>My Quests</Link>
             <Link to='/user'>Account</Link>
@@ -34,11 +43,7 @@ class NavBar extends React.Component {
             <Link to='/'>
               <img src={logo} className="logo"/>
             </Link>
-            { categories !== [] ? 
-                <Quests 
-                categories={categories} 
-                /> : <div></div>
-            }
+            {this.categoryDisplay()}
             <Link className="btn" to="/intermediary">Log in</Link>
           </div>
         );

@@ -3,9 +3,7 @@ import {connect} from 'react-redux';
 import NavBar from './nav_bar';
 import { logout } from '../../actions/session';
 import { fetchCategories } from '../../actions/category'
-// import  {categoryReducer}  from '../../reducers/category_reducer'
 
-// import {  }
 const mapStateToProps = (state) => {
   return {
     currentUser: state.session.currentUser,
