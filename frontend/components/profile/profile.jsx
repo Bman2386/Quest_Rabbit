@@ -47,7 +47,6 @@ class ProfileComponent extends React.Component {
             error: ''
         })  
         }
-        
     }
 
     handleChange(type){
@@ -82,9 +81,7 @@ class ProfileComponent extends React.Component {
         this.props.update(user);
         return this.setState({edit: false})
         }
-        }
-       
-        
+        } 
     }
 
     formHandle(){
@@ -185,7 +182,6 @@ class ProfileComponent extends React.Component {
             </div>
             
         )
-    
     }
 }
 
