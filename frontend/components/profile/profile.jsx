@@ -177,8 +177,8 @@ class ProfileComponent extends React.Component {
         return (
             <div className="quest-form">
                 <div className='box'> 
-                {this.formHandle()}
-            </div>
+                    {this.formHandle()}
+                </div>
             </div>
             
         )

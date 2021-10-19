@@ -226,15 +226,15 @@ class CancelQuest extends React.Component {
              return(
                  <div className='width2'>
                      <div className='hero-container'>
-                    <div className='h1'>Your Quest</div> 
-                    <hr className='hr'/>
-        <p className='p'>Quest Name: {`${quest_name}`}</p>
-        <p className='p'>Details: {`${details}`}</p>
-        <p className='p'>Category: {this.categoryShow(category_id)}</p>
-        <p className='p'>Start Time: {`${time}`}</p>
-        <p className='p'>Adventurer: {`${this.advName()}`}</p> 
-        <button onClick={() => this.next()} id='margin'>Cancel Quest</button>
-                 </div>
+                        <div className='h1'>Your Quest</div> 
+                        <hr className='hr'/>
+                        <p className='p'>Quest Name: {`${quest_name}`}</p>
+                        <p className='p'>Details: {`${details}`}</p>
+                        <p className='p'>Category: {this.categoryShow(category_id)}</p>
+                        <p className='p'>Start Time: {`${time}`}</p>
+                        <p className='p'>Adventurer: {`${this.advName()}`}</p> 
+                        <button onClick={() => this.next()} id='margin'>Cancel Quest</button>
+                    </div>
                  </div>
                  
              )
@@ -244,22 +244,22 @@ class CancelQuest extends React.Component {
       avgCalc(){
           
         const {rating, body, creator_id, adventurer_id} = this.state;
-            const review = {rating, body, user_id: creator_id, adventurer_id};
-            const firstId = this.props.adventurers[0].id
-            const adv = this.props.adventurers[this.state.adventurer_id - firstId];
-            const ratings = (adv.total_ratings + 1);
-            const el = Number(review.rating);
-            const reviews = this.props.reviews;
-            let sum = 0;
-            reviews.forEach(ele =>{
-                if (ele.extract.adventurer_id === this.state.adventurer_id){
-                    let temp = Number(ele.extract.rating)
-                    sum += temp;
-                }
-                return sum;
+        const review = {rating, body, user_id: creator_id, adventurer_id};
+        const firstId = this.props.adventurers[0].id
+        const adv = this.props.adventurers[this.state.adventurer_id - firstId];
+        const ratings = (adv.total_ratings + 1);
+        const currentRating = Number(review.rating);
+        const reviews = this.props.reviews;
+        let totalReviews = 0;
+        reviews.forEach(review =>{
+            if (review.extract.adventurer_id === this.state.adventurer_id){
+                let singleRating = Number(review.extract.rating)
+                totalReviews += singleRating;
+            }
+                return totalReviews;
             })
             const avg = () => {
-                return ((sum + el)/ratings)
+                return ((totalReviews + currentRating)/ratings)
             }
             return avg()
       }
