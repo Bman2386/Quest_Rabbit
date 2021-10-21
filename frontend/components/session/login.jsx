@@ -57,15 +57,7 @@ class Login extends React.Component {
   render() {
     const logo = window.logo;
     const formPhoto = window.formPhoto;
-      const guestLoginButton = (
-        <Link
-        to="/"
-          onClick={() => this.loginGuest()}
-          className="login-guest" >
-          Demo as Guest
-        </Link>
-      )
-    
+      
     return (
       <div className="session-form">
        <img src={formPhoto} className="form-photo"/>
@@ -87,7 +79,12 @@ class Login extends React.Component {
             placeholder="Password"
           />
             <button onClick={this.handleSubmit}>Log in</button>
-            {guestLoginButton}
+          <Link
+            to="/"
+            onClick={() => this.loginGuest()}
+            className="login-guest" >
+            Demo as Guest
+          </Link>
         </form>
       </div>
     );
