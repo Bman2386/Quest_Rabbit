@@ -1,6 +1,5 @@
 import {connect} from 'react-redux';
 import NavBar from './nav_bar';
-import { logout } from '../../actions/session';
 import { fetchCategories } from '../../actions/category'
 
 const mapStateToProps = (state) => {
@@ -11,7 +10,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout()),
   fetchCategories: () => dispatch(fetchCategories()) 
 })
 
