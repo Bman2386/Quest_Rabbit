@@ -4,6 +4,4 @@ class Category < ApplicationRecord
 
     has_many :quest
 
-    # belongs_to :user,
-    #     foreign_key: :adventurer_id
 end

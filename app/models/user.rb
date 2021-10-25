@@ -2,7 +2,7 @@ class User < ApplicationRecord
     validates :username, presence: true, uniqueness: true
     validates :password_digest, :session_token, presence: true
     validates :password, length: { minimum: 6 }, allow_nil: true
-    # validates :adventurer, inclusion: { in: [true, false] }
+ 
 
     attr_reader :password
 
@@ -14,8 +14,6 @@ class User < ApplicationRecord
     has_many :reviews,
         foreign_key: :user_id
 
-    # has_many :categories,
-    #     foreign_key: :adventurer_id
 
     def self.find_by_credentials(username, password)
         user = User.find_by( username: username)
