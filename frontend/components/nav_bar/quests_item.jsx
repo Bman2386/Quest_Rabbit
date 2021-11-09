@@ -29,7 +29,6 @@ function Quests({categories}) {
       </ul>   
     )
       }
-// }
 
 export default Quests
 
