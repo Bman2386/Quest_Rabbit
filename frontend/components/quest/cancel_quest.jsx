@@ -66,22 +66,22 @@ class CancelQuest extends React.Component {
         const {
             id,
             quest_name,
-             category_id,
-              details, 
-              creator_id, 
-              start_time, 
-              adventurer_id, 
-              completed
+            category_id,
+            details, 
+            creator_id, 
+            start_time, 
+            adventurer_id, 
+            completed
               } = this.state;
         const quest = {
             id,
             quest_name,
-             category_id,
-              details, 
-              creator_id, 
-              start_time, 
-              adventurer_id,
-              completed
+            category_id,
+            details, 
+            creator_id, 
+            start_time, 
+            adventurer_id,
+            completed
         }
         this.props.updateQuest(quest);
         this.next();
@@ -97,13 +97,14 @@ class CancelQuest extends React.Component {
       cancel(){
           return this.setState({status: 1});
       }
+      
       finalPart(){
           return(
               <div className='quest-form'>
                   <div className='quest-name'>
                      <div className='red'>
                       By clicking Confirm you are cancelling your Quest.
-                  </div> 
+                    </div> 
                     <div className='red'>
                         Are you sure you want to cancel your Quest?
                     </div>
@@ -111,18 +112,15 @@ class CancelQuest extends React.Component {
                         <div className='orders'>
                         If you just need to change the start-time you can edit 
                         that <Link to={`/edit/${this.state.id}`} className='btn-6'>here.</Link>
-                    </div>
-                    
+                        </div>
                     </div>
                   <div className='red' >(This can't be undone)</div>
                   <div id='center'>
                     <button id='margin' className='btn-5' onClick={() => this.cancel()}>Cancel</button>
-                <button   id='margin' className='btn-6' onClick={() => this.submit()}>Confirm</button>    
+                    <button id='margin' className='btn-6' onClick={() => this.submit()}>Confirm</button>    
                   </div>
-                
+                </div>
               </div>
-              </div>
-              
           )
         
       }
@@ -211,18 +209,14 @@ class CancelQuest extends React.Component {
          }
     
       yourQuest(){
-         const {quest_name,
-            category_id,
-             details, 
-             adventurer_id, 
-             } = this.state;
+        const {quest_name, category_id, details} = this.state;
         const time = this.dateDisplay();
-             const quest = this.props.quest;
-             if (quest && (this.state.quest_name === '')){
+        const quest = this.props.quest;
+
+        if (quest && (this.state.quest_name === '')){
                  this.formSetter()  
-             } 
+            } 
            
-             
              return(
                  <div className='width2'>
                      <div className='hero-container'>
@@ -380,7 +374,6 @@ class CancelQuest extends React.Component {
         if (this.state.status === 1){
            return this.yourQuest()
         } else if (this.state.status === 3){
-
            return this.writeReview()
         } else if (this.state.status === 2){
             return this.finalPart()
