@@ -93,7 +93,7 @@ const PartThree = props => {
                             <option value='AM'>AM</option>
                             <option value='PM'>PM</option>
                        </select>
-                </div>
+                    </div>
                 <div className='orders2'>{`${startTime}`}</div> 
                 <button id='center' onClick={() => pageHandle('continue')}>Continue</button>
                 </div>
