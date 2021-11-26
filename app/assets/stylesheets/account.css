@@ -42,7 +42,6 @@
     display: flex;
     flex-direction: column;
     width: 40%;
-    /* align-items: flex-start; */
     border: 1px solid black;
     border-radius: 2px;
     filter: drop-shadow(1px 1px 1px grey);
@@ -50,7 +49,6 @@
 }
 
 .hr{
-    /* border: 1px solid grey; */
     width: 99%;
     margin-top: 0;
 }
@@ -82,7 +80,6 @@
     border-radius: 2px;
     padding: 4px;
     margin-right: 16px;
-    /* font-weight: 525; */
     background-color: white;
 }
 

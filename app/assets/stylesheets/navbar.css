@@ -27,13 +27,6 @@
     color:  rgb(81, 182, 81);
     z-index: 2;
 }
-/* .dd-container:hover {  
-    border-top: 4px solid green;
-    border: 1px solid lightgray;
-    height: 400px;
-    z-index: 3;
-    position: absolute;
-} */
 
 .container {
     display: none;
@@ -49,16 +42,12 @@
     padding-left: 80%; 
     width: 280px;
 }
-/* .container{
-    display: flex;
-} */
+
 .container>a {
     margin: 8px;
 }
 
 .btn-3:hover {
-    /* border: none;
-    border-radius: none; */
     background-color: white;
     color: rgb(46, 165, 46);
     

@@ -4,7 +4,6 @@ form {
     background-color: white;
     width: 50%;
     min-height: fit-content;
-    /* height: 350px; */
     position: absolute;
     flex-direction: column;
     align-items: center;
