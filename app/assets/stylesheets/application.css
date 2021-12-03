@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+ /*
+ This is the CSS Resets page
+ */
 html, body, div, span, h1, h2, h3, 
 header, footer, nav, ul, li, button, img, input, a {
     padding: 0;
