@@ -30,3 +30,5 @@ export default () => (
     <Footer />
   </div>
 );
+
+// note to self: need to write tests
