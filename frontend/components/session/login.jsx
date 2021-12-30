@@ -44,11 +44,10 @@ class Login extends React.Component {
   }
 
     loginGuest() {
-      
     if (this.state.username !== 'Guest'){
       this.state.username = 'Guest';
       this.state.password = 'hunter12';
-      return this.loginGuest()
+      return this.loginGuest() //once the state is set it calls this function again and moves to handleSubmit
       } else{
       return  this.handleSubmit();
       }
