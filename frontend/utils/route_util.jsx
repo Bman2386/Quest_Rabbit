@@ -6,23 +6,29 @@ const mSTP = state => ({
   loggedIn: Boolean(state.session.currentUser),
 });
 
-const Auth = ({ component: Component, path, loggedIn }) => (
-  <Route
+const Auth = ({ component: Component, path, loggedIn}) => {
+  return (
+    <Route
     path={path}
     render={props => (
-    loggedIn ? <Redirect to="/" /> : <Component {...props} />
+     loggedIn ? <Redirect to='/quest'/> : <Component {...props} />
     )}
-  />
-);
+  />)
+    };
+  
+  
 
-const Protected = ({ component: Component, path, loggedIn }) => (
-  <Route
+const Protected = ({ component: Component, path, loggedIn }) => {
+  return (
+    <Route
     path={path}
     render={props => (
     loggedIn ? <Component {...props} /> : <Redirect to="/intermediary" />
     )}
   />
-);
+  )
+};
+  
 
 export const AuthRoute = withRouter(connect(mSTP)(Auth));
 export const ProtectedRoute = withRouter(connect(mSTP, undefined)(Protected));

@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Category extends React.Component {
     constructor(props){
         super(props)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount(){
-        this.props.fetchCategories()
+        this.props.fetchCategories();
     }
 
     imageLogic(id) {
@@ -27,21 +29,28 @@ class Category extends React.Component {
         }
     }
 
+    handleSubmit(category){
+        this.props.saveData(category);
+    }
+    
     render() {
         const {categories} = this.props
         const categoryId = this.props.match.params.categoryId
         const dynamicImage = (
            categories && categories.length > 1 && categoryId > 1? this.imageLogic(categoryId) : window.ftch
         )
-
+        const category = categories[categoryId - 1]
     return (    
         <div className="show-container">
             <img className="show-image" src={dynamicImage}/>
                     {
                         categories && categories.length > 1 ? 
-                        <div>
-                            <h1 className="show-h1">{categories[categoryId - 1].category_name}</h1>
-                            <p className="show-p">{categories[categoryId - 1].ex_description}</p>
+                        <div className='show-block'>
+                            <h1 className="show-h1">Category Name: {category.category_name}</h1>
+                            <p className="show-p">Example Description: {category.ex_description}</p>
+                            <Link 
+                            to='/quest'
+                            className='show-button'onClick = {() => this.handleSubmit(category)}>Book a Quest in this Category</Link>
                         </div> :  ''
                     }  
         </div> 

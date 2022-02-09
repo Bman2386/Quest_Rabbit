@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Categories from './category_show';
-import { fetchCategories } from '../../actions/category'
+import { fetchCategories } from '../../actions/category';
+import { saveData } from '../../actions/temp';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -10,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCategories: () => dispatch(fetchCategories()) 
+  fetchCategories: () => dispatch(fetchCategories()),
+  saveData: data => dispatch(saveData(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Categories);

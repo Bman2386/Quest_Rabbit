@@ -4,9 +4,11 @@ import Login from './login';
 
 
 
-const mSTP = ({errors}) => {
+const mSTP = ({entities, errors}) => {
+  const data = entities && entities.temp ? entities.temp : null;
   return {
-    errors: errors.session
+    errors: errors.session,
+    data
   }
 }
 const mapDispatchToProps = dispatch => ({

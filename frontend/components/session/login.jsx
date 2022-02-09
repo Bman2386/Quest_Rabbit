@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
   constructor(props) {
@@ -40,7 +40,12 @@ class Login extends React.Component {
 
   handleSubmit(e) { 
     if (e) e.preventDefault();
+    const { data } = this.props;
     this.props.login(this.state)
+    if (Object.keys(data).length > 0){
+      return <Redirect to='/quest'/>
+    } 
+    
   }
 
     loginGuest() {
@@ -52,11 +57,9 @@ class Login extends React.Component {
       return  this.handleSubmit();
       }
     }
-
   render() {
     const logo = window.logo;
     const formPhoto = window.formPhoto;
-      
     return (
       <div className="session-form">
        <img src={formPhoto} className="form-photo"/>
@@ -77,8 +80,8 @@ class Login extends React.Component {
             onChange={this.handleInput('password')}
             placeholder="Password"
           />
-            <button onClick={this.handleSubmit}>Log in</button>
-          <Link
+          <button onClick={this.handleSubmit}>Log in</button>
+            <Link
             to="/"
             onClick={() => this.loginGuest()}
             className="login-guest" >
