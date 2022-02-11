@@ -5,7 +5,7 @@ import Login from './login';
 
 
 const mSTP = ({entities, errors}) => {
-  const data = entities && entities.temp ? entities.temp : null;
+  const data = entities && (Object.keys(entities.temp).length > 0 )? entities.temp : null;
   return {
     errors: errors.session,
     data

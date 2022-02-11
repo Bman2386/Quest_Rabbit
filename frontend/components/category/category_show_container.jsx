@@ -4,9 +4,11 @@ import { fetchCategories } from '../../actions/category';
 import { saveData } from '../../actions/temp';
 
 const mapStateToProps = (state, ownProps) => {
+  const user = Boolean(window.currentUser)
   return {
     categoryid: ownProps[ownProps.match.params.id],
-    categories: Object.keys(state.entities.categories).map(key => state.entities.categories[key])
+    categories: Object.keys(state.entities.categories).map(key => state.entities.categories[key]),
+    user
   }
 };
 

@@ -5,6 +5,7 @@ export default () => {
     const logo = window.logo;
     const formPhoto = window.formPhoto;
 
+
     return (
         <div className="session-form">
             <img src={formPhoto} className="form-photo"/>

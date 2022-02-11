@@ -2,14 +2,15 @@ import React from 'react';
 import PartOne from './part_one';
 import PartTwo from './part_two';
 import PartThree from './part_three';
+import session from './quick_session/session'
 
 class QuestForm extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            quest_name: '',
-            category_id: '',
-            details: '',
+            quest_name: this.props.data['quest_name'],
+            category_id: this.props.data['id'],
+            details: this.props.data.details,
             creator_id: this.props.creatorId,
             start_time: '',
             completed: 'false',
@@ -42,7 +43,6 @@ class QuestForm extends React.Component {
        this.checkChange = this.checkChange.bind(this);
        this.pageHandle = this.pageHandle.bind(this);
     }
-
 
      next() {
          this.setState({status: (this.state.status += 1)});
@@ -313,7 +313,7 @@ class QuestForm extends React.Component {
       
               return month;
      }
- 
+
         switch (status) {
             case 1:
               return (

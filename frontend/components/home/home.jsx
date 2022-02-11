@@ -1,8 +1,18 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
-export default () => {
+const Home = ({saveData}) => {
 const [clicked, setClicked] = useState('');
+const [name, setName] = useState('');
+console.log(saveData)
+const setData = () => {
+
+  const nameOfQuest = {
+    name: name
+  }
+  saveData(nameOfQuest)
+}
+
 const hero = window.hero;
 const star = window.star;
 const play = window.play;
@@ -26,8 +36,10 @@ const lastButton = () => {
                     type="text"
                     placeholder="I need help with..."
                     className="hero-search-bar"
+                    value={name}
+                    onChange={e=> setName(e.target.value)}
                     />
-                    <Link to="/quest" className="button">Get help today</Link>
+                    <Link to="/quest" className="button" onClick={()=>setData()}>Get help today</Link>
         </div> 
         <div className='links'>
         <Link className='btn-4' to="/categories/1">Fetch</Link>
@@ -62,3 +74,4 @@ const lastButton = () => {
     )
 }
 
+export default Home;

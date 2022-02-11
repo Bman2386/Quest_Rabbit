@@ -1,26 +1,20 @@
-import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 
-class Login extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.loginGuest = this.loginGuest.bind(this);
-  }
-
-  componentWillUnmount() {
-    this.props.clearErrors()
-  }
+const Login = ({errors, login,clearErrors })=> {
   
-  renderErrors() {
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  
+    useEffect(()=>{
+      clearErrors();
+    }, [username, password])
+ 
+  const renderErrors=()=> {
     return(
       <ul>
-        {this.props.errors.map((error, i) => (
+        {errors.map((error, i) => (
           <li 
           key={`error-${i}`}
           className="error"
@@ -32,32 +26,22 @@ class Login extends React.Component {
     );
   }
 
-  handleInput(type) {
-    return (e) => {
-      this.setState({ [type]: e.target.value });
-    };
-  }
+  
 
-  handleSubmit(e) { 
+  const handleSubmit=(e)=> { 
     if (e) e.preventDefault();
-    const { data } = this.props;
-    this.props.login(this.state)
-    if (Object.keys(data).length > 0){
-      return <Redirect to='/quest'/>
-    } 
-    
+    const user = {username, password}
+      login(user)
   }
 
-    loginGuest() {
-    if (this.state.username !== 'Guest'){
-      this.state.username = 'Guest';
-      this.state.password = 'hunter12';
-      return this.loginGuest() //once the state is set it calls this function again and moves to handleSubmit
-      } else{
-      return  this.handleSubmit();
+    const loginGuest=()=> {
+    const guest = {
+      username: 'Guest',
+      password: 'hunter12'
       }
+        login(guest)
     }
-  render() {
+  
     const logo = window.logo;
     const formPhoto = window.formPhoto;
     return (
@@ -67,30 +51,30 @@ class Login extends React.Component {
           <Link to='/'>
           <img src={logo} className="logo"/>
           </Link>
-          {this.renderErrors()}
+          {renderErrors()}
           <input
             type="text"
-            value={this.state.username}
-            onChange={this.handleInput('username')}
+            value={username}
+            onChange={e => setUserName(e.target.value)}
             placeholder="Username"
           />
           <input
             type="password"
-            value={this.state.password}
-            onChange={this.handleInput('password')}
+            value={password}
+            onChange={e=>setPassword(e.target.value)}
             placeholder="Password"
           />
-          <button onClick={this.handleSubmit}>Log in</button>
+           <button onClick={handleSubmit}>Log in</button>
             <Link
             to="/"
-            onClick={() => this.loginGuest()}
+            onClick={loginGuest}
             className="login-guest" >
             Demo as Guest
           </Link>
-        </form>
+      </form>
       </div>
     );
   }
-}
+
 
 export default Login;
