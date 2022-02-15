@@ -2,7 +2,7 @@ import React from 'react';
 import PartOne from './part_one';
 import PartTwo from './part_two';
 import PartThree from './part_three';
-import session from './quick_session/session'
+import Session from './quick_session/session'
 
 class QuestForm extends React.Component {
     constructor(props){
@@ -235,8 +235,8 @@ class QuestForm extends React.Component {
     }
 
     render(){
-        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected, sorted, checked, mini } = this.state;
-        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selected, sorted, checked, mini };
+        const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected, sorted, checked, mini, creator_id } = this.state;
+        const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selected, sorted, checked, mini, creator_id };
         const {adventurers} = this.props;
         const {reviews} =this.props;
 
@@ -353,6 +353,21 @@ class QuestForm extends React.Component {
                 adv={adventurers}
                 changeDate={this.changeDate}
                 pageHandle={this.pageHandle}
+                next={this.next}
+                />
+              )
+            case 4:
+              return (
+                <Session 
+                login={this.props.login}
+                signUp={this.props.signUp}
+                submit={this.handleSubmit}
+                clear={this.props.clear}
+                error={this.props.errors}
+                values={values}
+                back={this.back}
+                adv={adventurers}
+                id={this.props.creatorId}
                 />
               )
           }

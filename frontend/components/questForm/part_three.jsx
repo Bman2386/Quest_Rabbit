@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const PartThree = props => {
-    const {values, changeDate, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour, adv, pageHandle} = props;
+    const {values, changeDate, back, submit, today, monthDays, addCurrentMonth, subCurrentMonth, handleHour, adv, pageHandle, next} = props;
     const logo = window.logo;
     const date = today.date;
     const month = today.month;
     const days = monthDays();
-    const { quest_name, category_id, details, start_time, adventurer_id } = values
+    const { quest_name, category_id, details, start_time, adventurer_id, creator_id } = values
 
     const categoryShow = (category) => {
         switch (category) {
@@ -119,8 +119,10 @@ const PartThree = props => {
                         <li className="orders">Details: {details}</li>
                         <li className="orders">Start Time: {`${startTime}`}</li>
                         <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
-               </ul>
-               <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link>
+                    </ul>
+               {creator_id ? 
+               <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link> :
+                <button className='button-submit' onClick={() => next()}>Log/Sign In</button>}
             </div>
             )
         } else {
