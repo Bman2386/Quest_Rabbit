@@ -13,6 +13,8 @@ export const postSession = user => (
     data: { user }
   })
 )
+  
+
 
 export const deleteSession = () => (
   $.ajax({

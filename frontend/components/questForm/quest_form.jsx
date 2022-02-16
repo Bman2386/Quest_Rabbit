@@ -52,6 +52,7 @@ class QuestForm extends React.Component {
        this.loginGuest = this.loginGuest.bind(this);
        this.loginUser = this.loginUser.bind(this);
        this.signUpUser = this.signUpUser.bind(this);
+       this.submitQuest = this.submitQuest.bind(this);
     }
 
      next() {
@@ -244,14 +245,18 @@ class QuestForm extends React.Component {
         this.props.action(questForm);
     }
 
-    setForm(type){
-      this.setState({formType: type})
+    setForm(type, e){
+     if (e) e.preventDefault();
+      this.props.clear();
+      this.setState({formType: type});
     }
 
-    loginGuest(){
+    loginGuest(e){
+     e.preventDefault();
       this.props.login({ username: 'Guest', password: 'hunter12' })
     }
-  loginUser(){
+  loginUser(e){
+    e.preventDefault();
     const user = {
       username: this.state.username,
       password: this.state.password
@@ -259,7 +264,8 @@ class QuestForm extends React.Component {
     this.props.login(user);
   }
 
-  signUpUser (){
+  signUpUser(e){
+    e.preventDefault();
     const user = {
       username: this.state.username,
       password: this.state.password,
@@ -273,6 +279,10 @@ class QuestForm extends React.Component {
       star_sign: this.state.starSign
     }
     this.props.signUp(user);
+  }
+  submitQuest(){
+    this.props.clear();
+    this.handleSubmit();
   }
     render(){
         const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected, sorted, checked, mini, creator_id } = this.state;
@@ -404,8 +414,7 @@ class QuestForm extends React.Component {
                 loginUser={this.loginUser}
                 loginGuest={this.loginGuest}
                 signUpUser={this.signUpUser}
-                submit={this.handleSubmit}
-                clear={this.props.clear}
+                submitQuest={this.submitQuest}
                 error={this.props.errors}
                 values={values}
                 session= {session}

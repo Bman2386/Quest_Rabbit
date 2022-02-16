@@ -1,20 +1,11 @@
 import React from 'react';
-// import {useHistory} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
-const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv, id, session, handleChange, setFormType, loginGuest})=> {
+const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, id, session, handleChange, setFormType, loginGuest})=> {
     const { quest_name, category_id, details, start_time, adventurer_id} = values;
     const {username, password, realm, starSign, familyCrest, formType} = session
     
-
-    // const history = useHistory();
     const formPhoto = window.formPhoto;
-
-    const submitQuest= () => {
-        clear();
-        submit();
-    }
-    
 
     const form = () => {
         if (formType === 'login'){
@@ -36,8 +27,9 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
                     onChange={handleChange('password')}
                     placeholder='password'
                     />
-                    <button onClick={()=>loginUser()}>Log In</button>
-                    <button onClick={()=>loginGuest()}>Demo as Guest</button>
+                    <button onClick={(e)=>loginUser(e)}>Log In</button>
+                    <button onClick={(e)=>loginGuest(e)}>Demo as Guest</button>
+                    <button onClick={(e)=>setFormType('sign up',e)}>Change to Sign Up Form</button>
                 </form>
                 </div>
                 
@@ -45,6 +37,9 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
         } else if (formType === 'submit') {
             return (
                 <div className='quest-name'>
+                    <div className='back'>
+                        <button onClick={() => back()}>Back</button><br />
+                    </div>
                    <ul className = "quest-details" >
                         <li className="label">Your Quest</li>
                         <li className="orders">Quest Name: {quest_name}</li>
@@ -53,8 +48,8 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
                         <li className="orders">Start Time: {`${start_time}`}</li>
                         <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
                     </ul >
-                <button onClick={back}>Back</button>
-                <Link to='/' className='button-submit' onClick={submitQuest}>Submit</Link> 
+                
+                <Link to='/' className='button-submit' onClick={()=>submitQuest()}>Submit</Link> 
                 </div>
                 
             )
@@ -66,7 +61,6 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
                     <form className='inter-form'>
                     {error ? renderError() : ''}
                     {id ? setFormType('submit') : ''}
-                    <div>Signup Form</div>
                     <input
                         value={username}
                         onChange={handleChange('username')}
@@ -94,7 +88,8 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
                         placeholder='Star Sign ex, Libra'
                     
                     />
-                    <button onClick={signUpUser}>Signup</button>
+                    <button onClick={(e)=>signUpUser(e)}>Signup</button>
+                    <button onClick={(e)=>setFormType('login', e)}>Change to Login Form</button>
                 </form>
                 </div>
                 
@@ -125,21 +120,6 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
     }
    
 
-    // const signUpUser = () => {
-    //     const user = {
-    //         username: username,
-    //         password: password,
-    //         adventurer: false,
-    //         avg_rating: 0,
-    //         total_ratings: 0,
-    //         elite: false,
-    //         pitch: 'null',
-    //         family_crest: familyCrest,
-    //         realm:  realm,
-    //         star_sign: starSign
-    //     }
-    //     signUp(user);
-    // }
     const renderError = () => {
         return(
         <ul>
@@ -157,7 +137,27 @@ const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv,
 
 
     return (
-        <div>
+        <div className='quest-container'>
+            <div className='top-bar'>
+                <Link to='/' >
+                    <img src={logo} className="logo2" />
+                </Link>
+                <div className='bars'>
+                    <ul className='bar1'>
+                        <li className='grey-out'>1</li>
+                        <div className='lineN'></div>
+                        <li className='grey-out'>2</li>
+                        <div className='lineN'></div>
+                        <li className='currentN'>3</li>
+                    </ul>
+                    <ul className='bar2'>
+                        <li className='line'>Describe your Quest</li>
+                        <li className='line'>Browse Adventurers</li>
+                        <li className='current'>Choose date {'&'} Time</li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
             {formType ? form(): 
             <div className="session-form">
                 <img src={formPhoto} className="form-photo" />
