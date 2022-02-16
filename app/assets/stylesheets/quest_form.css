@@ -503,3 +503,8 @@ hr{
 .margin-bottom{
     margin-bottom: 2rem;
 }
+
+.pencil {
+    height: 2rem;
+    width: 2rem;
+}

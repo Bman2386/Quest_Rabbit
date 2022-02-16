@@ -1,22 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import {useHistory} from 'react-router-dom'
+import React from 'react';
+// import {useHistory} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-const Session =({login, signUp, submit, clear, error, values, back, adv, id})=> {
-     const { quest_name, category_id, details, start_time, adventurer_id, creator_id } = values
-    const [username, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-    const [realm, setRealm] = useState('');
-    const [starSign, setStarSign] = useState('');
-    const [familyCrest, setFamilyCrest]= useState('');
-    const [formType, setFormType] = useState(null);
+const Session =({loginUser, signUpUser, submit, clear, error, values, back, adv, id, session, handleChange, setFormType, loginGuest})=> {
+    const { quest_name, category_id, details, start_time, adventurer_id} = values;
+    const {username, password, realm, starSign, familyCrest, formType} = session
+    
 
-    const history = useHistory();
+    // const history = useHistory();
     const formPhoto = window.formPhoto;
 
     const submitQuest= () => {
         clear();
         submit();
-        history.push('/');
     }
     
 
@@ -31,16 +27,17 @@ const Session =({login, signUp, submit, clear, error, values, back, adv, id})=> 
                       {error ? renderError() : ''}
                     <input
                     value={username}
-                    onChange={e=> setUserName(e.target.value)}
+                    onChange={handleChange('username')}
                     placeholder='username'
                     />
                     <input 
                     value={password}
-                    onChange={e=>setPassword(e.target.value)}
+                    type='password'
+                    onChange={handleChange('password')}
                     placeholder='password'
                     />
-                    <button onClick={loginUser}>Log In</button>
-                    <button onClick={loginGuest}>Demo as Guest</button>
+                    <button onClick={()=>loginUser()}>Log In</button>
+                    <button onClick={()=>loginGuest()}>Demo as Guest</button>
                 </form>
                 </div>
                 
@@ -57,7 +54,7 @@ const Session =({login, signUp, submit, clear, error, values, back, adv, id})=> 
                         <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
                     </ul >
                 <button onClick={back}>Back</button>
-                <button className='button-submit' onClick={submitQuest}>Submit</button> 
+                <Link to='/' className='button-submit' onClick={submitQuest}>Submit</Link> 
                 </div>
                 
             )
@@ -72,28 +69,28 @@ const Session =({login, signUp, submit, clear, error, values, back, adv, id})=> 
                     <div>Signup Form</div>
                     <input
                         value={username}
-                        onChange={e => setUserName(e.target.value)}
+                        onChange={handleChange('username')}
                         placeholder='username'
                     />
                     <input
                         type='password'
                         value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={handleChange(password)}
                         placeholder='password'
                     />
                     <input 
                         value={familyCrest}
-                        onChange={e=>setFamilyCrest(e.target.value)}
+                        onChange={handleChange('familyCrest')}
                         placeholder='Family Crest ex, Smith'
                     />
                     <input 
                         value={realm}
-                        onChange={e=> setRealm(e.target.value)}
+                        onChange={handleChange('realm')}
                         placeholder='Realm ex, Earth'
                     />
                     <input 
                         value={starSign}
-                        onChange={e=> setStarSign(e.target.value)}
+                        onChange={handleChange('starSign')}
                         placeholder='Star Sign ex, Libra'
                     
                     />
@@ -126,33 +123,23 @@ const Session =({login, signUp, submit, clear, error, values, back, adv, id})=> 
             name
         )
     }
-    const loginUser = () => {
-        const user = {
-            username: username,
-            password: password
-        }
-        login(user);
-    }
+   
 
-    const loginGuest = () => {
-        login({username: 'Guest', password: 'hunter12'}); 
-    }
-
-    const signUpUser = () => {
-        const user = {
-            username: username,
-            password: password,
-            adventurer: false,
-            avg_rating: 0,
-            total_ratings: 0,
-            elite: false,
-            pitch: 'null',
-            family_crest: familyCrest,
-            realm:  realm,
-            star_sign: starSign
-        }
-        signUp(user);
-    }
+    // const signUpUser = () => {
+    //     const user = {
+    //         username: username,
+    //         password: password,
+    //         adventurer: false,
+    //         avg_rating: 0,
+    //         total_ratings: 0,
+    //         elite: false,
+    //         pitch: 'null',
+    //         family_crest: familyCrest,
+    //         realm:  realm,
+    //         star_sign: starSign
+    //     }
+    //     signUp(user);
+    // }
     const renderError = () => {
         return(
         <ul>
@@ -175,8 +162,8 @@ const Session =({login, signUp, submit, clear, error, values, back, adv, id})=> 
             <div className="session-form">
                 <img src={formPhoto} className="form-photo" />
                 <form className="inter-form" id="form1">
-                <button className="btn-1" onClick={()=> setFormType('login')}>Log In</button>
-                <button className="btn-2" onClick={()=> setFormType('sign up')}>Sign Up</button>
+                <button className="btn-1" value='login' onClick={handleChange('formType')}>Log In</button>
+                <button className="btn-2" value='sign up'onClick={handleChange('formType')}>Sign Up</button>
                 </form> 
             </div>
             }

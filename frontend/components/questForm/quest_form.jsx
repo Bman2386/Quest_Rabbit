@@ -21,7 +21,13 @@ class QuestForm extends React.Component {
             selected: {},
             sorted: [],
             checked: '',
-            mini: 0
+            mini: 0,
+            username: '',
+            password: '',
+            realm: '',
+            starSign: '',
+            familyCrest: '',
+            formType: null
         }  
 
         this.date = this.state.date
@@ -42,6 +48,10 @@ class QuestForm extends React.Component {
        this.sortAdv = this.sortAdv.bind(this);
        this.checkChange = this.checkChange.bind(this);
        this.pageHandle = this.pageHandle.bind(this);
+       this.setForm = this.setForm.bind(this);
+       this.loginGuest = this.loginGuest.bind(this);
+       this.loginUser = this.loginUser.bind(this);
+       this.signUpUser = this.signUpUser.bind(this);
     }
 
      next() {
@@ -234,9 +244,41 @@ class QuestForm extends React.Component {
         this.props.action(questForm);
     }
 
+    setForm(type){
+      this.setState({formType: type})
+    }
+
+    loginGuest(){
+      this.props.login({ username: 'Guest', password: 'hunter12' })
+    }
+  loginUser(){
+    const user = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.props.login(user);
+  }
+
+  signUpUser (){
+    const user = {
+      username: this.state.username,
+      password: this.state.password,
+      adventurer: false,
+      avg_rating: 0,
+      total_ratings: 0,
+      elite: false,
+      pitch: 'null',
+      family_crest: this.state.familyCrest,
+      realm: this.state.realm,
+      star_sign: this.state.starSign
+    }
+    this.props.signUp(user);
+  }
     render(){
         const { quest_name, category_id, details, start_time, adventurer_id, date, status, review, selected, sorted, checked, mini, creator_id } = this.state;
         const values = { quest_name, category_id, details, start_time, adventurer_id, date, review, selected, sorted, checked, mini, creator_id };
+        const {username, password, realm, starSign, familyCrest, formType} = this.state;
+        const session = { username, password, realm, starSign, familyCrest, formType}
         const {adventurers} = this.props;
         const {reviews} =this.props;
 
@@ -359,15 +401,19 @@ class QuestForm extends React.Component {
             case 4:
               return (
                 <Session 
-                login={this.props.login}
-                signUp={this.props.signUp}
+                loginUser={this.loginUser}
+                loginGuest={this.loginGuest}
+                signUpUser={this.signUpUser}
                 submit={this.handleSubmit}
                 clear={this.props.clear}
                 error={this.props.errors}
                 values={values}
+                session= {session}
                 back={this.back}
                 adv={adventurers}
                 id={this.props.creatorId}
+                handleChange={this.handleChange}
+                setFormType={this.setForm}
                 />
               )
           }

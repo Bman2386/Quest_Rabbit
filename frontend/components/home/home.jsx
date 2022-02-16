@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 const Home = ({saveData}) => {
 const [clicked, setClicked] = useState('');
 const [name, setName] = useState('');
-console.log(saveData)
-const setData = () => {
 
+const setData = () => {
   const nameOfQuest = {
     name: name
   }

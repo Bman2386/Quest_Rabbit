@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const PartOne = (props) => {
     const {values, handleChange, next, pageHandle} = props;
     const logo = window.logo;
-
+    const pencil = window.pencil;
     
     const questName = () => {
         if (values.mini === 0){
@@ -29,7 +29,7 @@ const PartOne = (props) => {
         } else {
             return (
                 <div className='quest-name'>
-                    <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 0)}></i>
+                    <img className='pencil' src={pencil} id='pencil' onClick={() => pageHandle('edit', 0)}/>
                     <div className='label'>Name of your Quest:</div>
                     <div className='orders2'>{`${values.quest_name}`}</div> 
                 </div>
@@ -105,7 +105,7 @@ const PartOne = (props) => {
         } else if(values.mini > 1){
             return (
                  <div className='quest-name'>
-                  <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 1)}></i>
+                <img className='pencil' src={pencil} id='pencil' onClick={() => pageHandle('edit', 1)} />
                     <div className='label'>Category of your Quest:</div>
                     <div className='orders2'>{`${catShow(values.category_id)}`}</div> 
                 </div>
@@ -144,7 +144,7 @@ const PartOne = (props) => {
         } else if (values.mini > 2){
             return (
                 <div className='quest-name'>
-                    <i className='fas fa-pen' id='pencil' onClick={() => pageHandle('edit', 2)}></i>
+                    <img className='pencil' src={pencil} id='pencil' onClick={() => pageHandle('edit', 2)} />
                     <div className='label'>Details about your quest:</div>
                     <div className='orders2'>{`${values.details}`}</div> 
                 </div>

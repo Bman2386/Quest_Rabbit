@@ -122,7 +122,7 @@ const PartThree = props => {
                     </ul>
                {creator_id ? 
                <Link to='/' className='button-submit' onClick={() => submit()}>Submit</Link> :
-                <button className='button-submit' onClick={() => next()}>Log/Sign In</button>}
+                next()}
             </div>
             )
         } else {
