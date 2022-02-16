@@ -14,7 +14,7 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                     <img src={formPhoto} className="form-photo" />
                     <form className='inter-form'>
                     {id ? setFormType('submit') : ''}
-                    <div>Login Form</div>
+                    <h2 className='title'>Login Form</h2>
                       {error ? renderError() : ''}
                     <input
                     value={username}
@@ -28,19 +28,19 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                     placeholder='password'
                     />
                     <button onClick={(e)=>loginUser(e)}>Log In</button>
-                    <button onClick={(e)=>loginGuest(e)}>Demo as Guest</button>
-                    <button onClick={(e)=>setFormType('sign up',e)}>Change to Sign Up Form</button>
+                    <button className="login-guest" onClick={(e)=>loginGuest(e)}>Demo as Guest</button>
+                    <button className='change-form' onClick={(e)=>setFormType('sign up',e)}>Change to Sign Up Form</button>
                 </form>
                 </div>
                 
             )
         } else if (formType === 'submit') {
             return (
-                <div className='quest-name'>
-                    <div className='back'>
+                <div className='quest-name' id='center-form' >
+                    <div id='back' className='back'>
                         <button onClick={() => back()}>Back</button><br />
                     </div>
-                   <ul className = "quest-details" >
+                    <ul className="quest-details" >
                         <li className="label">Your Quest</li>
                         <li className="orders">Quest Name: {quest_name}</li>
                         <li className="orders">Category: {categoryShow(category_id)}</li>
@@ -48,7 +48,6 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                         <li className="orders">Start Time: {`${start_time}`}</li>
                         <li className="orders">Adventurer: {advShow(adventurer_id)}</li>
                     </ul >
-                
                 <Link to='/' className='button-submit' onClick={()=>submitQuest()}>Submit</Link> 
                 </div>
                 
@@ -61,6 +60,7 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                     <form className='inter-form'>
                     {error ? renderError() : ''}
                     {id ? setFormType('submit') : ''}
+                    <h2 className='title'>Sign Up Form</h2>
                     <input
                         value={username}
                         onChange={handleChange('username')}
@@ -89,7 +89,7 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                     
                     />
                     <button onClick={(e)=>signUpUser(e)}>Signup</button>
-                    <button onClick={(e)=>setFormType('login', e)}>Change to Login Form</button>
+                    <button className='change-form' onClick={(e)=>setFormType('login', e)}>Change to Login Form</button>
                 </form>
                 </div>
                 
@@ -145,15 +145,18 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                 <div className='bars'>
                     <ul className='bar1'>
                         <li className='grey-out'>1</li>
-                        <div className='lineN'></div>
+                        <div className='lineS'></div>
                         <li className='grey-out'>2</li>
-                        <div className='lineN'></div>
-                        <li className='currentN'>3</li>
+                        <div className='lineS'></div>
+                        <li className='grey-out'>3</li>
+                        <div className='lineS'></div>
+                        <li className='currentN'>4</li>
                     </ul>
                     <ul className='bar2'>
                         <li className='line'>Describe your Quest</li>
                         <li className='line'>Browse Adventurers</li>
-                        <li className='current'>Choose date {'&'} Time</li>
+                        <li className='line'>Choose date {'&'} Time</li>
+                        <li className='current'>Confirm Details</li>
                     </ul>
                 </div>
             </div>
@@ -163,7 +166,7 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                 <img src={formPhoto} className="form-photo" />
                 <form className="inter-form" id="form1">
                 <button className="btn-1" value='login' onClick={handleChange('formType')}>Log In</button>
-                <button className="btn-2" value='sign up'onClick={handleChange('formType')}>Sign Up</button>
+                <button className="btn-2" id='sign-up' value='sign up'onClick={handleChange('formType')}>Sign Up</button>
                 </form> 
             </div>
             }
