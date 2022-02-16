@@ -63,11 +63,23 @@ class QuestForm extends React.Component {
     back() {
       if (this.state.status === 2 && this.state.review === true){
         return this.setState({review: 'false', selected: {}})
-      }else{
-        return this.setState({status: this.state.status -= 1, review: 'false'})
-      }
+      } else if(this.state.status === 4){
+        const stateFunc = () => {
+          const state = this.state;
+          const newState = { ...state, status: state.status -= 1, review: 'false',mini: state.mini -= 1 };
+          return newState
+        };
+        this.setState(stateFunc)
+      } else {
+        const stateFunc = () => {
+          const state = this.state;
+          const newState = {...state, status: state.status -= 1, review: 'false'};
+          return newState
+        };
+        this.setState(stateFunc)
         }
-
+      }
+    
       pageHandle(action, num){
         if (action === 'continue'){
          return this.setState({mini: this.state.mini += 1}) 
