@@ -59,7 +59,7 @@ class QuestForm extends React.Component {
          this.setState({status: (this.state.status += 1)});
          this.props.fetchAdventurers();
         }
-
+        
     back() {
       if (this.state.status === 2 && this.state.review === true){
         return this.setState({review: 'false', selected: {}})
@@ -112,7 +112,6 @@ class QuestForm extends React.Component {
         const adSort1 = adv => {
           if (adv.length < 2) return adv;
           const func = (x, y) => {
-    
             if (x > y) return -1; 
             return 1;
           };

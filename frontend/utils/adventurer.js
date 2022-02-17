@@ -1,20 +1,16 @@
-export const getUsers = () => {
-  
-    return (
+export const getUsers = () => (
         $.ajax({
             url: '/api/users',
             method: 'GET'
         })
     )
-}
 
-export const getUser = userId => {
-    return (
+export const getUser = userId => (
         $.ajax({
             url: `/api/users/${userId}`
         })
     )
-}
+
 
 export const updateUser = user => {
     return (

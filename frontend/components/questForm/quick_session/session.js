@@ -124,10 +124,7 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
         return(
         <ul>
             {error.map((e, i) => (
-                <li
-                    key={`error-${i}`}
-                    className="error"
-                >
+                <li key={`error-${i}`} className="error">
                     {e}
                 </li>
             ))}
@@ -168,8 +165,7 @@ const Session =({loginUser, signUpUser, submitQuest, error, values, back, adv, i
                 <button className="btn-1" value='login' onClick={handleChange('formType')}>Log In</button>
                 <button className="btn-2" id='sign-up' value='sign up'onClick={handleChange('formType')}>Sign Up</button>
                 </form> 
-            </div>
-            }
+            </div>}
         </div>
     )
 };

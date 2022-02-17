@@ -28,10 +28,7 @@ class Signup extends React.Component {
       return(
         <ul>
           {this.props.errors.map((error, i) => (
-            <li 
-            key={`error-${i}`}
-            className="error"
-            >
+            <li key={`error-${i}`} className="error">
               {error}
             </li>
           ))}
@@ -62,7 +59,6 @@ class Signup extends React.Component {
         </Link>
         {this.renderErrors()}
             <input
-              type="text"
               value={this.state.username}
               onChange={this.handleInput('username')}
               placeholder="Username"
@@ -73,17 +69,17 @@ class Signup extends React.Component {
               onChange={this.handleInput('password')}
               placeholder="Password"
             />
-            <input type="text"
+            <input 
             value={this.state.family_crest}
             onChange={this.handleInput('family_crest')}
             placeholder="Family Crest ex, Smith "
             />
-            <input type="text"
+            <input 
             value={this.state.realm}
             onChange={this.handleInput('realm')}
             placeholder="Realm ex, Earth"
             />
-            <input type="text"
+            <input 
             value={this.state.star_sign}
             onChange={this.handleInput('star_sign')}
             placeholder="Star Sign ex, Libra"
