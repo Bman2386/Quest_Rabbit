@@ -10,24 +10,24 @@ class NavBar extends React.Component {
   }
 
   categoryDisplay() {
-    const {categories} = this.props
+    const {categories} = this.props;
     if (!!categories) {
       return (
         <Quests
           categories={categories}
         />
-      )
+      );
     } else {
       return ''
-    }
+    };
   }
   componentDidMount() {
-    this.props.fetchCategories()
+    this.props.fetchCategories();
   }
   
       render() {
-      const { currentUser } = this.props
-      const logo = window.logo
+      const { currentUser } = this.props;
+      const logo = window.logo;
         const display = currentUser ? (
           <div className="nav-bar">
             <Link to='/'>

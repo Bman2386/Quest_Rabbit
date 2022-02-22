@@ -42,15 +42,14 @@ class CancelQuest extends React.Component {
         const {
             id,
             quest_name,
-             category_id,
-              details, 
-              creator_id, 
-              start_time, 
-              adventurer_id, 
-              } = this.props.quest;
+            category_id,
+            details, 
+            creator_id, 
+            start_time, 
+            adventurer_id, 
+            } = this.props.quest;
 
-            
-              this.setState({
+        this.setState({
                   id,
                   quest_name,
                   category_id,
@@ -59,7 +58,6 @@ class CancelQuest extends React.Component {
                   start_time,
                   adventurer_id,
               })
-
     }
 
     submit(){
@@ -372,21 +370,19 @@ class CancelQuest extends React.Component {
       pageSetter(){
 
         if (this.state.status === 1){
-           return this.yourQuest()
+           return this.yourQuest();
         } else if (this.state.status === 3){
-           return this.writeReview()
+           return this.writeReview();
         } else if (this.state.status === 2){
-            return this.finalPart()
+            return this.finalPart();
         }
       }
     render(){
-        
         return (
             <div>
        {this.pageSetter()}
             </div> 
         )
-        
     }
 }
 

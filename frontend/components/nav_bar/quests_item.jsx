@@ -15,8 +15,7 @@ function Quests({categories}) {
           to={`/categories/${category.id}`}
             >{category.category_name}</Link>       
                 )} 
-    </div>
-     
+    </div>    
   )
   return (
     <ul className='dd-container'

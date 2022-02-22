@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 
-const Login = ({errors, login,clearErrors })=> {
+const Login = ({errors, login, clearErrors })=> {
   
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -38,8 +38,8 @@ const Login = ({errors, login,clearErrors })=> {
     const guest = {
       username: 'Guest',
       password: 'hunter12'
-      }
-        login(guest)
+      };
+        login(guest);
     }
   
     const logo = window.logo;
@@ -74,7 +74,7 @@ const Login = ({errors, login,clearErrors })=> {
       </form>
       </div>
     );
-  }
+  };
 
 
 export default Login;
