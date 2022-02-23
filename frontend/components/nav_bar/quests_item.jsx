@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react'
 
-function Quests({categories}) {
+const Quests = ({categories}) => {
 
   const questButtonDisplay = (
     <div className='container'>

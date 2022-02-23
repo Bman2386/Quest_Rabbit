@@ -31,7 +31,6 @@ const receiveCurrentUser = user => ({
 
 export const createNewUser = formUser => dispatch => postUser(formUser)
     .then(user => dispatch(receiveCurrentUser(user)), err => {
-
       return dispatch(receiveErrors(err.responseJSON))
     });
 
