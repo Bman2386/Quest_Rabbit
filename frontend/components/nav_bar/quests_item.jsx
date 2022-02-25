@@ -6,8 +6,7 @@ const Quests = ({categories}) => {
   const questButtonDisplay = (
     <div className='container'>
        POPULAR QUESTS
-        {
-        categories.map(category => 
+        {categories.map(category => 
           <Link 
           className="btn"
           key={category.id}
@@ -22,9 +21,7 @@ const Quests = ({categories}) => {
       style={{ position: 'relative'}}
       > 
       Quest Types
-        {
-        questButtonDisplay
-            }
+        { questButtonDisplay }
       </ul>   
     )
       }
