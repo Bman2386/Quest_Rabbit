@@ -40,7 +40,7 @@ class Api::UsersController < ApplicationController
           @user.destroy
           redirect_to new_session_url
         else
-          render ['Could not find user']
+          render json: ['Could not find user'], status: 400
         end
       end
 
