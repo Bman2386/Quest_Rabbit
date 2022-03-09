@@ -27,7 +27,7 @@ class ProfileComponent extends React.Component {
     }
 
     edit(){
-        return this.setState({edit: true})
+     this.setState({edit: true})
     }
 
     setUser(){
@@ -59,7 +59,7 @@ class ProfileComponent extends React.Component {
     }
 
     cancel(){
-        return this.setUser();
+        this.setUser();
     }
 
     handleSubmit(){
