@@ -5,7 +5,6 @@ class Category extends React.Component {
     constructor(props){
         super(props)
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.sendUser = this.sendUser.bind(this);
     }
 
     componentDidMount(){
@@ -32,14 +31,6 @@ class Category extends React.Component {
 
     handleSubmit(category){
         this.props.saveData(category);
-    }
-
-    sendUser(){
-        const user = this.props.user
-        if (user){
-            return '/quest'
-        }
-        return '/login'
     }
     
     render() {
