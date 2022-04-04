@@ -75,7 +75,7 @@ class ProfileComponent extends React.Component {
         if (!user || !family_crest || !realm || !star_sign){
             return this.setState({error: "Form must be complete"})
         } else {
-             if (this.state.username === 'Guest'){
+             if (this.state.username === 'Guest'){ // We don't want Guest users to edit information here
                 return this.setState({error: "You don't have permission to edit Guest User info"})
             }else{
                 this.props.update(user);
