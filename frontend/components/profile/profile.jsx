@@ -94,7 +94,7 @@ class ProfileComponent extends React.Component {
             this.setUser()
         }
         if (this.state.edit === false){
-            return(
+            return( //If user doesn't want to edit account show page
                <div className='width'>
                    <div className='row'>
                 <h1 className='h1'>Account</h1>
@@ -122,7 +122,7 @@ class ProfileComponent extends React.Component {
             </div> 
             )
             
-        } else {
+        } else { // If user wants to edit show edit menu
             return (
                 <div className='width'>
                     <h1 className='h1'>Update Account</h1>
