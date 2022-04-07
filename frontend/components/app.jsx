@@ -20,9 +20,9 @@ export default () => (
     <Route exact path="/" component={Home} />
     <Route path="/categories/:categoryId" component={CategoryShow}/>
     <Route path="/intermediary" component={intermediary} />
+    <Route path="/quest" component={QuestForm} />
     <AuthRoute path="/signup" component={SignupContainer} />
     <AuthRoute path="/login" component={LoginContainer} />
-    <Route path="/quest" component={QuestForm} />
     <ProtectedRoute path='/quests' component={QuestPage} />
     <ProtectedRoute path='/edit/:questId' component={EditQuest} />
     <ProtectedRoute path="/user" component={ProfileComponent} />
@@ -31,4 +31,4 @@ export default () => (
   </div>
 );
 
-// note to self: need to write tests
+// note to self: need to write tests for QA backend and frontend

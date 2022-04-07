@@ -122,7 +122,7 @@ class ProfileComponent extends React.Component {
             </div> 
             )
             
-        } else { // If user wants to edit show edit menu
+        } else { // If user wants to edit - show edit menu
             return (
                 <div className='width'>
                     <h1 className='h1'>Update Account</h1>
