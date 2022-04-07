@@ -1,5 +1,6 @@
-- Create access to createquest for user not yet loggedin that logs in user before submitting quest
-- Categories page should link to quest form, and have more on the page to not look like a place holder
-- quest form should have instructions for user
-- text bar on splash should send info to quest form when clicked
-- user quests should see completed quests 
+- Create access to createquest for user not yet loggedin that logs in user before submitting quest [check]
+- Categories page should link to quest form, and have more on the page to not look like a place holder [check]
+- quest form should have instructions for user [check]
+- text bar on splash should send info to quest form when clicked [check]
+- user quests should see completed quests []
+- write tests

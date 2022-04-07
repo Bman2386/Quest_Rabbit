@@ -31,4 +31,3 @@ export default () => (
   </div>
 );
 
-// note to self: need to write tests for QA backend and frontend
