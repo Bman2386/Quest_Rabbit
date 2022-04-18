@@ -30,7 +30,7 @@ class Category extends React.Component {
     }
 
     handleSubmit(category){
-        this.props.saveData(category);
+        this.props.saveData(category); //saves category in redux state to be accessed by questForm Component
     }
     
     render() {
