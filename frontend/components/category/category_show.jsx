@@ -35,7 +35,7 @@ class Category extends React.Component {
     
     render() {
         const {categories} = this.props
-        const categoryId = this.props.match.params.categoryId
+        const categoryId = this.props.match.params.categoryId //renders image and text dynamicly by category passed in from props
         const dynamicImage = (
            categories && categories.length > 1 && categoryId > 1? this.imageLogic(categoryId) : window.ftch
         )
