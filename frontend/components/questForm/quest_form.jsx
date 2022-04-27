@@ -322,7 +322,6 @@ class QuestForm extends React.Component {
           date: this.date.toDateString()
      }
   
-     // Make calandar component
      const lastDay = new Date(this.state.date.getFullYear(), this.state.date.getMonth() + 1, 0).getDate();
      const firstDayIndex = new Date(this.state.date.getFullYear(), this.state.date.getMonth(), 1).getDay();
      const prevLastDay = new Date(this.state.date.getFullYear(), this.state.date.getMonth(), 0).getDate();
@@ -330,7 +329,6 @@ class QuestForm extends React.Component {
   
      const nextDays = 7 - lastDayIndex - 1;
       
-     
      const tally = () => {
          let days = [];
          if (firstDayIndex > 1) {
@@ -437,8 +435,7 @@ class QuestForm extends React.Component {
                 />
               )
           }
-        }
-        
+        } 
     }
 
 export default QuestForm;

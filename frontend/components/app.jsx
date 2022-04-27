@@ -16,9 +16,9 @@ import CancelQuest from './quest/cancel_quest_container';
 
 export default () => (
   <div>
-    <Route path="/" component={NavBarContainer}/>
-    <Route exact path="/" component={Home} />
+    <Route path="/" component={NavBarContainer}/>  
     <Route path="/categories/:categoryId" component={CategoryShow}/>
+    <Route exact path="/" component={Home} />
     <Route path="/intermediary" component={intermediary} />
     <Route path="/quest" component={QuestForm} />
     <AuthRoute path="/signup" component={SignupContainer} />
