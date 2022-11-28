@@ -26,7 +26,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 #use mimemagick most updated version?
-gem 'mimemagic'
+# 0.3.2
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '3543363026121ee28d98dfce4cb6366980c055ee'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
