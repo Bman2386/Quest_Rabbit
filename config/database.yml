@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: Quest_Rabbit_production
-  username: Quest_Rabbit
-  password: <%= ENV['QUEST_RABBIT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
