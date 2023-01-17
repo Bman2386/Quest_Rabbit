@@ -25,7 +25,7 @@
     "test": "test"
   },
   "scripts": {
-    "build": "BUILD_PATH='/public' react-scripts build",
+    "build": "BUILD_PATH='../public' react-scripts build",
     "start": "react-scripts start"
   },
   "repository": {
