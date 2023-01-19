@@ -1,7 +1,20 @@
 # Quest Rabbit
 Finally! A place that easily connects adventurers to the people that need them. On Quest Rabit you can create a quest and directly hire an adventurer, making quest boards a thing of the past. 
 
-[questrabbit.com](https://quest-rabbit.herokuapp.com/#/)
+## Dependancies
+* Ruby 2.6.0
+* Rails 5.2.3, or 5.2.4
+* Node 16.10.0
+* Npm 7.24.0
+* JavaScript ECMA Script 6
+
+## Cloning Instructions
+1. clone repo
+2. Bundle Install
+3. 'CD' to frontend folder
+4. npm install
+5. run server && $'npm start' (in seperate terminals), project defaults to localhost 3000
+
 
 Quest Rabbit was built with ruby, as a rails project for the backend, the database uses postgres SQL, and the front end was built in react, redux, and javascript. The images including and especially the logo <img src="https://github.com/Bman2386/Quest_Rabbit/blob/master/app/assets/images/QuestRabbit.jpg" width="80" height="50"/> was made with [canva](https://www.canva.com/)
 Some useful gems were: 
