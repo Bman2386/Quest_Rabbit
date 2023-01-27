@@ -1,4 +1,0 @@
-1. upgrade to rails 7 and ruby 3.1.1
-2. restructure app to function in new environment
-3. test
-4. push and test for render.com
