@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.0'
+ruby '3.1.3'
 gem 'jquery-rails'
 gem 'rubygems-update', '~> 3.4', '>= 3.4.4' #render.com requires this file
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
